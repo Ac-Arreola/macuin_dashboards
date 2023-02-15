@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\controladorFormulario;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//Rutas individuales para controlador    
+Route::get('/p',[controladorFormulario::class,'showPrincipal'])->name('apodoPrincipal'); 
