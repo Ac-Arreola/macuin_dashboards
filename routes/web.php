@@ -18,14 +18,14 @@ use App\Http\Controllers\ControladorDepartamentos;
 */
 
 //Rutas Departamentos 
-[3:48 p. m., 16/2/2023] Tadeo Jairo: //------------------------------Departamentos--------------------------------------
+//------------------------------Departamentos--------------------------------------
 //Create
 
 Route::get('departamento/create', [ControladorDepartamentos::class,'create'])->name('departamento.create');
 //Store
 Route::post('departamento', [ControladorDepartamentos::class,'store'])->name('departamento.store');
 Route::get('departamento', [ControladorDepartamentos::class,'index'])->name('departamento.index');
-[3:48 p. m., 16/2/2023] Tadeo Jairo: //Edit
+//Edit
 Route::get('departamento/{id}/edit', [ControladorDepartamentos::class,'edit'])->name('departamento.edit');
 //Update
 Route::put('departamento/{id}', [ControladorDepartamentos::class,'update'])->name('departamento.update');
