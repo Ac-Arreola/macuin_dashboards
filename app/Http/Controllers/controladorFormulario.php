@@ -10,13 +10,13 @@ class controladorFormulario extends Controller
 {
 
     public function showPrincipalC(){
-        return view('mainC');
+        return view('Cliente.mainC');
     }
     public function showPrincipalA(){
-        return view('mainA');
+        return view('Auxiliar.mainA');
     }
     public function showPrincipalJ(){
-        return view('mainJ');
+        return view('Jefe.mainJ');
     }
 
    
