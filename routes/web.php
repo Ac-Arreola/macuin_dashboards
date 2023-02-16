@@ -18,4 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 //Rutas individuales para controlador    
-Route::get('/p',[controladorFormulario::class,'showPrincipal'])->name('apodoPrincipal'); 
+Route::get('/pC',[controladorFormulario::class,'showPrincipalC'])->name('apodoPrincipal1'); 
+Route::get('/pA',[controladorFormulario::class,'showPrincipalA'])->name('apodoPrincipal2'); 
+Route::get('/pJ',[controladorFormulario::class,'showPrincipalJ'])->name('apodoPrincipal3'); 
