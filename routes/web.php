@@ -19,3 +19,22 @@ Route::get('/', function () {
 });
 //Rutas individuales para controlador    
 Route::get('/p',[controladorFormulario::class,'showPrincipal'])->name('apodoPrincipal'); 
+
+
+
+
+//------------------------------Usuarios--------------------------------------
+//Create
+
+Route::get('usuario/create', [ControladorDepartamentos::class,'create'])->name('usuario.create');
+//Store
+Route::post('usuario', [ControladorDepartamentos::class,'store'])->name('usuario.store');
+Route::get('usuario', [ControladorDepartamentos::class,'index'])->name('usuario.index');
+//Edit
+Route::get('usuario/{id}/edit', [ControladorDepartamentos::class,'edit'])->name('usuario.edit');
+//Update
+Route::put('usuario/{id}', [ControladorDepartamentos::class,'update'])->name('usuario.update');
+//show
+Route::get('usuario/{id}/show', [ControladorDepartamentos::class,'show'])->name('usuario.show');
+//Destroy
+Route::delete('usuario/{id}', [ControladorDepartamentos::class,'destroy'])->name('usuario.destroy');
