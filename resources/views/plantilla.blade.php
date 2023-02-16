@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+{{--IMPORTACIONES--}}
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -13,10 +14,11 @@
 
     <title>Repaso | @yield('titulo')</title>
 </head>
+{{-- INICIA BODY --}}
 <body background="img\fondosolido.png">
-  
-{{--</body>
-<body style="background-color: #ccb7d8fa #cdc0dc">--}}
+{{--
+<body style="background-color: #ccb7d8fa #cdc0dc">
+  --}}
     <div class="wrapper">
     {{-- Nav --}}
     <nav class="navbar navbar-expand-lg " style="background-color: #8c3bb2" >
@@ -25,6 +27,23 @@
           style="background-color: #e9ace4fa" 
           data-bs-toggle="tooltip" data-bs-placement="bottom" title="Home">
           <img src="{{asset('img/home.png')}}" alt="" id="casaicon" width="35" height="40"><a href="apodoPrincipal"></a></button>
+          <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav ">
+              <li class="nav-item ">
+                <a class="nav-link active text-light fw-bold" aria-current="page" 
+                href="#"> Editar perfil   | </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active text-light fw-bold" aria-current="page" 
+                href="#"> Tickets nuevos   | </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active text-light fw-bold" aria-current="page" 
+                href="#"> Tickets asignados   | </a>
+              </li>
+            </ul>
+          </div>
+
           {{--
           <a class="navbar-brand" href="#" style="background-color: #e9ace4fa" ><img src="{{asset('img/home.png')}}" alt="" id="casaicon" width="40" height="40"></a>
           <button class="navbar-toggler btn btn-outline-light" type="button"  data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,13 +81,37 @@
       <div class="text-center mt-4" >
         <img src="{{asset('img\fondorecort.png')}}" width="80%" height="300" role="img" width="100%" height="100%" >
        </div>
-
+</div>
 
     <!-- Contenido -->
     
         @yield('contenido')
-    </div>
 
+        {{--CARRUSEL DE IMÁGENES--}}       
+    <div class="container mt-5 mb-5 padding-top">
+          
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-100" src="img/team.jpg" width="100%" height="100%" alt="First slide">
+              
+            </div>
+            <div class="carousel-item">
+              <img class="d-block w-100" src="..." alt="Second slide">
+            <div class="carousel-item">
+              <img class="d-block w-100" src="..." alt="Third slide">
+            </div>
+          </div>
+          <a class="carousel-control-prev " href="#carouselExampleControls" role="button" data-slide="prev" 
+          id="next">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next text-primary" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+</div>
 
 
     <!-- Pie de Página -->
