@@ -17,5 +17,8 @@ use App\Http\Controllers\controladorFormulario;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/login', function () {
+    return view('login');
+});
 //Rutas individuales para controlador    
 Route::get('/p',[controladorFormulario::class,'showPrincipal'])->name('apodoPrincipal'); 
