@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\controladorFormulario;
+use App\Http\Controllers\ControladorDepartamentos;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 //Rutas individuales para controlador    
+<<<<<<< HEAD
 Route::get('/p',[controladorFormulario::class,'showPrincipal'])->name('apodoPrincipal'); 
 
 
@@ -38,3 +40,8 @@ Route::put('usuario/{id}', [ControladorDepartamentos::class,'update'])->name('us
 Route::get('usuario/{id}/show', [ControladorDepartamentos::class,'show'])->name('usuario.show');
 //Destroy
 Route::delete('usuario/{id}', [ControladorDepartamentos::class,'destroy'])->name('usuario.destroy');
+=======
+Route::get('/pC',[controladorFormulario::class,'showPrincipalC'])->name('apodoPrincipal1'); 
+Route::get('/pA',[controladorFormulario::class,'showPrincipalA'])->name('apodoPrincipal2'); 
+Route::get('/pJ',[controladorFormulario::class,'showPrincipalJ'])->name('apodoPrincipal3'); 
+>>>>>>> testing_Ac
