@@ -24,6 +24,8 @@ class ValidadorDepartamentos extends FormRequest
     public function rules()
     {
         return [
+            'txtNombre'=> 'required', 
+            
             
         ];
     }
