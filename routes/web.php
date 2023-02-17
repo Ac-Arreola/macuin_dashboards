@@ -17,7 +17,7 @@ use App\Http\Controllers\ControladorDepartamentos;
 });
 */
 
-//Rutas Departamentos 
+//RUTAS DEPARTAMENTOS 
 //------------------------------Departamentos--------------------------------------
 //Create
 
@@ -53,9 +53,14 @@ Route::get('usuario/{id}/show', [ControladorUsuarios::class,'show'])->name('usua
 Route::delete('usuario/{id}', [ControladorUsuarios::class,'destroy'])->name('usuario.destroy');
 
 
+//RUTAS VISTAS MAIN
 
-
-//Rutas individuales para controlador  VISTAS MAIN  
+//Rutas individuales para controlador  
 Route::get('/pC',[controladorFormulario::class,'showPrincipalC'])->name('apodoPrincipal1'); 
 Route::get('/pA',[controladorFormulario::class,'showPrincipalA'])->name('apodoPrincipal2'); 
 Route::get('/pJ',[controladorFormulario::class,'showPrincipalJ'])->name('apodoPrincipal3'); 
+
+//RUTA LOGIN
+Route::get('/', function () {
+    return view('login');
+});

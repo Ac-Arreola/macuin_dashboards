@@ -3,3 +3,63 @@ body{
      background-size: cover;
      justify-content: center;
 }
+.container{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     height: 100vh;
+}
+.container_form{
+     background-color: #0e2b4dea;
+     border-radius: 15px;
+     padding: 40px;
+     opacity: 0.9;
+}
+#img{
+     width: 100px;
+     height: 100px;
+     margin-left: 110px;
+}
+h2{
+     text-align: center;
+     color: white;
+}
+input{
+     display: block;
+     width: 300px;
+     height: 40px;
+     margin-bottom: 20px;
+     padding: 0 15px;
+     font-size: 18px;
+     outline: none;
+     border: none;
+     background: transparent;
+     color: white;
+     border-bottom: 2px solid white;
+}
+.boton{
+     width: 150px;
+     border-radius: 15px;
+     background-color: dodgerblue;
+     color: white;
+     margin-top: 30px;
+     border: none;
+     border-bottom: 4px solido rgb(109, 32, 209);
+     margin-left: 96px;
+}
+.boton:active{
+     background-color:  rgb(109, 32, 209) ;
+     width: 145px;
+}
+
+#bod{
+     justify-content: center;
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     background-image: url("../img/fondolog.jpg");
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     font-family: Arial, Helvetica, sans-serif;
+}

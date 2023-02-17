@@ -13,7 +13,7 @@
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="img/team.jpg" class="d-inline-block" alt="...">
+        <img src="img/team3.jpg" class="d-inline-block" alt="...">
       </div>
       <div class="carousel-item">
         <img src="img/team2.jpg" class="d-inline-block" alt="...">
