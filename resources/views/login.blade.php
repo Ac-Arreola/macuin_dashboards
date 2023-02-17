@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css\styles.css') }}">
 </head>
 <body id="bod">
-    <div class="container">
+    <div class="container1">
         <div class="container_form">
             <img src="./img/usuario.png" alt="" id="img">
             <h2>Iniciar Sesion</h2>

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\controladorFormulario;
 use App\Http\Controllers\ControladorDepartamentos;
+use App\Http\Controllers\ControladorEditarCliente;
+use App\Http\Controllers\ControladorEditarAuxiliar;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,3 +66,15 @@ Route::get('/pJ',[controladorFormulario::class,'showPrincipalJ'])->name('apodoPr
 Route::get('/', function () {
     return view('login');
 });
+
+//RUTAS PARA PERFILES
+/*Route::get('Cliente.perfilC/{id}/edit', [ControladorEditarCliente::class,'edit'])->name('apodocliente.edit');
+Route::get('Auxiliar.perfilA/{id}/edit', [ControladorEditarAuxiliar::class,'edit'])->name('apodoauxiliar.edit');*/
+Route::get('/perfilC', function () {
+    return view('Cliente.perfilC');
+});
+Route::get('/perfilA', function () {
+    return view('Auxiliar.perfilA');
+});
+
+

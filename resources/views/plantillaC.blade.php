@@ -35,12 +35,12 @@
             
                 <a type="button" 
           style="margin-left: 10px">
-              <img src="{{asset('img/editusu.png')}}" alt="" id="casaicon" 
+              <img src="{{asset('img/editusu.png')}}" href="perfilC" alt="" id="casaicon"  
               width="35" height="40">
             </a>
               <li class="nav-item ">
                 <a class="nav-link active text-light fw-bold" aria-current="page" 
-                href="#"> Editar perfil   | </a>
+                href="perfilC"> Editar perfil   | </a>
               </li>
              
             </ul>

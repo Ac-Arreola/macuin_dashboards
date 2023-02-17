@@ -34,7 +34,7 @@
             <ul class="navbar-nav ">
               <li class="nav-item ">
                 <a class="nav-link active text-light fw-bold" aria-current="page" 
-                href="#"> Editar perfil   | </a>
+                href="perfilA"> Editar perfil   | </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active text-light fw-bold" aria-current="page" 
