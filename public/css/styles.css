@@ -3,3 +3,20 @@ body{
      background-size: cover;
      justify-content: center;
 }
+
+#opciones{
+     height: 35px; ;
+     width: 35px;
+ }
+
+ #hey{
+     background-color:#a757dad6;
+ }
+
+#modal{
+     background-color:#d19ff0de;
+ }
+
+#inp{
+     background-color:#e9d7f5de;
+}

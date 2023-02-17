@@ -34,15 +34,15 @@
             <ul class="navbar-nav ">
               <li class="nav-item ">
                 <a class="nav-link active text-light fw-bold" aria-current="page" 
-                href="#"> Admin usuarios   | </a>
+                href=> Admin usuarios   | </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active text-light fw-bold" aria-current="page" 
-                href="#"> Admin departamentos   | </a>
+                href={{route('departamento.index')}}> Admin departamentos   | </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active text-light fw-bold" aria-current="page" 
-                href="#"> Asignar tickets   | </a>
+                href=> Asignar tickets   | </a>
               </li>
             </ul>
           </div>

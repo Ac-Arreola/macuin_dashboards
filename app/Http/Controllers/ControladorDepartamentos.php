@@ -13,7 +13,7 @@ class ControladorDepartamentos extends Controller
      */
     public function index()
     {
-        //
+        return view('Jefe.mostrarDepartamentos');
     }
 
    
