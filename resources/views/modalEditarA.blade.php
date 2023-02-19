@@ -1,7 +1,7 @@
-<div class="modal fade" id="modalEditar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditar" aria-hidden="true">
+<div class="modal fade" id="modalEditarA" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditarA" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-  
+  <div class="container">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Datos</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -25,6 +25,7 @@
         
         </div>
       </form>
+      </div>
       </div>
     </div>
     

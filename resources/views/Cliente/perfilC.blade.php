@@ -8,13 +8,16 @@
 
 {{--importamos el modal agregar --}}
 @include('modalAgregarT')
+{{--importamos el modal editar --}}
+@include('modalEditarC')
+
 
 
 <h2 class="display-1 mt-4 mb-4 fst-italic text-center">Datos de Usuario</h2>
 <div class="container col-md-6">
     <div class="row">
         <div class="col-sm-6">
-        <div class="card">
+        <div class="card formP">
             <img src="./img/perfil.png" class="card-img-top" alt="...">
             
         </div>
@@ -22,6 +25,9 @@
         </div>
         <div class="col-sm-6">
         <div class="card">
+          <div class="container formP">
+            
+          
             <form action="">
                 <label class="form-label"> Nombre: </label>
                 <input type="text" class="form-control" placeholder="" >
@@ -32,10 +38,21 @@
                 <label class="form-label"> Password: </label>
                 <input type="password" class="form-control" placeholder="" >
             </form>
+          </div>
         </div>
         </div>
     </div>
     <br>
+    <div class="container col-md-5 text-center">
+      <button data-bs-toggle="modal" 
+                    data-bs-target="#modalEditarC" data-bs-toggle="tooltip" 
+                    data-bs-placement="bottom" 
+                    title="Presiona para editar los datos de tu perfil"
+                    class="btn btn-outline-light btnfon">ACTUALIZAR DATOS
+                    <img src="{{asset('img/edPerfil.png')}}" alt="" id="edPerf" 
+                        width="60" height="60"></button>
+    </div>
+<br>    
     <br>
     <div class="accordion mb-5" id="accordionExample">
         <div class="accordion-item">
