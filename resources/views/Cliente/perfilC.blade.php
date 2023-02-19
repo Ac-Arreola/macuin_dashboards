@@ -3,6 +3,12 @@
     Perfil _C
 @stop
 @section('contenido')
+{{--importamos el modal consultar tickets --}}
+@include('modalConsultarT')
+
+{{--importamos el modal agregar --}}
+@include('modalAgregarT')
+
 
 <h2 class="display-1 mt-4 mb-4 fst-italic text-center">Datos de Usuario</h2>
 <div class="container col-md-6">
@@ -31,7 +37,7 @@
     </div>
     <br>
     <br>
-    <div class="accordion " id="accordionExample">
+    <div class="accordion mb-5" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -40,11 +46,17 @@
           </h2>
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div class="accordion-body">
-              <img src="./img/pestana.png" class="icon" alt="...">
-                <label class="form-label"> Solicitar Ticket </label>
+              <a class="dropdown-item" type="button" data-bs-toggle="modal" 
+              data-bs-target="#modalAgregarT" data-bs-toggle="tooltip" data-bs-placement="bottom" 
+              title="Presiona para solicitar un ticket">
+                 <img src="{{asset('img/pestana.png')}}" alt="" id="soliTic" class="icon">  Solicitar ticket  </a>
               <br>
-              <img src="./img/lupas.png" class="icon" alt="...">
-              <label class="form-label "> Consulta de  Tickets </label>
+              <a class="dropdown-item" type="button" data-bs-toggle="modal" 
+                data-bs-target="#modalConsultarT" data-bs-toggle="tooltip" data-bs-placement="bottom" 
+                title="Presiona para consultar los tickets registrados">
+                <img src="{{asset('img/lupas.png')}}" alt="" id="soliTic" 
+                   class="icon">  Consultar tickets</a>
+
             </div>
           </div>
         </div>

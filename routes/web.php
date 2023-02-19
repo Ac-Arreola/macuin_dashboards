@@ -77,4 +77,9 @@ Route::get('/perfilA', function () {
     return view('Auxiliar.perfilA');
 });
 
-
+Route::get('/modalTnv', function () {
+    return view('modalConsultarTnv');
+});
+Route::get('/modalTpf', function () {
+    return view('modalConsultarTpf');
+});

@@ -12,7 +12,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Repaso | @yield('titulo')</title>
+    <title>Macuin Dashboards | @yield('titulo')</title>
+    <link rel="icon" href="./img/mc.png">
 </head>
 {{-- INICIA BODY --}}
 <body background="img\fondosolido.png">
@@ -37,12 +38,14 @@
                 href="perfilA"> Editar perfil   | </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active text-light fw-bold" aria-current="page" 
-                href="#"> Tickets nuevos   | </a>
+                <a class="nav-link active text-light fw-bold" type="button"  aria-current="page" 
+                data-bs-toggle="modal" 
+              data-bs-target="#modalConsultarTnv"> Tickets nuevos   | </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active text-light fw-bold" aria-current="page" 
-                href="#"> Tickets asignados   | </a>
+                <a class="nav-link active text-light fw-bold" type="button" aria-current="page" 
+                data-bs-toggle="modal" 
+              data-bs-target="#modalConsultarTpf"> Tickets asignados   | </a>
               </li>
             </ul>
           </div>
