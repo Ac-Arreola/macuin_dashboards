@@ -24,12 +24,13 @@
     {{-- Nav --}}
     <nav class="navbar navbar-expand-lg " style="background-color: #8c3bb2" >
         <div class="container-fluid">
+          <a href="/pJ">
           <button type="button" class="btn btn-outline-light" 
           style="background-color: #e9ace4fa" 
           data-bs-toggle="tooltip" data-bs-placement="bottom" 
           title="Home">
           <img src="{{asset('img/home.png')}}" alt="" id="casaicon" 
-          width="35" height="40"><a href="apodoPrincipal"></a></button>
+          width="35" height="40"></button></a>
 
           <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav ">
@@ -47,12 +48,13 @@
               </li>
             </ul>
           </div>
+          <a href="/">
           <button type="button" class="btn btn-outline-light" 
           style="background-color: #e9ace4fa" 
           data-bs-toggle="tooltip" data-bs-placement="bottom" 
           title="Cerrar sesión">
           <img src="{{asset('img/close.png')}}" alt="" id="casaicon" 
-          width="35" height="40"><a href="apodoPrincipal"></a></button>
+          width="35" height="40"></button></a>
         </div>
       </nav>
 </div>
