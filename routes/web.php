@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\controladorFormulario;
 use App\Http\Controllers\ControladorDepartamentos;
+use App\Http\Controllers\ControladorUsuarios;
 
 /*
 |--------------------------------------------------------------------------

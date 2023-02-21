@@ -28,6 +28,13 @@
  'success'  ) </script> "!!}
 @endif
 
+@if(session()->has('Eliminado'))
+
+{!! " <script> Swal.fire(
+ 'Correcto!',
+ 'Departamento Eliminado',
+ 'success'  ) </script> "!!}
+@endif
 
 <div class="container mt-5 col-md-10 " >
     <h1 class=" mt-4 text-center text-white fw-bold">Departamentos</h1>

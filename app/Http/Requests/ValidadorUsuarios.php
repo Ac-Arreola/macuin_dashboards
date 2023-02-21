@@ -24,7 +24,15 @@ class ValidadorUsuarios extends FormRequest
     public function rules()
     {
         return [
-            //
+            'txtNombre'=> 'required', 
+            'txtApe_pat'=>'required',
+            'txtApe_mat'=> 'required', 
+            'txtUsername'=> 'required',
+            'txtEmail'=> 'required',
+            'txtPassword'=> 'required',
+            'txtConPassword'=>'required|same:txtPassword',
+            'txtDepartamento'=> 'required',
+            'txtRol'=> 'required', 
         ];
     }
 }

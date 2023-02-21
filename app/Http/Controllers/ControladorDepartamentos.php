@@ -46,18 +46,18 @@ class ControladorDepartamentos extends Controller
     public function show($id)
     {
         $consultaId= DB::table('tb_departamentos')->where('id_dep',$id)->first();
-        return view('EliminarUsu', compact('consultaId'));
+        return view('eliminarDepartamento', compact('consultaId'));
     }
 
     
     public function edit($id)
     {
         $consultaId= DB::table('tb_departamentos')->where('id_dep',$id)->first();
-        return view('modalActualizar', compact('consultaId'));
+        return view('editarDepartamento', compact('consultaId'));
     }
 
     
-    public function update(Request $request, $id)
+    public function update(ValidadorDepartamentos $request, $id)
     {
         DB::table('tb_departamentos')->where('id_dep', $id)->update([
             "Nombre"=> $request->input('txtNombre'),
