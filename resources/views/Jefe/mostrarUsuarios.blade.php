@@ -49,6 +49,14 @@
 })</script> "!!}
 @endif
 
+@if(session()->has('errorr'))
+{!! "<script>Swal.fire({
+  icon: 'error',
+  title: 'Error',
+  text: 'No tienes credenciales para este departamento!',
+})</script> "!!}
+@endif
+
 
 <div class="container mt-5 col-md-10 " >
   
@@ -124,10 +132,11 @@
   
     </table>
     
-@include('Jefe.agregarUsuario')
+
    
+    @include('Jefe.agregarUsuario')
   </div>
   
  
-  @stop
+  @endsection
  

@@ -119,6 +119,10 @@ class ControladorUsuarios extends Controller
     public function update(ValidadorUsuarios $request, $id)
 
     {
+        $rol = $request->txtRol;
+        $departamento = $request->txtDepartamento;
+        if($departamento ==1){
+           if($rol==1){
         DB::table('tb_usuarios')->where('id_usu', $id)->update([
             "Nombre"=> $request->input('txtNombre'),
             "Ape_pat"=> $request->input('txtApe_pat'),
@@ -134,6 +138,46 @@ class ControladorUsuarios extends Controller
         $nom = $request->input('txtNombre');
         
         return redirect('usuario')->with('Actualizado','abc', $nom);
+    }if($rol==2){
+        DB::table('tb_usuarios')->where('id_usu', $id)->update([
+            "Nombre"=> $request->input('txtNombre'),
+            "Ape_pat"=> $request->input('txtApe_pat'),
+            "Ape_mat"=> $request->input('txtApe_mat'),
+            "Username"=> $request->input('txtUsername'),
+            "Email"=> $request->input('txtEmail'),
+            "Password"=> $request->input('txtPassword'),
+            "id_dep"=> $request->input('txtDepartamento'),
+            "id_rol"=> $request->input('txtRol'),
+
+            "updated_at"=> Carbon::now()
+        ]);
+        $nom = $request->input('txtNombre');
+        
+        return redirect('usuario')->with('Actualizado','abc', $nom);
+        
+    }if($rol =="3"){
+        DB::table('tb_usuarios')->where('id_usu', $id)->update([
+            "Nombre"=> $request->input('txtNombre'),
+            "Ape_pat"=> $request->input('txtApe_pat'),
+            "Ape_mat"=> $request->input('txtApe_mat'),
+            "Username"=> $request->input('txtUsername'),
+            "Email"=> $request->input('txtEmail'),
+            "Password"=> $request->input('txtPassword'),
+            "id_dep"=> $request->input('txtDepartamento'),
+            "id_rol"=> $request->input('txtRol'),
+
+            "updated_at"=> Carbon::now()
+        ]);
+        $nom = $request->input('txtNombre');
+        
+        return redirect('usuario')->with('Actualizado','abc', $nom);
+
+        }
+    }else{
+            
+        return redirect('usuario')->with('errorr','abc');
+    }
+
     }
 
     public function destroy($id)
