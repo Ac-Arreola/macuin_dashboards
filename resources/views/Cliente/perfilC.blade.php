@@ -9,7 +9,7 @@
 {{--importamos el modal agregar --}}
 @include('modalAgregarT')
 {{--importamos el modal editar --}}
-@include('modalEditarC')
+@include('modalEditarPerfilC')
 
 
 
@@ -45,7 +45,7 @@
     <br>
     <div class="container col-md-5 text-center">
       <button data-bs-toggle="modal" 
-                    data-bs-target="#modalEditarC" data-bs-toggle="tooltip" 
+                    data-bs-target="#modalEditarPerfilC" data-bs-toggle="tooltip" 
                     data-bs-placement="bottom" 
                     title="Presiona para editar los datos de tu perfil"
                     class="btn btn-outline-light btnfon">ACTUALIZAR DATOS

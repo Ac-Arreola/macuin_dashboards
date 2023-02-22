@@ -40,7 +40,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link active text-light fw-bold" aria-current="page" 
-                href="#"> Admin departamentos   | </a>
+                href={{route('departamento.index')}}> Admin departamentos   | </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active text-light fw-bold" aria-current="page" 

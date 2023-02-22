@@ -9,7 +9,7 @@
 {{--importamos el modal agregar --}}
 @include('modalConsultarTpf')
 {{--importamos el modal editar --}}
-@include('modalEditarA')
+@include('modalEditarPerfilA')
 
 <h2 class="display-1 mt-4 mb-4 fst-italic text-center">Datos de Usuario</h2>
 <div class="container col-md-6">
@@ -41,7 +41,7 @@
     <br>
     <div class="container col-md-5 text-center">
       <button data-bs-toggle="modal" 
-                    data-bs-target="#modalEditarA" data-bs-toggle="tooltip" 
+                    data-bs-target="#modalEditarPerfilA" data-bs-toggle="tooltip" 
                     data-bs-placement="bottom" 
                     title="Presiona para editar los datos de tu perfil"
                     class="btn btn-outline-light btnfon">ACTUALIZAR DATOS
