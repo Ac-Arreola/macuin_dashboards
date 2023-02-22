@@ -4,12 +4,12 @@
 @stop
 @section('contenido')
 {{--importamos el modal consultar tickets --}}
-@include('modalConsultarT')
+@include('Cliente.modalConsultarT')
 
 {{--importamos el modal agregar --}}
-@include('modalAgregarT')
+@include('Cliente.modalAgregarT')
 {{--importamos el modal editar --}}
-@include('modalEditarPerfilC')
+@include('Cliente.modalEditarPerfilC')
 
 
 

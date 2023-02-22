@@ -4,12 +4,12 @@
 @stop
 @section('contenido')
 {{--importamos el modal consultar tickets --}}
-@include('modalConsultarTnv')
+@include('Auxiliar.modalConsultarTnv')
 
 {{--importamos el modal agregar --}}
-@include('modalConsultarTpf')
+@include('Auxiliar.modalConsultarTpf')
 {{--importamos el modal editar --}}
-@include('modalEditarPerfilA')
+@include('Auxiliar.modalEditarPerfilA')
 
 <h2 class="display-1 mt-4 mb-4 fst-italic text-center">Datos de Usuario</h2>
 <div class="container col-md-6">

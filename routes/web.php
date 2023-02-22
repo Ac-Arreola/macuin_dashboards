@@ -5,6 +5,7 @@ use App\Http\Controllers\controladorFormulario;
 use App\Http\Controllers\ControladorDepartamentos;
 use App\Http\Controllers\ControladorEditarCliente;
 use App\Http\Controllers\ControladorEditarAuxiliar;
+use App\Http\Controllers\ControladorUsuarios;
 
 /*
 |--------------------------------------------------------------------------
