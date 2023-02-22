@@ -10,7 +10,7 @@
 
         <div class="modal-body">
 
-          <form class="m-4" method="post" action="{{route('usuario.update',$consulta->id_dep)}}">
+          <form class="m-4" method="post" action="{{route('usuario.update',$consulta->id_usu)}}">
                 
             @csrf
 
@@ -19,7 +19,7 @@
             <div class="mb-3">
                 <label class="form-label"> Nombre: </label>
                 <input type="text" class="form-control" name="txtNombre" id="inp" value="{{$consulta->Nombre}}" >
-                <p class="text-info fst-Italic">{{$errors->first('txtNombre')}}</p>
+                <p class="text-primary fst-Italic">{{$errors->first('txtNombre')}}</p>
                 
             </div>
                 
@@ -28,37 +28,37 @@
             <div class="mb-3">
               <label class="form-label"> Apellido paterno: </label>
               <input type="text" class="form-control" name="txtApe_pat" id="inp" value="{{$consulta->Ape_pat}}" >
-              <p class="text-info fst-Italic">{{$errors->first('txtApe_pat')}}</p>
+              <p class="text-primary fst-Italic">{{$errors->first('txtApe_pat')}}</p>
           </div>
 
           <div class="mb-3">
             <label class="form-label"> Apellido materno: </label>
             <input type="text" class="form-control" name="txtApe_mat" id="inp" value="{{$consulta->Ape_mat}}" >
-            <p class="text-info fst-Italic">{{$errors->first('txtApe_mat')}}</p>
+            <p class="text-primary fst-Italic">{{$errors->first('txtApe_mat')}}</p>
         </div>
 
         <div class="mb-3">
           <label class="form-label"> Username: </label>
           <input type="text" class="form-control" name="txtUsername" id="inp" value="{{$consulta->Username}}" >
-          <p class="text-info fst-Italic">{{$errors->first('txtUsername')}}</p>
+          <p class="text-primary fst-Italic">{{$errors->first('txtUsername')}}</p>
       </div>
 
         <div class="mb-3">
           <label class="form-label"> Email: </label>
           <input type="email" class="form-control" name="txtEmail" id="inp" value="{{$consulta->Email}}" >
-          <p class="text-info fst-Italic">{{$errors->first('txtEmail')}}</p>
+          <p class="text-primary fst-Italic">{{$errors->first('txtEmail')}}</p>
       </div>
 
       <div class="mb-3">
         <label class="form-label"> Contraseña: </label>
         <input type="password" class="form-control" name="txtPassword" id="inp" value="{{$consulta->Password}}" >
-        <p class="text-info fst-Italic">{{$errors->first('txtApe_mat')}}</p>
+        <p class="text-primary fst-Italic">{{$errors->first('txtApe_mat')}}</p>
     </div>
 
     <div class="mb-3">
       <label class="form-label"> Confirme Contraseña: </label>
       <input type="password" class="form-control" name="txtConPassword" id="inp" value="{{$consulta->Password}}" >
-      <p class="text-info fst-Italic">{{$errors->first('txtConPassword')}}</p>
+      <p class="text-primary fst-Italic">{{$errors->first('txtConPassword')}}</p>
   </div>
         <div class="mb-3">
           <label class="form-label"> Departamento: </label>
@@ -72,6 +72,7 @@
                         
                         @endforeach
                        </select>
+                       <p class="text-primary fst-Italic">{{$errors->first('txtDepartamento')}}</p>
         </div>
 
 
@@ -87,6 +88,7 @@
                   
                   @endforeach
                 </select>
+                <p class="text-primary fst-Italic">{{$errors->first('txtRol')}}</p>
   </div>
         
 

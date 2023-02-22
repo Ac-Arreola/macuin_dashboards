@@ -17,7 +17,7 @@
             <div class="mb-3">
                 <label class="form-label"> Departamento: </label>
                 <input type="text" class="form-control" name="txtNombre" id="inp" value="{{old('txtNombre')}}" >
-                <p class="text-info fst-Italic">{{$errors->first('txtNombre')}}</p>
+                <p class="text-primary fst-Italic">{{$errors->first('txtNombre')}}</p>
                 
             </div>
                 
@@ -26,7 +26,7 @@
                 <div class="mb-3">
                     <label class="form-label"> Descripción: </label>
                     <textarea type="text" class="form-control" name="txtDescripcion" id="inp" value="{{old('txtDescripcion')}}"></textarea>
-                    <p class="text-info fst-Italic">{{$errors->first('txtDescripcion')}}</p>
+                    <p class="text-primary fst-Italic">{{$errors->first('txtDescripcion')}}</p>
                 </div>
                
         </div>  
