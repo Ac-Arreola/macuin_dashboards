@@ -10,7 +10,7 @@
 
         <div class="modal-body">
 
-          <form class="m-4" method="post" action="{{route('usuario.update',$consulta->id_dep)}}">
+          <form class="m-4" method="post" action="{{route('usuario.update',$consulta->id_usu)}}">
                 
             @csrf
 
