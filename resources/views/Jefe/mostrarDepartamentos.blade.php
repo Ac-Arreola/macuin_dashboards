@@ -3,6 +3,7 @@
 
     Home _J
 @stop
+
 @section('contenido')
 @if(session()->has('confirmacion'))
 <?php
@@ -40,7 +41,8 @@
          Agregar Departamento <i class="bi bi-plus-circle"></i>
        </button>
      </div>
-  
+
+    {{--BARRA DE BUSQUEDA--}}
      <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
         <div>
           <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
@@ -57,6 +59,7 @@
           </div>
         </div>
       </form>
+      {{--BARRA DE BUSQUEDA FIN--}}
   <table class=" table text-center text-white" id="hey">
       <thead>
         <tr>
@@ -78,12 +81,16 @@
           <td>{{$consulta->Descripcion}}</td>
           
           
-          <td><button type="button" data-bs-toggle="modal" id ="b"data-bs-target="#editarDepartamento-{{$consulta->id_dep}}">
-            <img src={!! asset('img\editar.png') !!} id="opciones"alt="" ></td>
-          </button>
-          <td><button type="button" data-bs-toggle="modal" id ="b"data-bs-target="#eliminarDepartamento-{{$consulta->id_dep}}">
-            <img src={!! asset('img\borrar.png') !!} id="opciones" alt="">
-        </button>
+          <td>
+            <button type="button" data-bs-toggle="modal" id ="b"data-bs-target="#editarDepartamento-{{$consulta->id_dep}}">
+              <img src={!! asset('img\editar.png') !!} id="opciones"alt="" >
+            </button>
+          </td>
+            
+          <td>
+            <button type="button" data-bs-toggle="modal" id ="b"data-bs-target="#eliminarDepartamento-{{$consulta->id_dep}}">
+              <img src={!! asset('img\borrar.png') !!} id="opciones" alt="">
+            </button>
           </td>
   
           
