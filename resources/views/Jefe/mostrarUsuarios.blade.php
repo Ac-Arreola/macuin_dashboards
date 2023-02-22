@@ -73,7 +73,7 @@
 
           {{--BARRA DE BUSQUEDA--}}
           <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
-            <div>
+            
               <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
                 <div class="row g-3">
                     <div class="col-auto">
@@ -87,7 +87,6 @@
                     </div>
                 </div>
               </div>
-            </div>
           </form>
 
           {{--BARRA DE BUSQUEDA FIN--}}
@@ -150,10 +149,13 @@
 
           
             @include('Jefe.agregarUsuario')
-  </div>
+    </div>  
+  </div>        
+  @stop 
+
   
  
-  @stop
+ 
   
 
  
