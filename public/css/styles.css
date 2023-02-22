@@ -77,3 +77,28 @@ input{
 .formP{
      padding: 1em;
 }
+#opciones{
+     height: 35px; ;
+     width: 35px;
+ }
+
+ #hey{
+     background-color:#a757dad6;
+ }
+
+#modal{
+     background-color:#d19ff0de;
+ }
+
+#inp{
+     background-color:#e9d7f5de;
+}
+#b{
+     background-color: transparent;
+}
+.Der{
+     position: absolute;
+   right: 0px;
+   height: 200px;
+   border: 1px solid #000;
+}

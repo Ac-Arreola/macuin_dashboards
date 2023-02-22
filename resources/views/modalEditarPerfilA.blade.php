@@ -1,6 +1,6 @@
-<div class="modal fade" id="modalEditarC" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditarC" aria-hidden="true">
+<div class="modal fade" id="modalEditarPerfilA" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalEditarPerfilA" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content" id="modal">
   <div class="container">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Datos</h1>
@@ -9,17 +9,17 @@
        
         <form action="">
             <label class="form-label"> Nombre: </label>
-            <input type="text" class="form-control" placeholder="" >
+            <input type="text" class="form-control" placeholder=""  id="inp">
             <label class="form-label"> Username: </label>
-            <input type="text" class="form-control" placeholder="" >
+            <input type="text" class="form-control" placeholder=""  id="inp">
             <label class="form-label"> Email: </label>
-            <input type="email" class="form-control" placeholder="" >
+            <input type="email" class="form-control" placeholder="" id="inp">
             <label class="form-label"> Password: </label>
-            <input type="password" class="form-control" placeholder="" >
+            <input type="password" class="form-control" placeholder="" id="inp">
         </form>
   
         <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Actualizar Datos</button>
+          <button type="submit" class="btn btn-outline-light btnfon">Actualizar Datos</button>
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
           
         
