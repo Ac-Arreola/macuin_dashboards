@@ -103,7 +103,7 @@
           <td>{{$consulta->Nombre}}</td>
           <td>{{$consulta->Ape_pat}}</td>
           <td>{{$consulta->Ape_mat}}</td>
-          <td>{{$consulta->id_rol}}</td>
+          <td>{{$consulta->producto->Nombre}}</td>
           <td>{{$consulta->Username}}</td>
           <td>{{$consulta->Email}}</td>
           <td>{{$consulta->Password}}</td>

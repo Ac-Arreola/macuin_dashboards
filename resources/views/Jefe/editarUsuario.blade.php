@@ -64,7 +64,7 @@
           <label class="form-label"> Departamento: </label>
                     <select name="txtDepartamento" id="" class="form-control" style="background: #e9d7f5de" value="{{$consulta->id_dep}}" >
                       
-                        
+                      
                         <option selected disabled="disabled" value="" style="background: #e9d7f5de">Selecciona Departamento:</option>
                         
                         @foreach($ConsultaDep as $departamento)

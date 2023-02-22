@@ -12,15 +12,7 @@ use Carbon\Carbon;
 class ControladorUsuarios extends Controller
 {
    
-    public function index()
-    {
-        $ConsultaDep = DB::table('tb_departamentos')->get();
-        $ConsultaRol = DB::table('tb_roles')->get();
-        $ConsultaUsu= DB::table('tb_usuarios')->get();
-        
-        return view('Jefe.mostrarUsuarios',compact('ConsultaUsu','ConsultaDep','ConsultaRol'));
-    }
-
+   
     
     public function create()
     {
@@ -185,4 +177,21 @@ class ControladorUsuarios extends Controller
         DB::table('tb_usuarios')->where('id_usu', $id)->delete();
         return redirect('usuario')->with('Eliminado','abc');
     }
+
+    public function index()
+
+    {
+        $ConsultaDepartamento = DB::table('tb_departamentos')->get();
+        $ConsultaDep = DB::table('tb_departamentos')->get();
+        $ConsultaRol = DB::table('tb_roles')->get();
+        $ConsultaUsu= DB::table('tb_usuarios')->get();
+        foreach ($ConsultaUsu as $usu) {
+            
+            $usu->producto=  DB::table('tb_roles')->where('id_rol', $usu->id_rol)->first();
+        }
+        
+        
+        return view('Jefe.mostrarUsuarios',compact('ConsultaUsu','ConsultaDep','ConsultaRol','ConsultaDepartamento'));
+    }
+
 }
