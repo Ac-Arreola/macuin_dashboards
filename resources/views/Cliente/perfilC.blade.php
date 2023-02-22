@@ -28,15 +28,15 @@
           <div class="container formP">
             
           
-            <form action="">
+            <form action="{{route('cliente.mostrar', $consultaId->id_usu)}}">>
                 <label class="form-label"> Nombre: </label>
-                <input type="text" class="form-control" placeholder="" >
+                <input type="text" class="form-control" placeholder="" value="{{$consultaId->Nombre}}" >
                 <label class="form-label"> Username: </label>
-                <input type="text" class="form-control" placeholder="" >
+                <input type="text" class="form-control" placeholder="" value="{{$consultaId->Username}}" >
                 <label class="form-label"> Email: </label>
-                <input type="email" class="form-control" placeholder="" >
+                <input type="email" class="form-control" placeholder="" value="{{$consultaId->Email}}" >
                 <label class="form-label"> Password: </label>
-                <input type="password" class="form-control" placeholder="" >
+                <input type="password" class="form-control" placeholder="" value="{{$consultaId->Password}}">
             </form>
           </div>
         </div>

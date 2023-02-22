@@ -83,3 +83,6 @@ Route::get('/modalTnv', function () {
 Route::get('/modalTpf', function () {
     return view('modalConsultarTpf');
 });
+
+// Ruta para mostrar perfil de cliente
+Route::get('cliente/{id}/muestra', [ControladorEditarCliente::class,'muestra'])->name('cliente.muestra');

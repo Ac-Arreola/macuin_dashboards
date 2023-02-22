@@ -42,7 +42,7 @@
             </a>
               <li class="nav-item ">
                 <a class="nav-link active text-light fw-bold" aria-current="page" 
-                href="perfilC"> Editar perfil   | </a>
+                href={{route('cliente.muestra')}}> Editar perfil   | </a>
               </li>
              
             </ul>
