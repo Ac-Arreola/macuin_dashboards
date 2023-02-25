@@ -29,7 +29,7 @@
           style="background-color: #e9ace4fa" 
           data-bs-toggle="tooltip" data-bs-placement="bottom" 
           title="Home">
-          <img src="{{asset('img/home.png')}}" alt="" id="casaicon" 
+          <img src={!! asset('img/home.png')!!} alt="" id="casaicon" 
           width="35" height="40"></button></a>
 
           <div class="collapse navbar-collapse " id="navbarNav">
@@ -42,12 +42,12 @@
             </a>
               <li class="nav-item ">
                 <a class="nav-link active text-light fw-bold" aria-current="page" 
-                href={{route('cliente.muestra')}}> Editar perfil   | </a>
+                href={{route('cliente.muestra')}}> Opciones de cuenta   | </a>
               </li>
              
             </ul>
           </div>
-          <a href="/">
+          <a href="{{route('cerrar')}}">
           <button type="button" class="btn btn-outline-light" 
           style="background-color: #e9ace4fa" 
           data-bs-toggle="tooltip" data-bs-placement="bottom" 

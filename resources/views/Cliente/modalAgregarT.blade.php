@@ -25,64 +25,78 @@
             <div class="card-body">
               <img src="{{asset('img/addT.png')}}" alt="" class=" mb-3" 
               id="soliTic" width="50" height="50">
-              <form>
-                {{--Autor--}}
-                <div class="row mb-3">
-                  <label for="inputAutor" class="col-sm-2 col-form-label"> Autor : </label>
-                  <div class="col-sm-10">
-                    <input type="txt_Autor" class="form-control" id="txtAutor" placeholder="Usuario1">
-                    </div>
-                </div>
-                {{--Departamento--}}
-                <div class="row mb-3">
-                  <label for="inputDepa" class="col-sm-2 col-form-label">Dpto. : </label>
-                  <div class="col-sm-10">
-                    <select class="form-select" aria-label="Selecciona un depa...">
-                      <option selected>Compras</option>
-                      <option value="2">Contabilidad</option>
-                      <option value="3">Logística</option>
-                      <option value="4">Producción</option>
-                      <option value="5">Ventas</option>
-                    </select>
-                  </div>
-                </div>
+              
+              
+              <form method="post" action="{{route('cliente.store')}}">
 
-              {{--Fecha--}}
-                <div class="row mb-3">
-                  <label for="inputFecha" class="col-sm-2 col-form-label"> Fecha : </label>
-                  <div class="col-sm-10">
-                      
-                      <input
-                        id="fechaAdd" type="date" name="txtfechaAdd" class="form-control"/>
-                  </div>
-                </div>
-              {{--Clasificación--}}
-              <div class="row mb-3">
-                <label for="inputClasif" class="col-sm-2 col-form-label"> Clasif.: </label>
-                  <div class="col-sm-10">
-                    <select class="form-select" aria-label="Selecciona un clasif...">
-                      <option selected>Falla de office</option>
-                      <option value="2">Fallas en la red</option>
-                      <option value="3">Errores de software</option>
-                      <option value="4">Errores de hardware</option>
-                      <option value="5">Mantenimientos preventivos</option>
-                    </select>                    
+                              @csrf
+                              <input type="txt_Autor" class="form-control" id="txtAutor" name ="txtNombre" placeholder="" value="{{Auth::user()->id}}" readonly onmousedown="return false">
+                              <div class="row mb-3">
+                                <label for="inputAutor" class="col-sm-2 col-form-label"> Autor : </label>
+                                <div class="col-sm-10">
+                                  <input type="txt_Autor" class="form-control" id="" name ="txtAutor" placeholder="" value="{{Auth::user()->name}}" readonly onmousedown="return false">
+                                  </div>
+                              </div>
+                              {{--Departamento--}}
+                              <div class="row mb-3">
+                                <label for="inputDepa" class="col-sm-2 col-form-label">Dpto. : </label>
+                                <div class="col-sm-10">
+                                  <select name="txtDepartamento" id="" class="form-control" style="background: #e9d7f5de" value="">
+                                    
+                                      
+                                    <option selected disabled="disabled" value="" style="background: #e9d7f5de">Selecciona Dpto:</option>
+                                    
+                                    @foreach($ConsultaDep as $departamento)
+                                        <option value="{{$departamento->id_dep}}">{{$departamento->Nombre}}</option>
+                                    
+                                    @endforeach
+                                  </select>
+                                  
+                                </div>
+                                <p class="text-primary fst-italic">{{$errors->first('txtDepartamento')}}</p>
+                              </div>
 
-                  </div>
-              </div>
-                {{--Detalles--}}
-                <div class="row">
-                  <label for="inputDetalles" class="col-sm-2 col-form-label"> Detalle </label>
-                  <div class="col-sm-10">
-                    <input type="txt_Detalles" class="form-control" id="txtDetalles" 
-                    placeholder="Deja alguna observación." rows="3">
-                   </div>
-                </div>
-                
+                            {{--Fecha--}}
+                              <div class="row mb-3">
+                                <label for="inputFecha" class="col-sm-2 col-form-label"> Fecha : </label>
+                                <div class="col-sm-10">
+                                    
+                                    <input
+                                      id="fechaAdd" type="date" name="txtFecha" class="form-control"/>
+                                </div>
+                                <p class="text-primary fst-italic">{{$errors->first('txtFecha')}}</p>
+                              </div>
+                            {{--Clasificación--}}
+
+                            <div class="row mb-3">
+                              <label for="inputClasif" class="col-sm-2 col-form-label"> Clasif.: </label>
+                                <div class="col-sm-10">
+                                  <select name="txtClasificacion" id="" class="form-control" style="background: #e9d7f5de" value="">
+
+                                    <option selected disabled="disabled" value="" style="background: #e9d7f5de">Selecciona clasificación:</option>
+                                      
+                                      @foreach($ConsultaCla as $clasificacion)
+                                          <option value="{{$clasificacion->id_cla}}">{{$clasificacion->Nombre}}</option>
+                                      
+                                      @endforeach
+                                  </select>
+                                </div>
+                                <p class="text-primary fst-italic">{{$errors->first('txtClasificacion')}}</p>
+                            </div>
+                              {{--Detalles--}}
+                              <div class="row">
+                                <label for="inputDetalles" class="col-sm-2 col-form-label"> Detalle </label>
+                                <div class="col-sm-10">
+                                  <textarea type="txt_Detalles" class="form-control" name ="txtDetalle"id="txtDetalles" 
+                                  placeholder="Deja alguna observación." rows="3"></textarea>
+                                </div>
+                              </div>
+                              <input type="txt_Autor" class="form-control" id="txtAutor" name ="txtStatus" placeholder="" value="1" readonly onmousedown="return false">
+                              
 
 
-
-                <button type="submit" class="btn btn-outline-light" style="background-color: blueviolet">Solicitar</button>
+                              
+                              <button type="submint" class="btn btn-outline-light" style="background-color: blueviolet">Solicitar</button>
               </form>
                
                 

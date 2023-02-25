@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="editarUsuario-{{$consulta->id_usu}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editarUsuario" aria-hidden="true">
+<div class="modal fade" id="editarUsuario-{{$consulta->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editarUsuario" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content" id="modal">
 
@@ -10,7 +10,7 @@
 
         <div class="modal-body">
 
-          <form class="m-4" method="post" action="{{route('usuario.update',$consulta->id_dep)}}">
+          <form class="m-4" method="post" action="{{route('usuario.update',$consulta->id)}}">
                 
             @csrf
 
@@ -18,7 +18,7 @@
 
             <div class="mb-3">
                 <label class="form-label"> Nombre: </label>
-                <input type="text" class="form-control" name="txtNombre" id="inp" value="{{$consulta->Nombre}}" >
+                <input type="text" class="form-control" name="txtNombre" id="inp" value="{{$consulta->name}}" >
                 <p class="text-info fst-Italic">{{$errors->first('txtNombre')}}</p>
                 
             </div>
@@ -37,28 +37,38 @@
             <p class="text-info fst-Italic">{{$errors->first('txtApe_mat')}}</p>
         </div>
 
-        <div class="mb-3">
-          <label class="form-label"> Username: </label>
-          <input type="text" class="form-control" name="txtUsername" id="inp" value="{{$consulta->Username}}" >
-          <p class="text-info fst-Italic">{{$errors->first('txtUsername')}}</p>
-      </div>
+       
 
         <div class="mb-3">
           <label class="form-label"> Email: </label>
-          <input type="email" class="form-control" name="txtEmail" id="inp" value="{{$consulta->Email}}" >
+          <input type="email" class="form-control" name="txtEmail" id="inp" value="{{$consulta->email}}" >
           <p class="text-info fst-Italic">{{$errors->first('txtEmail')}}</p>
       </div>
 
       <div class="mb-3">
         <label class="form-label"> Contraseña: </label>
-        <input type="password" class="form-control" name="txtPassword" id="inp" value="{{$consulta->Password}}" >
+        <input type="password" class="form-control" name="txtPassword" id="inp" value="{{$consulta->password}}" >
         <p class="text-info fst-Italic">{{$errors->first('txtApe_mat')}}</p>
     </div>
 
     <div class="mb-3">
       <label class="form-label"> Confirme Contraseña: </label>
-      <input type="password" class="form-control" name="txtConPassword" id="inp" value="{{$consulta->Password}}" >
+      <input type="password" class="form-control" name="txtConPassword" id="inp" value="" >
       <p class="text-info fst-Italic">{{$errors->first('txtConPassword')}}</p>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label"> Rol: </label>
+              <select name="txtRol" id="" class="form-control" style="background: #e9d7f5de" value="{{$consulta->id_rol}}" >
+                
+                  
+                  <option selected disabled="disabled" value="" style="background: #e9d7f5de">Selecciona Rol:</option>
+                  
+                  @foreach($ConsultaRol as $Rol)
+                      <option value="{{$Rol->id_rol}}">{{$Rol->Nombre}}</option>
+                  
+                  @endforeach
+                </select>
   </div>
         <div class="mb-3">
           <label class="form-label"> Departamento: </label>
@@ -75,19 +85,7 @@
         </div>
 
 
-  <div class="mb-3">
-    <label class="form-label"> Rol: </label>
-              <select name="txtRol" id="" class="form-control" style="background: #e9d7f5de" value="{{$consulta->id_rol}}" >
-                
-                  
-                  <option selected disabled="disabled" value="" style="background: #e9d7f5de">Selecciona Rol:</option>
-                  
-                  @foreach($ConsultaRol as $Rol)
-                      <option value="{{$Rol->id_rol}}">{{$Rol->Nombre}}</option>
-                  
-                  @endforeach
-                </select>
-  </div>
+  
         
 
         <div class="modal-footer text-center">

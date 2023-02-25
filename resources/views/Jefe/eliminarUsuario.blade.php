@@ -1,8 +1,8 @@
 <!-- Modal -->
-<div class="modal fade" id="eliminarUsuario-{{$consulta->id_usu}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="eliminarUsuario" aria-hidden="true">
+<div class="modal fade" id="eliminarUsuario-{{$consulta->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="eliminarUsuario" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content" id="modal">
-        <form class="m-4" method="post" action="{{route('usuario.destroy',$consulta->id_usu)}}">
+        <form class="m-4" method="post" action="{{route('usuario.destroy',$consulta->id)}}">
           @csrf
 
           {!!method_field('DELETE')!!}
@@ -14,7 +14,7 @@
         </div>
 
         <div class="modal-body">
-          <h5 class="card-title">{{$consulta->Nombre}}</h5>
+          <h5 class="card-title">{{$consulta->name}}</h5>
               
         </div>
 

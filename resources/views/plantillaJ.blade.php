@@ -48,7 +48,7 @@
               </li>
             </ul>
           </div>
-          <a href="/">
+          <a href="{{route('cerrar')}}">
           <button type="button" class="btn btn-outline-light" 
           style="background-color: #e9ace4fa" 
           data-bs-toggle="tooltip" data-bs-placement="bottom" 

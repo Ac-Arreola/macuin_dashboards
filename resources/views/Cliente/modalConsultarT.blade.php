@@ -1,9 +1,8 @@
 
 <!-- Modal -->
 {{--Cambiamos el id y el aria-labellely--}}
-<div class="modal fade" id="modalConsultarT" data-bs-backdrop="static" 
-        data-bs-keyboard="false"  aria-labelledby="modalConsultarT" 
-            aria-hidden="true">
+<div class="modal fade" id="modalConsultarT" aria-hidden="true" aria-labelledby="modalConsultarT" tabindex="-1">
+
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
 
@@ -32,9 +31,7 @@
                           <table class="table modalfon text-light">
                               <thead>
                                 <tr>
-                                  <th scope="col">No.Ticket:</th>
-                                  <th scope="col">Autor:</th>
-                                  <th scope="col">Dpto.:</th>
+                                  <th scope="col">No.:</th>
                                   <th scope="col">Fecha:</th>
                                   <th scope="col">Clasif.:</th>
                                   <th scope="col">Detalles.:</th>
@@ -43,22 +40,25 @@
                                 </tr>
                               </thead>
                               <tbody>
-                                 
+                                @foreach($Consultat as $consulta)
                                   <tr>
-                                      <th scope="row">1</th>
-                                      <td class="text-disabled" > user 1</td>
-                                      <td > </td>
-                                      <td > </td>
-                                      <td > </td>
-                                      <td > </td>
-                                      <td > </td>
+                                      <th scope="row">{{$consulta->id_tcli}}</th>
+                                      
+                                      <td > {{$consulta->Fecha}}</td>
+                                      <td > {{$consulta->Clasificacion->Nombre}}</td>
+                                      <td > {{$consulta->Comentarios}}</td>
+                                      <td >{{$consulta->Status->Nombre}} </td>
+                                      
                                       <td>
-                                          <a type="button" class="btn btn-outline-light" >
+                                      @if($consulta->id_sta == 1)
+                                      <button class="btn btn-outline-light" data-bs-target="#modalCancelar" data-bs-toggle="modal">
                                           <img src="{{asset('img\trashKn.png')}}" alt="" width="20" height="20">
-                                          Cancelar</a>
+                                          Cancelar</button>
+                                              @endif
+                                          
                                       </td>
                                   </tr>
-                                 
+                                  @endforeach
                               </tbody>
                             </table>
                       </div>
@@ -82,3 +82,44 @@
     </div>
   </div>
 
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalCancelar" aria-hidden="true" aria-labelledby="modalCancelar" tabindex="-1">
+
+  <div class="modal-dialog">
+    <div class="modal-content" id="modal">
+
+      <div class="modal-header text-center">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">¿Seguro que deseas Cancelar?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <form class="m-4" method="post" action="{{route('cancelar.update',$consulta->id_tcli)}}">
+              
+          @csrf
+
+          {!!method_field('PUT')!!}
+
+          <h5 class="card-title">{{$consulta->Clasificacion->Nombre}}</h5>
+          <input  id="txtid" name ="txtStatus" placeholder="" value="6" readonly onmousedown="return false">
+                            
+
+
+                            
+                          
+             
+      </div>  
+      
+
+      <div class="modal-footer text-center">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="submint" class="btn btn-primary">Cancelar ticket</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>

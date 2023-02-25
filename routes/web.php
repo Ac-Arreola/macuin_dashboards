@@ -6,6 +6,8 @@ use App\Http\Controllers\ControladorDepartamentos;
 use App\Http\Controllers\ControladorEditarCliente;
 use App\Http\Controllers\ControladorEditarAuxiliar;
 use App\Http\Controllers\ControladorUsuarios;
+use App\Http\Controllers\ControladorLogin;
+use App\Http\Controllers\ControladorCliente;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,16 +26,16 @@ use App\Http\Controllers\ControladorUsuarios;
 //------------------------------Departamentos--------------------------------------
 //Create
 
-Route::get('departamento/create', [ControladorDepartamentos::class,'create'])->name('departamento.create');
+Route::get('departamento/create', [ControladorDepartamentos::class,'create'])->name('departamento.create')->middleware('auth');
 //Store
 Route::post('departamento', [ControladorDepartamentos::class,'store'])->name('departamento.store');
-Route::get('departamento', [ControladorDepartamentos::class,'index'])->name('departamento.index');
+Route::get('departamento', [ControladorDepartamentos::class,'index'])->name('departamento.index')->middleware('auth');
 //Edit
-Route::get('departamento/{id}/edit', [ControladorDepartamentos::class,'edit'])->name('departamento.edit');
+Route::get('departamento/{id}/edit', [ControladorDepartamentos::class,'edit'])->name('departamento.edit')->middleware('auth');
 //Update
 Route::put('departamento/{id}', [ControladorDepartamentos::class,'update'])->name('departamento.update');
 //show
-Route::get('departamento/{id}/show', [ControladorDepartamentos::class,'show'])->name('departamento.show');
+Route::get('departamento/{id}/show', [ControladorDepartamentos::class,'show'])->name('departamento.show')->middleware('auth');
 //Destroy
 Route::delete('departamento/{id}', [ControladorDepartamentos::class,'destroy'])->name('departamento.destroy');
 
@@ -42,35 +44,43 @@ Route::delete('departamento/{id}', [ControladorDepartamentos::class,'destroy'])-
 //------------------------------Usuarios--------------------------------------
 //Create
 
-Route::get('usuario/create', [ControladorUsuarios::class,'create'])->name('usuario.create');
+Route::get('usuario/create', [ControladorUsuarios::class,'create'])->name('usuario.create')->middleware('auth');
 //Store
 Route::post('usuario', [ControladorUsuarios::class,'store'])->name('usuario.store');
-Route::get('usuario', [ControladorUsuarios::class,'index'])->name('usuario.index');
+Route::get('usuario', [ControladorUsuarios::class,'index'])->name('usuario.index')->middleware('auth');
 //Edit
-Route::get('usuario/{id}/edit', [ControladorUsuarios::class,'edit'])->name('usuario.edit');
+Route::get('usuario/{id}/edit', [ControladorUsuarios::class,'edit'])->name('usuario.edit')->middleware('auth');
 //Update
 Route::put('usuario/{id}', [ControladorUsuarios::class,'update'])->name('usuario.update');
 //show
-Route::get('usuario/{id}/show', [ControladorUsuarios::class,'show'])->name('usuario.show');
+Route::get('usuario/{id}/show', [ControladorUsuarios::class,'show'])->name('usuario.show')->middleware('auth');
 //Destroy
 Route::delete('usuario/{id}', [ControladorUsuarios::class,'destroy'])->name('usuario.destroy');
 
 
 //RUTAS VISTAS MAIN
+ Route::get('/',[ControladorLogin::class,'login'])->name('login');
 
-//Rutas individuales para controlador  
-Route::get('/pC',[controladorFormulario::class,'showPrincipalC'])->name('apodoPrincipal1'); 
-Route::get('/pA',[controladorFormulario::class,'showPrincipalA'])->name('apodoPrincipal2'); 
-Route::get('/pJ',[controladorFormulario::class,'showPrincipalJ'])->name('apodoPrincipal3'); 
+Route::post('Ingresar', [ControladorLogin::class,'loginVerify'])-> name('inic');
+
+
+
+
+
+
+Route::get('pC',[ControladorLogin::class,'showinicio'])->name('pc')->middleware('auth'); 
+
+
+Route::get('/pA',[controladorFormulario::class,'showPrincipalA'])->name('apodoPrincipal2')->middleware('auth'); 
+Route::get('/pJ',[controladorFormulario::class,'showPrincipalJ'])->name('apodoPrincipal3')->middleware('auth'); 
 
 //RUTA LOGIN
-Route::get('/', function () {
-    return view('login');
-});
+
 
 //RUTAS PARA PERFILES
 /*Route::get('Cliente.perfilC/{id}/edit', [ControladorEditarCliente::class,'edit'])->name('apodocliente.edit');
 Route::get('Auxiliar.perfilA/{id}/edit', [ControladorEditarAuxiliar::class,'edit'])->name('apodoauxiliar.edit');*/
+
 Route::get('/perfilC', function () {
     return view('Cliente.perfilC');
 });
@@ -85,5 +95,18 @@ Route::get('/modalTpf', function () {
     return view('modalConsultarTpf');
 });
 
-// Ruta para mostrar perfil de cliente
-Route::get('cliente/{id}/muestra', [ControladorEditarCliente::class,'muestra'])->name('cliente.muestra');
+
+
+Route::get('cerrar', [ControladorLogin::class,'serrarsecion'])->name('cerrar');
+
+//------------------ Rutas para el cliente ----------------------------------
+Route::get('cliente/muestra', [ControladorEditarCliente::class,'muestra'])->name('cliente.muestra')->middleware('auth');
+Route::put('cliente', [ControladorCliente::class,'update'])->name('cliente.update');
+Route::post('cliente', [ControladorEditarCliente::class,'store'])->name('cliente.store');
+Route::get('cancelar/{id}/edit', [ControladorUsuarios::class,'cancelar'])->name('cancelar.edit')->middleware('auth');
+Route::put('cancelar/{id}', [ControladorEditarCliente::class,'update'])->name('cancelar.update');
+
+//------------------ Rutas para auxiliar ----------------------------------
+
+Route::get('auxiliar/muestra', [ControladorEditarCliente::class,'muestra'])->name('auxiliar.muestra')->middleware('auth');
+Route::put('auxiliar', [ControladorEditarAuxiliar::class,'update'])->name('auxiliar.update');

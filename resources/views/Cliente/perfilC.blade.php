@@ -9,16 +9,40 @@
 {{--importamos el modal agregar --}}
 @include('Cliente.modalAgregarT')
 {{--importamos el modal editar --}}
-@include('Cliente.modalEditarPerfilC')
 
 
+@if(session()->has('Actualizado'))
+
+{!! " <script> Swal.fire(
+ 'Correcto!',
+ 'Perfil Actualizado',
+ 'success'  ) </script> "!!}
+@endif
+
+@if(session()->has('Cancelado'))
+
+{!! " <script> Swal.fire(
+ 'Correcto!',
+ 'Ticket cancelado',
+ 'success'  ) </script> "!!}
+@endif
+
+
+@if(session()->has('confirmacion'))
+
+{!! " <script> Swal.fire(
+
+ 'Correcto!',
+ 'Solicitud generada',
+ 'success'  ) </script> "!!}
+@endif
 
 <h2 class="display-1 mt-4 mb-4 fst-italic text-center">Datos de Usuario</h2>
 <div class="container col-md-6">
     <div class="row">
         <div class="col-sm-6">
         <div class="card formP">
-            <img src="./img/perfil.png" class="card-img-top" alt="...">
+            <img src={!! asset('img/perfil.png') !!} class="card-img-top" alt="...">
             
         </div>
 
@@ -28,15 +52,16 @@
           <div class="container formP">
             
           
-            <form action="{{route('cliente.mostrar', $consultaId->id_usu)}}">>
+            <form action="">
                 <label class="form-label"> Nombre: </label>
-                <input type="text" class="form-control" placeholder="" value="{{$consultaId->Nombre}}" >
-                <label class="form-label"> Username: </label>
-                <input type="text" class="form-control" placeholder="" value="{{$consultaId->Username}}" >
+                <input type="text" class="form-control" placeholder="" value="{{Auth::user()->name}}" readonly onmousedown="return false">
+                <label class="form-label"> Apellido paterno </label>
+                <input type="text" class="form-control" placeholder="" value="{{Auth::user()->Ape_pat}}" readonly onmousedown="return false">
+                <label class="form-label"> Apellido materno </label>
+                <input type="text" class="form-control" placeholder="" value="{{Auth::user()->Ape_mat}}" readonly onmousedown="return false">
                 <label class="form-label"> Email: </label>
-                <input type="email" class="form-control" placeholder="" value="{{$consultaId->Email}}" >
-                <label class="form-label"> Password: </label>
-                <input type="password" class="form-control" placeholder="" value="{{$consultaId->Password}}">
+                <input type="email" class="form-control" placeholder="" value="{{Auth::user()->email}}" readonly onmousedown="return false">
+                
             </form>
           </div>
         </div>
@@ -49,7 +74,7 @@
                     data-bs-placement="bottom" 
                     title="Presiona para editar los datos de tu perfil"
                     class="btn btn-outline-light btnfon">ACTUALIZAR DATOS
-                    <img src="{{asset('img/edPerfil.png')}}" alt="" id="edPerf" 
+                    <img src="{{asset('img/edPerfil.png')}}" alt="" id="#modalEditarPerfilC" 
                         width="60" height="60"></button>
     </div>
 <br>    
@@ -69,7 +94,7 @@
                  <img src="{{asset('img/pestana.png')}}" alt="" id="soliTic" class="icon">  Solicitar ticket  </a>
               <br>
               <a class="dropdown-item" type="button" data-bs-toggle="modal" 
-                data-bs-target="#modalConsultarT" data-bs-toggle="tooltip" data-bs-placement="bottom" 
+                href="#modalConsultarT" data-bs-toggle="tooltip" data-bs-placement="bottom" 
                 title="Presiona para consultar los tickets registrados">
                 <img src="{{asset('img/lupas.png')}}" alt="" id="soliTic" 
                    class="icon">  Consultar tickets</a>
@@ -77,11 +102,11 @@
             </div>
           </div>
         </div>
-        
+        @include('Cliente.modalEditarPerfilC')
       </div>
       
 </div>
 
-        
+
 
 @stop

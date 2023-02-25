@@ -49,6 +49,8 @@
 })</script> "!!}
 @endif
 
+
+
 @if(session()->has('errorr'))
 {!! "<script>Swal.fire({
   icon: 'error',
@@ -85,9 +87,9 @@
           <th scope="col">Apellido paterno</th>
           <th scope="col">Apellido materno</th>
           <th scope="col">Rol</th>
-          <th scope="col">Username</th>
+          <th scope="col">Departamento</th>
           <th scope="col">Email</th>
-          <th scope="col">Password</th>
+          
           <th scope="col">Editar</th>
           <th scope="col">Eliminar</th>
           
@@ -99,20 +101,20 @@
       <tbody>
         @foreach($ConsultaUsu as $consulta)
         <tr>
-          <th scope="row">{{$consulta->id_usu}}</th>
-          <td>{{$consulta->Nombre}}</td>
+          <th scope="row">{{$consulta->id}}</th>
+          <td>{{$consulta->name}}</td>
           <td>{{$consulta->Ape_pat}}</td>
           <td>{{$consulta->Ape_mat}}</td>
-          <td>{{$consulta->id_rol}}</td>
-          <td>{{$consulta->Username}}</td>
-          <td>{{$consulta->Email}}</td>
-          <td>{{$consulta->Password}}</td>
+          <td>{{$consulta->roles->Nombre}}</td>
+          <td>{{$consulta->departamento->Nombre}}</td>
+          <td>{{$consulta->email}}</td>
+       
           
           
-          <td><button type="button" data-bs-toggle="modal" id ="b"data-bs-target="#editarUsuario-{{$consulta->id_usu}}">
+          <td><button type="button" data-bs-toggle="modal" id ="b"data-bs-target="#editarUsuario-{{$consulta->id}}">
             <img src={!! asset('img\editar.png') !!} id="opciones"alt="" ></td>
           </button>
-          <td><button type="button" data-bs-toggle="modal" id ="b"data-bs-target="#eliminarUsuario-{{$consulta->id_usu}}">
+          <td><button type="button" data-bs-toggle="modal" id ="b"data-bs-target="#eliminarUsuario-{{$consulta->id}}">
             <img src={!! asset('img\borrar.png') !!} id="opciones" alt="">
         </button>
           </td>
@@ -136,6 +138,7 @@
    
     @include('Jefe.agregarUsuario')
   </div>
+
   
  
   @endsection

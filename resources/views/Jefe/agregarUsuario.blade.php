@@ -35,11 +35,7 @@
                   <p class="text-info fst-Italic">{{$errors->first('txtApe_mat')}}</p>
               </div>
 
-              <div class="mb-3">
-                <label class="form-label"> Username: </label>
-                <input type="text" class="form-control" name="txtUsername" id="inp" value="{{old('txtUsername')}}">
-                <p class="text-info fst-Italic">{{$errors->first('txtUsername')}}</p>
-            </div>
+              
 
               <div class="mb-3">
                 <label class="form-label"> Email: </label>
@@ -58,20 +54,6 @@
             <input type="password" class="form-control" name="txtConPassword" id="inp" value="{{old('txtConPassword')}}">
             <p class="text-info fst-Italic">{{$errors->first('txtConPassword')}}</p>
         </div>
-              <div class="mb-3">
-                <label class="form-label"> Departamento: </label>
-                          <select name="txtDepartamento" id="" class="form-control" style="background: #e9d7f5de" value=" {{ old('txtDepartamento')}}">
-                            
-                              
-                              <option selected disabled="disabled" value="" style="background: #e9d7f5de">Selecciona Departamento:</option>
-                              
-                              @foreach($ConsultaDep as $departamento)
-                                  <option value="{{$departamento->id_dep}}">{{$departamento->Nombre}}</option>
-                              
-                              @endforeach
-                             </select>
-              </div>
-      
 
         <div class="mb-3">
           <label class="form-label"> Rol: </label>
@@ -85,7 +67,25 @@
                         
                         @endforeach
                       </select>
+                      <p class="text-info fst-Italic">{{$errors->first('txtRol')}}</p>
         </div>
+              <div class="mb-3">
+                <label class="form-label"> Departamento: </label>
+                          <select name="txtDepartamento" id="" class="form-control" style="background: #e9d7f5de" value=" {{ old('txtDepartamento')}}">
+                            
+                              
+                              <option selected disabled="disabled" value="" style="background: #e9d7f5de">Selecciona Departamento:</option>
+                              
+                              @foreach($ConsultaDep as $departamento)
+                                  <option value="{{$departamento->id_dep}}">{{$departamento->Nombre}}</option>
+                              
+                              @endforeach
+                             </select>
+                             <p class="text-info fst-Italic">{{$errors->first('txtDepartamento')}}</p>
+              </div>
+      
+
+        
       
                
                

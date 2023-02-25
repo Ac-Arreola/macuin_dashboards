@@ -9,7 +9,7 @@
 {{--importamos el modal agregar --}}
 @include('Auxiliar.modalConsultarTpf')
 {{--importamos el modal editar --}}
-@include('Auxiliar.modalEditarPerfilA')
+
 
 <h2 class="display-1 mt-4 mb-4 fst-italic text-center">Datos de Usuario</h2>
 <div class="container col-md-6">
@@ -25,14 +25,15 @@
         <div class="card">
           <div class="container formP">
             <form action="">
-                <label class="form-label"> Nombre: </label>
-                <input type="text" class="form-control" placeholder="" >
-                <label class="form-label"> Username: </label>
-                <input type="text" class="form-control" placeholder="" >
-                <label class="form-label"> Email: </label>
-                <input type="email" class="form-control" placeholder="" >
-                <label class="form-label"> Password: </label>
-                <input type="password" class="form-control" placeholder="" >
+              <label class="form-label"> Nombre: </label>
+              <input type="text" class="form-control" placeholder="" value="{{Auth::user()->name}}" readonly onmousedown="return false">
+              <label class="form-label"> Apellido paterno </label>
+              <input type="text" class="form-control" placeholder="" value="{{Auth::user()->Ape_pat}}" readonly onmousedown="return false">
+              <label class="form-label"> Apellido materno </label>
+              <input type="text" class="form-control" placeholder="" value="{{Auth::user()->Ape_mat}}" readonly onmousedown="return false">
+              <label class="form-label"> Email: </label>
+              <input type="email" class="form-control" placeholder="" value="{{Auth::user()->email}}" readonly onmousedown="return false">
+              
             </form>
           </div>
         </div>
@@ -78,7 +79,7 @@
         </div>
         
       </div>
-      
+    {{--  @include('Auxiliar.modalEditarPerfilA')--}}
 </div>
 
 
