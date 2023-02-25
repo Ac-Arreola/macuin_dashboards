@@ -67,18 +67,31 @@
     
     <div class="container">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRegistrarUsu">
+        <button type="button" class="btn btn-outline-light mb-4"  style="background-color:#8c3bb2" 
+        data-bs-toggle="modal" data-bs-target="#modalRegistrarUsu">
          Agregar Usuario <i class="bi bi-plus-circle"></i>
        </button>
      </div>
 
   
-      <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
-        <div class="input-group mb-3 col-md-3">
-          <input type="text" name ="busqueda"class="form-control text-center" placeholder="Buscar usuario" aria-label="Recipient's username" aria-describedby="button-addon2" id="in">
-          <button class="btn btn-outline-secondary" type="submit" id="buton">Buscar</button>
+      {{--BARRA DE BUSQUEDA--}}
+     <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+      <div>
+        <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
+          <div class="row g-3">
+              <div class="col-auto">
+                <input type="text" name ="busqueda" class="form-control text-center form-control" placeholder="Buscar departamento" aria-describedby="button-addon2" id="in" height="35">
+              </div>
+              <div class="col-auto">
+                <button class="btn btn-outline-light" style="background-color:#7979F7 " type="submit">
+                  <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
+                  width="35" height="35"></button>
+              </div>
+          </div>
         </div>
-      </form>
+      </div>
+    </form>
+    {{--BARRA DE BUSQUEDA FIN--}}
   <table class=" table text-center text-white" id="hey">
       <thead>
         <tr>
@@ -138,6 +151,7 @@
    
     @include('Jefe.agregarUsuario')
   </div>
+</div>
 
   
  
