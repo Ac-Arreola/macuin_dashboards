@@ -4,7 +4,7 @@
     <div class="modal-content" id="modal">
 
       <div class="modal-header text-center">
-        <h1 class="modal-title fs-5 text-center" id="staticBackdropLabel">Actualizar Usuario</h1>
+        <h1 class="modal-title fs-5 text-center" id="staticBackdropLabel">Actualizar Perfil</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
@@ -39,7 +39,7 @@
 
       <div class="mb-3">
         <label class="form-label"> Contraseña: </label>
-        <input type="password" class="form-control" name="txtPassword" id="inp" value="{{Auth::user()->password}}" >
+        <input type="password" class="form-control" name="txtPassword" id="inp" value="" >
         <p class="text-info fst-Italic">{{$errors->first('txtPassword')}}</p>
     </div>
 
@@ -49,15 +49,6 @@
       <p class="text-info fst-Italic">{{$errors->first('txtConPassword')}}</p>
   </div>
 
-     
-
-     
-
-
-
-
-
-      
 
       <div class="modal-footer text-center">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

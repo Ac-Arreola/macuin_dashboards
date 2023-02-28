@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ValidadorEditarC;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 use DB;
 use Carbon\Carbon;
@@ -57,7 +58,7 @@ class ControladorCliente extends Controller
     //Edita su propio perfil (cliente)
     public function update(ValidadorEditarC $request)
     {
-        DB::table('users')->update([
+        DB::table('users')->where('id', Auth::user()->id)->update([
             "name"=> $request->input('txtNombre'),
             "Ape_pat"=> $request->input('txtApe_pat'),
             "Ape_mat"=> $request->input('txtApe_mat'),

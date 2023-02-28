@@ -36,7 +36,7 @@
             <ul class="navbar-nav ">
               <li class="nav-item ">
                 <a class="nav-link active text-light fw-bold" aria-current="page" 
-                href="perfilA"> Editar perfil   | </a>
+                href={{route('auxiliar.muestra')}}> Editar perfil   | </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active text-light fw-bold" type="button"  aria-current="page" 

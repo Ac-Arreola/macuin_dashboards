@@ -130,7 +130,7 @@ class ControladorUsuarios extends Controller
             ]);
             $nom = $request->input('txtNombre');
     
-            return redirect('usuario')->with('confirmacion','abc')->with('txtNombre', $nom);
+            return redirect('usuario')->with('Actualizado','abc')->with('txtNombre', $nom);
         }else{
 
             return redirect('usuario')->with('errorr','abc');

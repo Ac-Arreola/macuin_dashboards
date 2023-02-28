@@ -15,7 +15,16 @@ class ControladorEditarCliente extends Controller
    
     public function index()
     {
+        $Consultat= DB::table('tb_tclientes')->where('id_usu',Auth::user()->id)->get();
+        ;
         
+        foreach ($Consultat as $ticket) {
+           
+            $ticket->Clasificacion=  DB::table('tb_clasificacion')->where('id_cla', $ticket->id_cla)->first();
+            $ticket->Status=  DB::table('tb__status')->where('id_sta', $ticket->id_sta)->first();
+           
+        }
+        return view('Cliente.mostrarTickets',compact('Consultat'));
     }
 
     
@@ -40,7 +49,7 @@ class ControladorEditarCliente extends Controller
         ]);
         $nom = $request->input('txtNombre');
 
-        return redirect('cliente/muestra')->with('confirmacion','abc')->with('txtNombre', $nom);
+        return redirect('cliente')->with('confirmacion','abc')->with('txtNombre', $nom);
     }
 
    
@@ -89,12 +98,12 @@ class ControladorEditarCliente extends Controller
         
         
 
-        return redirect('cliente/muestra')->with('Cancelado','abc');
+        return redirect('cliente')->with('Cancelado','abc');
     }
 
     public function muestra()
     {
-        $Consultat= DB::table('tb_tclientes')->get();
+        $Consultat= DB::table('tb_tclientes')->where('id_usu',Auth::user()->id)->get();
         $ConsultaDep= DB::table('tb_departamentos')->get();
         $ConsultaCla= DB::table('tb_clasificacion')->get();
         

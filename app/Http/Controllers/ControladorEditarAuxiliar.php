@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ValidadorEditarA;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+
+use DB;
+use Carbon\Carbon;
 
 class ControladorEditarAuxiliar extends Controller
 {
@@ -37,9 +43,9 @@ class ControladorEditarAuxiliar extends Controller
     }
 
    
-    public function update(Request $request, $id)
+    public function update(ValidadorEditarA $request)
     {
-        DB::table('users')->update([
+        DB::table('users')->where('id', Auth::user()->id)->update([
             "name"=> $request->input('txtNombre'),
             "Ape_pat"=> $request->input('txtApe_pat'),
             "Ape_mat"=> $request->input('txtApe_mat'),
@@ -51,10 +57,10 @@ class ControladorEditarAuxiliar extends Controller
             "updated_at"=> Carbon::now()
         ]);
         
-        
+        $ConsultaCla= DB::table('tb_clasificacion')->get();
         
 
-        return redirect('auxiliar/muestra')->with('Actualizado','abc');
+        return redirect('auxiliar/muestra')->with('Editado','abc');
     }
 
    
@@ -65,17 +71,8 @@ class ControladorEditarAuxiliar extends Controller
 
     public function muestra()
     {
-        $Consultat= DB::table('tb_tclientes')->get();
-        $ConsultaDep= DB::table('tb_departamentos')->get();
-        $ConsultaCla= DB::table('tb_clasificacion')->get();
-        
-        foreach ($Consultat as $ticket) {
-           
-            $ticket->Clasificacion=  DB::table('tb_clasificacion')->where('id_cla', $ticket->id_cla)->first();
-            $ticket->Status=  DB::table('tb__status')->where('id_sta', $ticket->id_sta)->first();
-           
-        }
-        return view('Auxiliar.perfilA',compact('ConsultaCla','ConsultaDep','Consultat'));
+       
+        return view('Auxiliar.perfilA');
     }
 
 }

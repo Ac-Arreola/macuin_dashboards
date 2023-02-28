@@ -47,7 +47,7 @@
 
       <div class="mb-3">
         <label class="form-label"> Contraseña: </label>
-        <input type="password" class="form-control" name="txtPassword" id="inp" value="{{$consulta->password}}" >
+        <input type="password" class="form-control" name="txtPassword" id="inp" value="" >
         <p class="text-info fst-Italic">{{$errors->first('txtApe_mat')}}</p>
     </div>
 

@@ -3,8 +3,7 @@
     Perfil _C
 @stop
 @section('contenido')
-{{--importamos el modal consultar tickets --}}
-@include('Cliente.modalConsultarT')
+
 
 {{--importamos el modal agregar --}}
 @include('Cliente.modalAgregarT')
@@ -19,23 +18,10 @@
  'success'  ) </script> "!!}
 @endif
 
-@if(session()->has('Cancelado'))
-
-{!! " <script> Swal.fire(
- 'Correcto!',
- 'Ticket cancelado',
- 'success'  ) </script> "!!}
-@endif
 
 
-@if(session()->has('confirmacion'))
 
-{!! " <script> Swal.fire(
 
- 'Correcto!',
- 'Solicitud generada',
- 'success'  ) </script> "!!}
-@endif
 
 <h2 class="display-1 mt-4 mb-4 fst-italic text-center">Datos de Usuario</h2>
 <div class="container col-md-6">
@@ -93,8 +79,8 @@
               title="Presiona para solicitar un ticket">
                  <img src="{{asset('img/pestana.png')}}" alt="" id="soliTic" class="icon">  Solicitar ticket  </a>
               <br>
-              <a class="dropdown-item" type="button" data-bs-toggle="modal" 
-                href="#modalConsultarT" data-bs-toggle="tooltip" data-bs-placement="bottom" 
+              <a class="dropdown-item" type="button"  
+                href={{route('cliente.index')}} data-bs-toggle="tooltip" data-bs-placement="bottom" 
                 title="Presiona para consultar los tickets registrados">
                 <img src="{{asset('img/lupas.png')}}" alt="" id="soliTic" 
                    class="icon">  Consultar tickets</a>
@@ -102,11 +88,12 @@
             </div>
           </div>
         </div>
-        @include('Cliente.modalEditarPerfilC')
+       
       </div>
       
 </div>
-
+@include('Cliente.modalEditarPerfilC')
+</div>
 
 
 @stop

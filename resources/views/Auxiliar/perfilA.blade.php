@@ -2,6 +2,9 @@
 @section('titulo')
     Perfil _A
 @stop
+
+
+
 @section('contenido')
 {{--importamos el modal consultar tickets --}}
 @include('Auxiliar.modalConsultarTnv')
@@ -11,12 +14,22 @@
 {{--importamos el modal editar --}}
 
 
+@if(session()->has('Editado'))
+
+{!! " <script> Swal.fire(
+ 'Correcto!',
+ 'Perfil Actualizado',
+ 'success'  ) </script> "!!}
+@endif
+
+
+
 <h2 class="display-1 mt-4 mb-4 fst-italic text-center">Datos de Usuario</h2>
 <div class="container col-md-6">
     <div class="row">
         <div class="col-sm-6">
         <div class="card">
-            <img src="./img/perfil.png" class="card-img-top" alt="...">
+            <img src={{asset('img/perfil.png')}} class="card-img-top" alt="...">
             
         </div>
 
@@ -40,14 +53,16 @@
         </div>
     </div>
     <br>
+    
     <div class="container col-md-5 text-center">
       <button data-bs-toggle="modal" 
                     data-bs-target="#modalEditarPerfilA" data-bs-toggle="tooltip" 
                     data-bs-placement="bottom" 
                     title="Presiona para editar los datos de tu perfil"
                     class="btn btn-outline-light btnfon">ACTUALIZAR DATOS
-                    <img src="{{asset('img/edPerfil.png')}}" alt="" id="edPerf" 
+                    <img src="{{asset('img/edPerfil.png')}}" alt="" id="#modalEditarPerfilA" 
                         width="60" height="60"></button>
+                        
     </div>
     <br>
     <br>
@@ -79,8 +94,8 @@
         </div>
         
       </div>
-    {{--  @include('Auxiliar.modalEditarPerfilA')--}}
+      @include('Auxiliar.modalEditarPerfilA')
 </div>
-
+</div>
 
 @stop

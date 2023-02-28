@@ -93,7 +93,7 @@ Route::get('/modalTnv', function () {
 });
 Route::get('/modalTpf', function () {
     return view('modalConsultarTpf');
-});
+}); 
 
 
 
@@ -105,8 +105,9 @@ Route::put('cliente', [ControladorCliente::class,'update'])->name('cliente.updat
 Route::post('cliente', [ControladorEditarCliente::class,'store'])->name('cliente.store');
 Route::get('cancelar/{id}/edit', [ControladorUsuarios::class,'cancelar'])->name('cancelar.edit')->middleware('auth');
 Route::put('cancelar/{id}', [ControladorEditarCliente::class,'update'])->name('cancelar.update');
+Route::get('cliente', [ControladorEditarCliente::class,'index'])->name('cliente.index')->middleware('auth');
 
 //------------------ Rutas para auxiliar ----------------------------------
 
-Route::get('auxiliar/muestra', [ControladorEditarCliente::class,'muestra'])->name('auxiliar.muestra')->middleware('auth');
+Route::get('auxiliar/muestra', [ControladorEditarAuxiliar::class,'muestra'])->name('auxiliar.muestra')->middleware('auth');
 Route::put('auxiliar', [ControladorEditarAuxiliar::class,'update'])->name('auxiliar.update');
