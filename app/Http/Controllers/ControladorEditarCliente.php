@@ -16,7 +16,7 @@ class ControladorEditarCliente extends Controller
     public function index()
     {
         $Consultat= DB::table('tb_tclientes')->where('id_usu',Auth::user()->id)->get();
-        ;
+        
         
         foreach ($Consultat as $ticket) {
            
