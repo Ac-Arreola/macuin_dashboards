@@ -29,7 +29,7 @@
       <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
         <div class="row g-3">
             <div class="col-auto">
-              <input type="text" name ="busqueda" class="form-control text-center form-control" placeholder="Buscar tickets" aria-describedby="button-addon2" id="in" height="35">
+              <input type="text" name ="busqueda" class="form-control text-center form-control" placeholder="Buscar tickets por clasif" aria-describedby="button-addon2" id="in" height="35">
             </div>
             <div class="col-auto">
               <button class="btn btn-outline-light" style="background-color:#7979F7 " type="submit">
