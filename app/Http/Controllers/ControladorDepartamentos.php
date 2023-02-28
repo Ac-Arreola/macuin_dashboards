@@ -15,9 +15,11 @@ class ControladorDepartamentos extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $ConsultaDep= DB::table('tb_departamentos')->get();
+        $busqueda=$request->busqueda;
+        
+        $ConsultaDep= DB::table('tb_departamentos')->where('Nombre','LIKE','%'.$busqueda.'%')->get();
         return view('Jefe.mostrarDepartamentos',compact('ConsultaDep'));
     }
 

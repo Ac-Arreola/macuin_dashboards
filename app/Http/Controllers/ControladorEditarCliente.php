@@ -13,15 +13,18 @@ use Carbon\Carbon;
 class ControladorEditarCliente extends Controller
 {
    
-    public function index()
+    public function index(Request $request)
     {
-        $Consultat= DB::table('tb_tclientes')->where('id_usu',Auth::user()->id)->get();
+        $busqueda=$request->busqueda;
+        $Consultat= DB::table('tb_tclientes')->where('id_usu',Auth::user()->id)->join('tb_clasificacion' , 'tb_tclientes.id_cla','tb_clasificacion.id_cla')->where('tb_clasificacion.Nombre','LIKE','%'.$busqueda.'%')->get();
+        
         
         
         foreach ($Consultat as $ticket) {
            
             $ticket->Clasificacion=  DB::table('tb_clasificacion')->where('id_cla', $ticket->id_cla)->first();
             $ticket->Status=  DB::table('tb__status')->where('id_sta', $ticket->id_sta)->first();
+           
            
         }
         return view('Cliente.mostrarTickets',compact('Consultat'));

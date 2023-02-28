@@ -14,11 +14,13 @@ use Carbon\Carbon;
 class ControladorUsuarios extends Controller
 {
    
-    public function index()
+    public function index(Request $request)
     {
+        $busqueda=$request->busqueda;
+       
         $ConsultaDep = DB::table('tb_departamentos')->get();
         $ConsultaRol = DB::table('tb_roles')->get();
-        $ConsultaUsu= DB::table('users')->get();
+        $ConsultaUsu= DB::table('users')->where('name','LIKE','%'.$busqueda.'%')->get();
         foreach ($ConsultaUsu as $usuario) {
            
             $usuario->roles=  DB::table('tb_roles')->where('id_rol', $usuario->id_rol)->first();
