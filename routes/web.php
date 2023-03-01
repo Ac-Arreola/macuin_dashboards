@@ -110,4 +110,4 @@ Route::get('cliente', [ControladorEditarCliente::class,'index'])->name('cliente.
 //------------------ Rutas para auxiliar ----------------------------------
 
 Route::get('auxiliar/muestra', [ControladorEditarAuxiliar::class,'muestra'])->name('auxiliar.muestra')->middleware('auth');
-Route::put('auxiliar', [ControladorEditarAuxiliar::class,'update'])->name('auxiliar.update');
+Route::put('auxiliar', [ControladorEditarAuxiliar::class,'update'])->name('auxiliar.update')->middleware('auth');
