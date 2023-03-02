@@ -13,11 +13,14 @@ use Carbon\Carbon;
 class ControladorEditarAuxiliar extends Controller
 {
     
-    public function index()
+    public function mostrarTnv()
     {
-        //
+        return view('Auxiliar.consultarTnvo'); 
     }
-
+    public function mostrarTpf()
+    {
+        return view('Auxiliar.consultarTpf'); 
+    }
    
     public function create()
     {

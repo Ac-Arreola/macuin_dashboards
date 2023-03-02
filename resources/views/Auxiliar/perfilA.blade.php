@@ -6,8 +6,8 @@
 
 
 @section('contenido')
-{{--importamos el modal consultar tickets --}}
-@include('Auxiliar.modalConsultarTnv')
+{{--importamos el modal consultar tickets 
+@include('Auxiliar.modalConsultarTnv')--}}
 
 {{--importamos el modal agregar --}}
 @include('Auxiliar.modalConsultarTpf')
@@ -76,17 +76,17 @@
           <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
             <div class="accordion-body">
 
-              <a class="dropdown-item" type="button" data-bs-toggle="modal" 
-              data-bs-target="#modalConsultarTnv" data-bs-toggle="tooltip" data-bs-placement="bottom" 
-              title="Presiona para consultar los tickets asignados">
+              <a class="dropdown-item" type="button" {{--data-bs-toggle="modal" 
+              data-bs-target="#modalConsultarTnv"--}} data-bs-toggle="tooltip" data-bs-placement="bottom" 
+              title="Presiona para consultar los tickets asignados" href={{route('auxiliar.mostrarTnv')}}>
                  <img src="{{asset('img/recibo.png')}}"  alt="" id="soliTnV"
                  class="icon">  Tickets Nuevos  </a>
               
                  <br>
 
-              <a class="dropdown-item" type="button" data-bs-toggle="modal" 
-              data-bs-target="#modalConsultarTpf" data-bs-toggle="tooltip" data-bs-placement="bottom" 
-              title="Presiona para consultar los tickets en proceso o culminados">
+              <a class="dropdown-item" type="button" {{--data-bs-toggle="modal" 
+              data-bs-target="#modalConsultarTpf"--}} data-bs-toggle="tooltip" data-bs-placement="bottom" 
+              title="Presiona para consultar los tickets en proceso o culminados"href={{route('auxiliar.mostrarTpf')}}>
               <img src="{{asset('img/progreso.png')}}"   alt="" id="soliTpF"
                  class="icon"> Tickets en proceso o culminados </a>
             </div>
