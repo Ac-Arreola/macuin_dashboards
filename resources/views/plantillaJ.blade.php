@@ -44,7 +44,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link active text-light fw-bold" aria-current="page" 
-                href="#"> Asignar tickets   | </a>
+                href={{route('ticket.index')}}> Asignar tickets   | </a>
               </li>
             </ul>
           </div>

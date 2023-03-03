@@ -8,6 +8,7 @@ use App\Http\Controllers\ControladorEditarAuxiliar;
 use App\Http\Controllers\ControladorUsuarios;
 use App\Http\Controllers\ControladorLogin;
 use App\Http\Controllers\ControladorCliente;
+use App\Http\Controllers\controladorTicketsJ;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,6 +95,10 @@ Route::get('/modalTnv', function () {
 Route::get('/modalTpf', function () {
     return view('modalConsultarTpf');
 }); 
+Route::get('/Tickets', function () {
+    return view('Jefe.Tickets');
+}); 
+ 
 
 
 
@@ -111,3 +116,8 @@ Route::get('cliente', [ControladorEditarCliente::class,'index'])->name('cliente.
 
 Route::get('auxiliar/muestra', [ControladorEditarAuxiliar::class,'muestra'])->name('auxiliar.muestra')->middleware('auth');
 Route::put('auxiliar', [ControladorEditarAuxiliar::class,'update'])->name('auxiliar.update')->middleware('auth');
+
+
+//--------------------Ruta Ticket----------------------------------------
+Route::post('Tickets', [controladorTicketsJ::class,'mostrar'])->name('ticket.mostrar');
+Route::get('Tickets', [controladorTicketsJ::class,'index'])->name('ticket.index');
