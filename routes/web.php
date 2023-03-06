@@ -119,5 +119,10 @@ Route::put('auxiliar', [ControladorEditarAuxiliar::class,'update'])->name('auxil
 
 
 //--------------------Ruta Ticket----------------------------------------
-Route::post('Tickets', [controladorTicketsJ::class,'mostrar'])->name('ticket.mostrar');
-Route::get('Tickets', [controladorTicketsJ::class,'index'])->name('ticket.index');
+Route::get('Tickets', [controladorTicketsJ::class,'mostrar'])->name('ticket.mostrar');
+Route::get('Tickets_A', [controladorTicketsJ::class,'index'])->name('ticket.index');
+
+Route::get('Tickets{id}/edit', [controladorTicketsJ::class,'edit'])->name('ticket.edit');
+Route::post('usuario/{id}', [controladorTicketsJ::class,'update'])->name('ticket.update');
+
+Route::get('Tickets{id}/ticket', [controladorTicketsJ::class,'ticket'])->name('ticket.ticket');

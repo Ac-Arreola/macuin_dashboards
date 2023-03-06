@@ -13,24 +13,21 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tb_tclientes', function (Blueprint $table) {
-            $table->id('id_tcli');
+        Schema::create('tb_tauxiliar', function (Blueprint $table) {
+            $table->id('id_taux');
+            $table->unsignedBigInteger('id_tcli');
             $table->unsignedBigInteger('id_usu');
-            $table->unsignedBigInteger('id_sta');
-            $table->unsignedBigInteger('id_cla');
             $table->string('Comentarios')->nullable();
-            $table->string('Fecha');
+            $table->string('Comentarios_cli')->nullable();
             
+            $table->string('Fecha');
             $table->timestamps();
 
-            $table->foreign('id_usu')->references('id')->on('users')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
-            $table->foreign('id_cla')->references('id_cla')->on('tb_clasificacion')
+            $table->foreign('id_tcli')->references('id_tcli')->on('tb_tclientes')
             ->onUpdate('cascade')
             ->onDelete('cascade');
 
-            $table->foreign('id_sta')->references('id_sta')->on('tb__status')
+            $table->foreign('id_usu')->references('id')->on('users')
             ->onUpdate('cascade')
             ->onDelete('cascade');
         });
@@ -43,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_tclientes');
+        Schema::dropIfExists('tb_tauxiliar');
     }
 };

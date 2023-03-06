@@ -1,6 +1,6 @@
 <!-- Modal -->
 {{--Cambiamos el id y el aria-labellely--}}
-<div class="modal fade" id="modalConsultarTickets" data-bs-backdrop="static" 
+<div class="modal fade" id="modalConsultarTickets-{{$consulta->id}}" data-bs-backdrop="static" 
         data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalConsultarTnv" 
             aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -19,7 +19,7 @@
           <div class="card text-center  mb-2 mt-2 ">
 
             <div class="card-header fw-bold"> 
-                Tickets asignados
+               Tickets asignados
             </div>
 
 
@@ -62,6 +62,7 @@
                             </td>
 
                           <table class="table modalfon text-light">
+
                               <thead>
                                 <tr>
                                   <th scope="col">ID:</th>
@@ -71,17 +72,23 @@
                                   <th scope="col">Comentarios:</th>
                                 </tr>
                               </thead>
+
                               <tbody>
+                                
+                                @foreach($consultaId as $consultas)
+                                @if($consultas->id_usu == $consulta->id)
                                  
                                   <tr>
-                                      <th scope="row">1</th>
+                                      <th scope="row">{{$consultas->id_taux}}</th>
                                       <td >--------</td>
                                       <td >--------</td>
                                       <td >--------</td>
-                                      <td >--------</td>
+                                      <td >{{$consultas->Comentarios_cli}}</td>
                                   </tr>
                                  
                               </tbody>
+                              @endif
+                              @endforeach
                             </table>
                       </div>
                   </div>

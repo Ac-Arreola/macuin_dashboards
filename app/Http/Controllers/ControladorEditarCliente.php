@@ -45,6 +45,7 @@ class ControladorEditarCliente extends Controller
             "Comentarios"=> $request->input('txtDetalle'),
             "Fecha"=> $request->input('txtFecha'),
             "id_sta"=> $request->input('txtStatus'),
+            "id_dep"=> Auth::user()->id_dep,
             
             "created_at"=> Carbon::now(),
             "updated_at"=> Carbon::now()

@@ -37,24 +37,8 @@
                                   <input type="txt_Autor" class="form-control" id="" name ="txtAutor" placeholder="" value="{{Auth::user()->name}}" readonly onmousedown="return false">
                                   </div>
                               </div>
-                              {{--Departamento--}}
-                              <div class="row mb-3">
-                                <label for="inputDepa" class="col-sm-2 col-form-label">Dpto. : </label>
-                                <div class="col-sm-10">
-                                  <select name="txtDepartamento" id="" class="form-control" style="background: #e9d7f5de" value="">
-                                    
-                                      
-                                    <option selected disabled="disabled" value="" style="background: #e9d7f5de">Selecciona Dpto:</option>
-                                    
-                                    @foreach($ConsultaDep as $departamento)
-                                        <option value="{{$departamento->id_dep}}">{{$departamento->Nombre}}</option>
-                                    
-                                    @endforeach
-                                  </select>
-                                  
-                                </div>
-                                <p class="text-primary fst-italic">{{$errors->first('txtDepartamento')}}</p>
-                              </div>
+                              
+                              
 
                             {{--Fecha--}}
                               <div class="row mb-3">
@@ -111,7 +95,7 @@
     {{--footer--}}
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-outline-light modalfon">Entendido</button>
+       
         </div>
 
       </div>

@@ -47,7 +47,7 @@
             <th scope="col">No.:</th>
             <th scope="col">Fecha:</th>
             <th scope="col">Clasif.:</th>
-            <th scope="col">Detalles.:</th>
+            <th scope="col">Detalles:</th>
             <th scope="col">Estatus:</th>
             <th scope="col">Acciones:</th>
           </tr>
@@ -59,7 +59,7 @@
                 
                 <td > {{$consulta->Fecha}}</td>
                 <td > {{$consulta->Clasificacion->Nombre}}</td>
-                <td > {{$consulta->Comentarios}}</td>
+                <td > {{$consulta->Comentarios_aux}}</td>
                 <td >{{$consulta->Status->Nombre}} </td>
                 
                 <td>
