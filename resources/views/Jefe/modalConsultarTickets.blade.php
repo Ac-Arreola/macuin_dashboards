@@ -76,10 +76,10 @@
                               <tbody>
                                 
                                 @foreach($consultaId as $consultas)
-                                @if($consultas->id_usu == $consulta->id)
+                                @if($consultas->Id == $consulta->id)
                                  
                                   <tr>
-                                      <th scope="row">{{$consultas->id_taux}}</th>
+                                      <th scope="row">{{$consultas->Id}}</th>
                                       <td >--------</td>
                                       <td >--------</td>
                                       <td >--------</td>
