@@ -8,7 +8,7 @@
 
     {{--header--}}
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Asignación de Tickets </h5>
+          <h5 class="modal-title text-black" id="staticBackdropLabel">Asignación de Tickets </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" 
           aria-label="Close"></button>
         </div>
@@ -18,7 +18,7 @@
 
           <div class="card text-center  mb-2 mt-2 ">
 
-            <div class="card-header fw-bold"> 
+            <div class="card-header fw-bold text-black"> 
                Tickets asignados
             </div>
 
@@ -31,7 +31,7 @@
                         style="max-height: calc(100vh - 210px);overflow-y: auto">
                         <table>
                           <tr>
-                            <th>Status</th>
+                            <th class="text-black">Status</th>
                           </tr>
                           <tr>
                             

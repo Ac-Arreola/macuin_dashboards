@@ -110,3 +110,6 @@ Route::put('cancelar/{id}', [ControladorEditarCliente::class,'update'])->name('c
 
 Route::get('auxiliar/muestra', [ControladorEditarCliente::class,'muestra'])->name('auxiliar.muestra')->middleware('auth');
 Route::put('auxiliar', [ControladorEditarAuxiliar::class,'update'])->name('auxiliar.update');
+Route::get('/tnv', function () {
+    return view('Auxiliar.consultarTnvo');
+});

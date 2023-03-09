@@ -40,13 +40,13 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link active text-light fw-bold" type="button"  aria-current="page" 
-                data-bs-toggle="modal" 
-              data-bs-target="#modalConsultarTnv"> Tickets nuevos   | </a>
+                {{--data-bs-toggle="modal" 
+              data-bs-target="#modalConsultarTnv"--}} href={{route('auxiliar.mostrarTnv')}}> Tickets nuevos   | </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active text-light fw-bold" type="button" aria-current="page" 
-                data-bs-toggle="modal" 
-              data-bs-target="#modalConsultarTpf"> Tickets asignados   | </a>
+                {{--data-bs-toggle="modal" 
+              data-bs-target="#modalConsultarTpf"--}} href={{route('auxiliar.mostrarTpf')}}> Tickets asignados   | </a>
               </li>
             </ul>
           </div>
