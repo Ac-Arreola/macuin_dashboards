@@ -80,9 +80,9 @@
                                  
                                   <tr>
                                       <th scope="row">{{$consultas->Id}}</th>
-                                      <td >--------</td>
-                                      <td >--------</td>
-                                      <td >--------</td>
+                                      <td >{{$consultas->Dpto}}</td>
+                                      <td >{{$consultas->Clasif}}</td>
+                                      <td >{{$consultas->estatus}}</td>
                                       <td >{{$consultas->Comentarios_cli}}</td>
                                   </tr>
                                  

@@ -16,7 +16,7 @@ class controladorTicketsJ extends Controller
         //$consultaId= DB::table('tb_tauxiliar')->get();
         $ConsultaUsu = DB::table('users')->where('id_rol',2)->where('name','LIKE','%'.$busqueda.'%')->get();
        $consultaId = DB::table('tb_tclientes')
-       ->select('tb_tauxiliar.id_taux as Id', 'tb_departamentos.Nombre as Dpto', 'tb_clasificacion.Nombre as Clasif', 'tb__status.Nombre as Status','tb_tauxiliar.Comentarios_cli as Comentarios_cli')
+       ->select('tb_tauxiliar.id_taux as Id', 'tb_departamentos.Nombre as Dpto', 'tb_clasificacion.Nombre as Clasif', 'tb__status.Nombre as estatus','tb_tauxiliar.Comentarios_cli as Comentarios_cli')
        ->join('tb_tauxiliar','tb_tclientes.id_tcli','=','tb_tauxiliar.id_tcli')
        ->join('tb_departamentos','tb_tclientes.id_dep','=','tb_departamentos.id_dep')
        ->join('tb_clasificacion','tb_tclientes.id_cla','=','tb_clasificacion.id_cla')
