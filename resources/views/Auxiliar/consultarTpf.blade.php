@@ -4,7 +4,29 @@
 @stop
 @section('contenido')
 
+@if(session()->has('con'))
 
+{!! " <script> Swal.fire(
+ 'Correcto!',
+ 'Ticket aceptado',
+ 'success'  ) </script> "!!}
+@endif
+
+@if(session()->has('estatus'))
+
+{!! " <script> Swal.fire(
+ 'Correcto!',
+ 'Estatus editado',
+ 'success'  ) </script> "!!}
+@endif
+  
+@if(session()->has('comentario'))
+
+{!! " <script> Swal.fire(
+ 'Correcto!',
+ 'Comentario agregado',
+ 'success'  ) </script> "!!}
+@endif
   
 
 
@@ -105,32 +127,51 @@
               </table>
               </div>
 
-              <table class="table modalfon text-light">
+              <table class="table modalfon text-light text-center">
                 <thead>
                   <tr>
-                    <th scope="col">No.Ticket:</th>
+                    <th scope="col">No.:</th>
                     <th scope="col">Dpto.:</th>
+                    <th scope="col">Clasificación:</th>
                     <th scope="col">Observaciones:</th>
                     <th scope="col">Estatus:</th>
                     <th scope="col">Fecha:</th>
-                    <th scope="col">Reporte:</th>
+                    <th scope="col">Acciones:</th>
                   </tr>
                 </thead>
                 <tbody>
-                   
+                  @foreach($consultaId as $consultas)
+                  
                     <tr>
-                        <th scope="row">1</th>
-                        <td > </td>
-                        <td > </td>
-                        <td > Completado</td>
-                        <td > </td>
+                      @if($consultas->status>=3)
+                      <th scope="row">{{$consultas->Id}}</th>
+                      <td > {{$consultas->Dpto}}</td>
+                      <td > {{$consultas->Clasif}}</td>
+                      <td >{{$consultas->Comentarios_cli}} </td>
+                      <td >{{$consultas->estatus}}</td>  
+                      <td >{{$consultas->FECHA}}</td>
+                     
+
+
+                      
+                             
                         <td>
-                            <a type="button" class="btn btn-outline-light" style="background-color: blueviolet">
-                            <img src="{{asset('img\reporte.png')}}" alt="" width="20" height="20">
-                            Generar</a>
+                            
+                            <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" id ="b" data-bs-target="#modalEditarEstatus-{{$consultas->id}}"style="background-color: blueviolet">
+                              <img src="{{asset('img\editar.png')}}" alt="" width="20" height="20">
+                              estatus</button>
+                              <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" id ="b" data-bs-target="#modalComentario-{{$consultas->id}}"style="background-color: blueviolet">
+                                <img src="{{asset('img\blog.png')}}" alt="" width="20" height="20">
+                                Comentario</button>
+                                <a type="button" class="btn btn-outline-light" style="background-color: blueviolet">
+                                  <img src="{{asset('img\reporte.png')}}" alt="" width="20" height="20">
+                                  reporte</a>
+                                @include('Auxiliar.modalEditarEstatus')
+                                @include('Auxiliar.modalComentario')
                         </td>
+                        @endif
                     </tr>
-                    <tr>
+                    {{-- <tr>
                       <th scope="row">2</th>
                       <td > </td>
                       <td > </td>
@@ -141,8 +182,9 @@
                             <img src="{{asset('img\reporte.png')}}" alt="" width="20" height="20">
                             Generar</button>
                       </td>
-                  </tr>
-                   
+                  </tr> --}}
+                 
+                  @endforeach
                 </tbody>
               </table>
 

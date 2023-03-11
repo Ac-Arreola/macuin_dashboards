@@ -111,6 +111,7 @@ Route::post('cliente', [ControladorEditarCliente::class,'store'])->name('cliente
 Route::get('cancelar/{id}/edit', [ControladorUsuarios::class,'cancelar'])->name('cancelar.edit')->middleware('auth');
 Route::put('cancelar/{id}', [ControladorEditarCliente::class,'update'])->name('cancelar.update');
 Route::get('cliente', [ControladorEditarCliente::class,'index'])->name('cliente.index')->middleware('auth');
+Route::put('comentariocli/{id}', [ControladorEditarCliente::class,'comentario'])->name('comentarios.clientes');
 
 //------------------ Rutas para auxiliar ----------------------------------
 
@@ -118,12 +119,18 @@ Route::get('auxiliar/muestra', [ControladorEditarAuxiliar::class,'muestra'])->na
 Route::put('auxiliar', [ControladorEditarAuxiliar::class,'update'])->name('auxiliar.update')->middleware('auth');
 Route::get('auxiliar/ticketsNv', [ControladorEditarAuxiliar::class,'mostrarTnv'])->name('auxiliar.mostrarTnv')->middleware('auth');
 Route::get('auxiliar/ticketsPf', [ControladorEditarAuxiliar::class,'mostrarTpf'])->name('auxiliar.mostrarTpf')->middleware('auth');
-
-//--------------------Ruta Ticket----------------------------------------
-Route::get('Tickets', [controladorTicketsJ::class,'mostrar'])->name('ticket.mostrar');
+Route::put('aceptar/{id}', [ControladorEditarAuxiliar::class,'editar'])->name('aceptar.editar');
+Route::put('editar/{id}', [ControladorEditarAuxiliar::class,'editarEstatus'])->name('estatus.editar');
+Route::put('comentario/{id}', [ControladorEditarAuxiliar::class,'comentario'])->name('comentario.editar');
+//--------------------Ruta Ticket jefe----------------------------------------
+Route::get('Tickets', [controladorTicketsJ::class,'mostrar'])->name('ticket.mostrar')->middleware('auth');
 Route::get('Tickets_A', [controladorTicketsJ::class,'index'])->name('ticket.index');
+Route::get('Tickets_B', [controladorTicketsJ::class,'muestra'])->name('ticket.muestra')->middleware('auth');
 
-Route::get('Tickets{id}/edit', [controladorTicketsJ::class,'edit'])->name('ticket.edit');
+Route::get('Tickets{id}/edit', [controladorTicketsJ::class,'edit'])->name('ticket.edit')->middleware('auth');
 Route::post('usuario/{id}', [controladorTicketsJ::class,'update'])->name('ticket.update');
 
-Route::get('Tickets{id}/ticket', [controladorTicketsJ::class,'ticket'])->name('ticket.ticket');
+Route::get('Tickets{id}/ticket', [controladorTicketsJ::class,'ticket'])->name('ticket.ticket')->middleware('auth');
+
+Route::put('comentario_cli/{id}', [controladorTicketsJ::class,'comentariocli'])->name('comentario.cliente');
+Route::put('comentario_aux/{id}', [controladorTicketsJ::class,'comentarioaux'])->name('comentario.auxiliar');

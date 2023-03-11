@@ -68,7 +68,7 @@
                                   <th scope="col">ID:</th>
                                   <th scope="col">Dpto.:</th>
                                   <th scope="col">Clasificación: </th>
-                                  <th scope="col">Status:</th>
+                                  <th scope="col">Estatus:</th>
                                   <th scope="col">Comentarios:</th>
                                 </tr>
                               </thead>
@@ -76,14 +76,15 @@
                               <tbody>
                                 
                                 @foreach($consultaId as $consultas)
-                                @if($consultas->Id == $consulta->id)
+                                @if($consultas->IdUSU == $consulta->id)
                                  
                                   <tr>
                                       <th scope="row">{{$consultas->Id}}</th>
                                       <td >{{$consultas->Dpto}}</td>
                                       <td >{{$consultas->Clasif}}</td>
+                                     
                                       <td >{{$consultas->estatus}}</td>
-                                      <td >{{$consultas->Comentarios_cli}}</td>
+                                      <td >{{$consultas->Comentarioaux}}</td>
                                   </tr>
                                  
                               </tbody>

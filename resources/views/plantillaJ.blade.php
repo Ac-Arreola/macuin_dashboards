@@ -36,15 +36,19 @@
             <ul class="navbar-nav ">
               <li class="nav-item ">
                 <a class="nav-link active text-light fw-bold" aria-current="page" 
-                href={{route('usuario.index')}}> Admin usuarios   | </a>
+                href={{route('usuario.index')}}>  Admin usuarios   | </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active text-light fw-bold" aria-current="page" 
-                href={{route('departamento.index')}}> Admin departamentos   | </a>
+                href={{route('departamento.index')}}>  Admin departamentos   | </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active text-light fw-bold" aria-current="page" 
-                href={{route('ticket.mostrar')}}> Asignar tickets   | </a>
+                href={{route('ticket.mostrar')}}>  Asignar tickets   | </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active text-light fw-bold" aria-current="page" 
+                href={{route('ticket.muestra')}}>  Tickets asignados  </a>
               </li>
             </ul>
           </div>

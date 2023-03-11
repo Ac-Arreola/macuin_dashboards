@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ValidadorDefinirAux;
+use App\Http\Requests\ValidadorAuxiliaJ;
+use App\Http\Requests\ValidadorClienteJ;
 use DB;
 use Carbon\Carbon;
 
@@ -16,7 +18,7 @@ class controladorTicketsJ extends Controller
         //$consultaId= DB::table('tb_tauxiliar')->get();
         $ConsultaUsu = DB::table('users')->where('id_rol',2)->where('name','LIKE','%'.$busqueda.'%')->get();
        $consultaId = DB::table('tb_tclientes')
-       ->select('tb_tauxiliar.id_taux as Id', 'tb_departamentos.Nombre as Dpto', 'tb_clasificacion.Nombre as Clasif', 'tb__status.Nombre as estatus','tb_tauxiliar.Comentarios_cli as Comentarios_cli')
+       ->select('tb_tauxiliar.id_taux as Id', 'tb_tauxiliar.id_usu as IdUSU','tb_tauxiliar.Comentarios as Comentarioaux','tb_departamentos.Nombre as Dpto', 'tb_clasificacion.Nombre as Clasif', 'tb__status.Nombre as estatus','tb_tauxiliar.Comentarios_cli as Comentarios_cli')
        ->join('tb_tauxiliar','tb_tclientes.id_tcli','=','tb_tauxiliar.id_tcli')
        ->join('tb_departamentos','tb_tclientes.id_dep','=','tb_departamentos.id_dep')
        ->join('tb_clasificacion','tb_tclientes.id_cla','=','tb_clasificacion.id_cla')
@@ -44,6 +46,20 @@ class controladorTicketsJ extends Controller
            
         }
         return view('Jefe.Tickets',compact('Consultat','ConsultaUsu'));
+    }
+
+    public function muestra(Request $request)
+    {
+       
+        $busqueda=$request->busqueda;
+        $Consultat= DB::table('tb_tclientes')
+        ->select('tb_tauxiliar.id_taux as Id', 'tb_tauxiliar.id_usu as IdUSU','tb_tauxiliar.Comentarios as Comentarioaux','tb_departamentos.Nombre as Dpto', 'tb_clasificacion.Nombre as Clasif', 'tb__status.Nombre as estatus','tb_tauxiliar.Comentarios_cli as Comentarios_cli','tb_tclientes.id_tcli as id','tb_tclientes.Fecha as FECHA','tb_tclientes.Comentarios as com','tb_tclientes.Comentarios_aux as comaux')
+        ->join('tb_tauxiliar','tb_tclientes.id_tcli','=','tb_tauxiliar.id_tcli')
+        ->join('tb_departamentos','tb_tclientes.id_dep','=','tb_departamentos.id_dep')
+        ->join('tb_clasificacion','tb_tclientes.id_cla','=','tb_clasificacion.id_cla')
+        ->join('tb__status','tb_tclientes.id_sta','=','tb__status.id_sta')
+        ->get();
+        return view('Jefe.TicketsAsig',compact('Consultat'));
     }
 
     public function ticket($id)
@@ -84,7 +100,7 @@ class controladorTicketsJ extends Controller
     }
 
     
-    public function update(Request $request, $id)
+    public function update(ValidadorDefinirAux $request, $id)
     {
         DB::table('tb_tauxiliar')->insert([
             "id_usu"=> $request->input('txtAuxiliar'),
@@ -101,12 +117,32 @@ class controladorTicketsJ extends Controller
                 "updated_at"=> Carbon::now()
 
         ]);
-        return redirect('Tickets_A')->with('con', 'abc');
+        return redirect('Tickets_B')->with('con', 'abc');
     }
 
     
     public function destroy($id)
     {
         //
+    }
+
+    public function comentarioaux(ValidadorAuxiliaJ $request, $id)
+    {
+        DB::table('tb_tauxiliar')->where('id_taux', $id)->update([
+            "Comentarios_cli"=>$request->input('txtNuevoComentario'),
+            "updated_at"=> Carbon::now()
+            
+    ]);
+    return redirect('Tickets_B')->with('comentarioaux', 'abc');
+    }
+
+    public function comentariocli(ValidadorClienteJ $request, $id)
+    {
+        DB::table('tb_tclientes')->where('id_tcli', $id)->update([
+            "Comentarios_aux"=>$request->input('txtNuevoComentario'),
+            "updated_at"=> Carbon::now()
+
+    ]);
+    return redirect('Tickets_B')->with('comentariocli', 'abc');
     }
 }

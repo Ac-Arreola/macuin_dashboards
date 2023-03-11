@@ -85,31 +85,59 @@
                   <tr>
                     <th scope="col">No.Ticket:</th>
                     <th scope="col">Dpto.:</th>
+                    <th scope="col">Clasif.:</th>
+
                     <th scope="col">Fecha: </th>
                     <th scope="col">Observaciones:</th>
+                    
+                    <th scope="col">Estatus:</th>
                     <th scope="col">Acciones:</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach($consultaId as $consultas)
+                      
+                  
+                    
                    
                     <tr>
-                        <th scope="row">1</th>
-                        <td > </td>
-                        <td > </td>
-                        <td > </td>
+                     
+                        <th scope="row">{{$consultas->Id}}</th>
+                        <td > {{$consultas->Dpto}}</td>
+                        <td > {{$consultas->Clasif}}</td>
+                        <td > {{$consultas->FECHA}}</td>
+                        <td >{{$consultas->Comentarios_cli}} </td>
+
+
+                        
+                        <td > {{$consultas->estatus}} </td>
                         <td>
-                            <a type="button" class="btn btn-outline-light" 
-                            style="background-color: blueviolet">
+                            <button  class="btn btn-outline-light" type="button" data-bs-toggle="modal" id ="b"data-bs-target="#modalAceptar-{{$consultas->id}}" style="background-color: blueviolet">
                             <img src="{{asset('img\mascota.png')}}" alt="" width="30" height="30">
-                            Realizar</a>
+                            Realizar</button>
+                            @include('Auxiliar.modalAceptar')
                         </td>
+                       
                     </tr>
                    
+                   
+                  
+                    @endforeach 
+                   
                 </tbody>
+              
+               
+                
+              
               </table>
+              
+           
+            
             
         </div>
       </div>
+    
 
   
 

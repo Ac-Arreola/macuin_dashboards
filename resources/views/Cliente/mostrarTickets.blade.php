@@ -21,6 +21,14 @@
  'success'  ) </script> "!!}
 @endif
 
+@if(session()->has('comentario'))
+
+{!! " <script> Swal.fire(
+ 'Correcto!',
+ 'Comentario enviado',
+ 'success'  ) </script> "!!}
+@endif
+
 
 <div class="container" style="max-height: calc(100vh - 210px);overflow-y: auto">
   <h1 class=" mt-4 text-center text-white fw-bold">Tickets Solicitados</h1>
@@ -41,7 +49,7 @@
     </div>
   </form>
   <br>
-    <table class="table modalfon text-light">
+    <table class="table modalfon text-light text-center">
         <thead>
           <tr>
             <th scope="col">No.:</th>
@@ -63,7 +71,10 @@
                 <td >{{$consulta->Status->Nombre}} </td>
                 
                 <td>
-                @if($consulta->id_sta == 1)
+                  <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" id ="b" data-bs-target="#modalComentario-{{$consulta->id_tcli}}"style="background-color: blueviolet">
+                    <img src="{{asset('img\blog.png')}}" alt="" width="20" height="20">
+                    Comentarios</button>
+                @if($consulta->id_sta <= 2)
                 <button class="btn btn-outline-light" data-bs-toggle="modal" id ="b"data-bs-target="#modalCancelar-{{$consulta->id_tcli}}">
                     <img src="{{asset('img\trashKn.png')}}" alt="" width="20" height="20">
                     Cancelar</button>
@@ -71,6 +82,7 @@
                     
                 </td>
                 @include('Cliente.modalCancelar')
+                @include('Cliente.modalComentario')
             </tr>
             @endforeach
         </tbody>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests\ValidadorSolicitudT;
+use App\Http\Requests\ValidadorComentarioCli;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -124,5 +125,15 @@ class ControladorEditarCliente extends Controller
     public function destroy($id)
     {
         
+    }
+
+    public function comentario(ValidadorComentarioCli $request, $id)
+    {
+        DB::table('tb_tclientes')->where('id_tcli', $id)->update([
+            "Comentarios"=>$request->input('txtNuevoComentario'),
+            "updated_at"=> Carbon::now()
+
+    ]);
+    return redirect('cliente')->with('comentario', 'abc');
     }
 }

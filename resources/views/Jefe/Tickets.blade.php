@@ -47,7 +47,7 @@
           <th scope="col">Cliente</th>
           <th scope="col">Departamento</th>
           <th scope="col">Clasificación</th>
-          <th scope="col">Status</th>
+          <th scope="col">Estatus</th>
           <th scope="col">Descripción cliente</th>
           <th scope="col">Asignar</th>
 

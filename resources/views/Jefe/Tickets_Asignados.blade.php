@@ -7,13 +7,7 @@
 @stop
 @section('contenido')
 
-@if(session()->has('con'))
 
-{!! " <script> Swal.fire(
- 'Correcto!',
- 'Ticket Asignado',
- 'success'  ) </script> "!!}
-@endif
 
 <div class="container mt-5 col-md-10 " >
   
