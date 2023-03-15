@@ -27,7 +27,7 @@ class ValidadorEditarA extends FormRequest
             'txtNombre'=> 'required', 
             'txtApe_pat'=>'required',
             'txtApe_mat'=> 'required', 
-            
+            'txtEmail'=> 'required', 
             
             'txtPassword'=> 'required',
             'txtConPassword'=>'required|same:txtPassword',

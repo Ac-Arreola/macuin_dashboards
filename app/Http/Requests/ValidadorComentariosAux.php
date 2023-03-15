@@ -24,7 +24,7 @@ class ValidadorComentariosAux extends FormRequest
     public function rules()
     {
         return [
-            'txtNuevoComentario'=> 'required', 
+            'txtNuevoComentario'=> 'required'
         ];
     }
 }

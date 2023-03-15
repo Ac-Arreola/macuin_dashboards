@@ -57,7 +57,7 @@
                                 <div class="col-sm-10">
                                   <select name="txtClasificacion" id="" class="form-control" style="background: #e9d7f5de" value="">
 
-                                    <option selected disabled="disabled" value="" style="background: #e9d7f5de">Selecciona clasificación:</option>
+                                    <option selected disabled="disabled" value="" style="background: #e9d7f5de">Selecciona Clasificación:</option>
                                       
                                       @foreach($ConsultaCla as $clasificacion)
                                           <option value="{{$clasificacion->id_cla}}">{{$clasificacion->Nombre}}</option>
@@ -67,12 +67,30 @@
                                 </div>
                                 <p class="text-primary fst-italic">{{$errors->first('txtClasificacion')}}</p>
                             </div>
+
+                            <div class="row mb-3">
+                              <label for="inputClasif" class="col-sm-2 col-form-label"> Dep.: </label>
+                              <div class="col-sm-10">
+                                        <select name="txtDepartamento" id="" class="form-control" style="background: #e9d7f5de" value=" {{ old('txtDepartamento')}}">
+                                          
+                                            
+                                            <option selected disabled="disabled" value="" style="background: #e9d7f5de">Selecciona Departamento:</option>
+                                            
+                                            @foreach($ConsultaDep as $departamento)
+                                                <option value="{{$departamento->id_dep}}">{{$departamento->Nombre}}</option>
+                                            
+                                            @endforeach
+                                           </select>
+                              </div>
+                                           <p class="text-info fst-Italic">{{$errors->first('txtDepartamento')}}</p>
+                            </div>
+
                               {{--Detalles--}}
                               <div class="row">
                                 <label for="inputDetalles" class="col-sm-2 col-form-label"> Detalle </label>
                                 <div class="col-sm-10">
                                   <textarea type="txt_Detalles" class="form-control" name ="txtDetalle"id="txtDetalles" 
-                                  placeholder="Deja alguna observación." rows="3"></textarea>
+                                  placeholder="Deja alguna observación.(Opcional)" rows="3"></textarea>
                                 </div>
                               </div>
                               <input type="txt_Autor" class="form-control" id="txtAutor" name ="txtStatus" placeholder="" value="1" readonly onmousedown="return false">

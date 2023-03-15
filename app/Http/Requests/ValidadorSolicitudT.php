@@ -26,7 +26,8 @@ class ValidadorSolicitudT extends FormRequest
         return [
             'txtFecha'=> 'required', 
             
-            'txtClasificacion'=>'required'
+            'txtClasificacion'=>'required',
+            'txtDepartamento'=>'required'
         ];
     }
 }

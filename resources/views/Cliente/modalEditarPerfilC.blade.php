@@ -38,6 +38,13 @@
       </div>
 
       <div class="mb-3">
+        <label class="form-label"> Correo: </label>
+        <input type="email" class="form-control" name="txtEmail" id="inp" value="{{Auth::user()->email}}" >
+        <p class="text-info fst-Italic">{{$errors->first('txtEmail')}}</p>
+        
+    </div>
+
+      <div class="mb-3">
         <label class="form-label"> Contraseña: </label>
         <input type="password" class="form-control" name="txtPassword" id="inp" value="" >
         <p class="text-info fst-Italic">{{$errors->first('txtPassword')}}</p>

@@ -75,6 +75,7 @@ class ControladorEditarAuxiliar extends Controller
             "name"=> $request->input('txtNombre'),
             "Ape_pat"=> $request->input('txtApe_pat'),
             "Ape_mat"=> $request->input('txtApe_mat'),
+            "email"=> $request->input('txtEmail'),
             
             
             "password"=> Hash::make($request->input('txtPassword')),
