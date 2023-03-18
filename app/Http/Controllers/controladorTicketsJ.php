@@ -51,13 +51,17 @@ class controladorTicketsJ extends Controller
     public function muestra(Request $request)
     {
        
-        $busqueda=$request->busqueda;
+        $busqueda_esta=$request->busqueda_estatus;
+        $busqueda_fech=$request->busqueda_fecha;
+        $busqueda_dep=$request->busqueda_dpto;
         $Consultat= DB::table('tb_tclientes')
         ->select('tb_tauxiliar.id_taux as Id', 'tb_tauxiliar.id_usu as IdUSU','tb_tauxiliar.Comentarios as Comentarioaux','tb_departamentos.Nombre as Dpto', 'tb_clasificacion.Nombre as Clasif', 'tb__status.Nombre as estatus','tb_tauxiliar.Comentarios_cli as Comentarios_cli','tb_tclientes.id_tcli as id','tb_tclientes.Fecha as FECHA','tb_tclientes.Comentarios as com','tb_tclientes.Comentarios_aux as comaux')
         ->join('tb_tauxiliar','tb_tclientes.id_tcli','=','tb_tauxiliar.id_tcli')
         ->join('tb_departamentos','tb_tclientes.id_dep','=','tb_departamentos.id_dep')
         ->join('tb_clasificacion','tb_tclientes.id_cla','=','tb_clasificacion.id_cla')
-        ->join('tb__status','tb_tclientes.id_sta','=','tb__status.id_sta')
+        ->join('tb__status','tb_tclientes.id_sta','=','tb__status.id_sta')->where('tb__status.Nombre','LIKE','%'.$busqueda_esta.'%')
+        ->where('tb_tclientes.Fecha','LIKE','%'.$busqueda_fech.'%')
+        ->where('tb_departamentos.Nombre','LIKE','%'.$busqueda_dep.'%')
         ->get();
         return view('Jefe.TicketsAsig',compact('Consultat'));
     }

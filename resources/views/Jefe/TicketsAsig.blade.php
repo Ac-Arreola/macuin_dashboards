@@ -43,24 +43,95 @@
       </a>
    </div>
   
-      {{--BARRA DE BUSQUEDA--}}
-      <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
-        <div>
+   <div class="container mb-4" 
+          style="max-height: calc(100vh - 210px);overflow-y: auto">
           <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
-            <div class="row g-3">
-                <div class="col-auto">
-                  <input type="text" name ="busqueda" class="form-control text-center form-control" placeholder="Buscar tickets por clasif" aria-describedby="button-addon2" id="in" height="35">
-                </div>
-                <div class="col-auto">
-                  <button class="btn btn-outline-light" style="background-color:#7979F7 " type="submit">
-                    <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
-                    width="35" height="35"></button>
-                </div>
-            </div>
-          </div>
-        </div>
-      </form>
-    {{--BARRA DE BUSQUEDA FIN--}}
+              <table>
+                <tr>
+                  <th>Departamento</th>
+                  <th>Estatus</th>
+                  <th>Fecha</th>
+                </tr>
+                <tr>
+                  <td>
+                      {{-- BARRA BUSQUEDA --}}
+                      <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+                        <div>
+                          <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
+                            <div class="row g-3">
+                              </div>
+                              {{--input departamento --}}
+                                <div class="col-8">
+                                  <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
+                                  placeholder="Busqueda por dpto." id="in" height="35">
+                                </div>
+                              {{--input departamento fin--}}
+                              {{--icono btn busqueda --}}
+                                <div class="col-auto">
+                                  <button class="btn btn-outline-light" style="background-color:#7979F7 " type="submit">
+                                    <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
+                                    width="18" height="18"></button>
+                                </div>
+                              {{--icono btn busqueda fin --}}
+                            </div>
+                          </div>
+                      </form>
+                      {{--BARRA BUSQUEDA FIN--}}
+                  </td>
+                  <td>
+                    {{-- BARRA BUSQUEDA --}}
+                    <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+                      
+                      <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
+                        <div class="row g-3 gap-3">
+                          </div>
+                          {{--input fecha --}}
+                            <div class="col-9">
+                              <input type="text" name ="busqueda_estatus" class="form-control text-center form-control" 
+                              placeholder="Busqueda por status"  id="in" height="35">
+                            </div>
+                            {{--input fecha fin --}}
+                            {{--icono btn busqueda fin --}}
+                            <div class="col-auto">
+                              <button class="btn btn-outline-light" style="background-color:#7979F7 " type="submit">
+                                <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
+                                width="18" height="18"></button>
+                            </div>
+                            {{--icono btn busqueda fin --}}
+                        </div>
+                      
+                  </form>
+                  {{--BARRA BUSQUEDA FIN--}}
+                  </td>
+                  <td>
+                      {{-- BARRA BUSQUEDA --}}
+                      <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+                      
+                          <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
+                            <div class="row g-3 ">
+                              </div>
+                              {{--input fecha --}}
+                                <div class="col-9">
+                                  <input type="date" name ="busqueda_fecha" class="form-control text-center form-control" 
+                                  id="in" height="35">
+                                </div>
+                                {{--input fecha fin --}}
+                                {{--icono btn busqueda fin --}}
+                                <div class="col-auto">
+                                  <button class="btn btn-outline-light" style="background-color:#7979F7 " type="submit">
+                                    <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
+                                    width="18" height="18"></button>
+                                </div>
+                                {{--icono btn busqueda fin --}}
+                            </div>
+                          
+                      </form>
+                      {{--BARRA BUSQUEDA FIN--}}
+                  </td>
+                  
+                </tr>
+              </table>
+              </div>
 
   <table class=" table text-center text-white" id="hey">
       <thead>
