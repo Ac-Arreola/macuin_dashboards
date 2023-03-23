@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ValidadorDepartamentos;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 use DB;
 use Carbon\Carbon;
@@ -17,12 +18,43 @@ class ControladorDepartamentos extends Controller
      */
     public function index(Request $request)
     {
+        $busqueda=$request->input('busqueda');
+        $buscar = "";
+        $reporte ="";
+        
+       
+        
+
+        $ConsultaDep= DB::table('tb_departamentos')->where('Nombre','LIKE','%'.$busqueda.'%')->get();
+        
+        if(isset($_GET['reporte'])){
+            $pdf = PDF::loadView('jefe.reporteDepartamentos', compact('ConsultaDep'));
+  
+  
+          return $pdf->download('departamento.reporte');
+
+          }else{
+            return view('Jefe.mostrarDepartamentos',compact('ConsultaDep'))->with('busqueda',$busqueda);
+
+          }
+      
+
+       
+        
+    } 
+
+    public function reporte(Request $request)
+    {
         $busqueda=$request->busqueda;
         
         $ConsultaDep= DB::table('tb_departamentos')->where('Nombre','LIKE','%'.$busqueda.'%')->get();
-        return view('Jefe.mostrarDepartamentos',compact('ConsultaDep'));
-    }
 
+        $pdf = PDF::loadView('jefe.reporteDepartamentos', compact('ConsultaDep'));
+
+
+        return $pdf->download('departamento.reporte');
+       
+    }
    
     public function create()
     {

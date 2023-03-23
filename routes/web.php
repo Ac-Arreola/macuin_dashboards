@@ -39,7 +39,8 @@ Route::put('departamento/{id}', [ControladorDepartamentos::class,'update'])->nam
 Route::get('departamento/{id}/show', [ControladorDepartamentos::class,'show'])->name('departamento.show')->middleware('auth');
 //Destroy
 Route::delete('departamento/{id}', [ControladorDepartamentos::class,'destroy'])->name('departamento.destroy');
-
+//reporte
+Route::get('departamento/reporte', [ControladorDepartamentos::class,'reporte'])->name('departamento.reporte')->middleware('auth');
 
 
 //------------------------------Usuarios--------------------------------------
