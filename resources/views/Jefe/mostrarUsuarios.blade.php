@@ -21,6 +21,8 @@
  'success'  ) </script> "!!}
 @endif
 
+
+
 @if(session()->has('Actualizado'))
 <?php
 
@@ -59,6 +61,14 @@
 })</script> "!!}
 @endif
 
+@if(session()->has('contrasena'))
+{!! " <script> Swal.fire(
+  'Correcto!',
+  'Contraseña editada',
+  'success'  ) </script> "!!}
+@endif
+
+
 
 <div class="container mt-5 col-md-10 " >
   
@@ -96,13 +106,14 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Nombre</th>
-          <th scope="col">Apellido paterno</th>
-          <th scope="col">Apellido materno</th>
+          
+          
           <th scope="col">Rol</th>
           <th scope="col">Departamento</th>
           <th scope="col">Email</th>
           
           <th scope="col">Editar</th>
+          <th scope="col">Cambiar contra</th>
           <th scope="col">Eliminar</th>
           
 
@@ -114,9 +125,8 @@
         @foreach($ConsultaUsu as $consulta)
         <tr>
           <th scope="row">{{$consulta->id}}</th>
-          <td>{{$consulta->name}}</td>
-          <td>{{$consulta->Ape_pat}}</td>
-          <td>{{$consulta->Ape_mat}}</td>
+          <td>{{$consulta->nombre}}</td>
+          
           <td>{{$consulta->roles->Nombre}}</td>
           <td>{{$consulta->departamento->Nombre}}</td>
           <td>{{$consulta->email}}</td>
@@ -124,8 +134,12 @@
           
           
           <td><button type="button" data-bs-toggle="modal" id ="b"data-bs-target="#editarUsuario-{{$consulta->id}}">
-            <img src={!! asset('img\editar.png') !!} id="opciones"alt="" ></td>
+            <img src={!! asset('img\usuario(5).png') !!} id="opciones"alt="" ></td>
           </button>
+
+          <td><button type="button" data-bs-toggle="modal" id ="b"data-bs-target="#editarContra-{{$consulta->id}}">
+            <img src={!! asset('img\contrasena.png') !!} id="opciones" alt="">
+        </button>
           <td><button type="button" data-bs-toggle="modal" id ="b"data-bs-target="#eliminarUsuario-{{$consulta->id}}">
             <img src={!! asset('img\borrar.png') !!} id="opciones" alt="">
         </button>
@@ -134,12 +148,13 @@
          
         </tr>
         @include('Jefe.editarUsuario')
-        
+       
         
        
         
       </tbody>
       @include('Jefe.eliminarUsuario')
+      @include('Jefe.editarContra')
       
       @endforeach
   

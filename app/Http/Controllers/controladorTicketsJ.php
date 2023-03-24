@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ValidadorDefinirAux;
 use App\Http\Requests\ValidadorAuxiliaJ;
 use App\Http\Requests\ValidadorClienteJ;
+use App\Http\Requests\ValidadorContra;
 use DB;
 use Carbon\Carbon;
 
@@ -149,4 +150,7 @@ class controladorTicketsJ extends Controller
     ]);
     return redirect('Tickets_B')->with('comentariocli', 'abc');
     }
+
+
+    
 }

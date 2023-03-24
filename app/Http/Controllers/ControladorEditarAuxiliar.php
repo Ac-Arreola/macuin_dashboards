@@ -78,7 +78,7 @@ class ControladorEditarAuxiliar extends Controller
             "email"=> $request->input('txtEmail'),
             
             
-            "password"=> Hash::make($request->input('txtPassword')),
+            
             
             
             "updated_at"=> Carbon::now()

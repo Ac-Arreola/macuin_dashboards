@@ -54,6 +54,8 @@ Route::get('usuario', [ControladorUsuarios::class,'index'])->name('usuario.index
 Route::get('usuario/{id}/edit', [ControladorUsuarios::class,'edit'])->name('usuario.edit')->middleware('auth');
 //Update
 Route::put('usuario/{id}', [ControladorUsuarios::class,'update'])->name('usuario.update');
+
+Route::put('usu/{id}', [ControladorUsuarios::class,'editar'])->name('usuario.editar');
 //show
 Route::get('usuario/{id}/show', [ControladorUsuarios::class,'show'])->name('usuario.show')->middleware('auth');
 //Destroy

@@ -63,11 +63,7 @@ class ControladorCliente extends Controller
             "Ape_pat"=> $request->input('txtApe_pat'),
             "Ape_mat"=> $request->input('txtApe_mat'),
             "email"=> $request->input('txtEmail'),
-            
-            
-            "password"=> Hash::make($request->input('txtPassword')),
-            
-            
+
             "updated_at"=> Carbon::now()
         ]);
         

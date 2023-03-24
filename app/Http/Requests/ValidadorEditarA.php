@@ -29,8 +29,7 @@ class ValidadorEditarA extends FormRequest
             'txtApe_mat'=> 'required', 
             'txtEmail'=> 'required', 
             
-            'txtPassword'=> 'required',
-            'txtConPassword'=>'required|same:txtPassword',
+            
         ];
     }
 }

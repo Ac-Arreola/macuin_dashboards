@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\ValidadorUsuarios;
+use App\Http\Requests\ValidadorEditarUsuario;
+use App\Http\Requests\ValidadorContra;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -20,7 +22,7 @@ class ControladorUsuarios extends Controller
        
         $ConsultaDep = DB::table('tb_departamentos')->get();
         $ConsultaRol = DB::table('tb_roles')->get();
-        $ConsultaUsu= DB::table('users')->where('name','LIKE','%'.$busqueda.'%')->get();
+        $ConsultaUsu= DB::table('users')->select('id','name','Ape_pat','Ape_mat','email','id_dep','id_rol' ,DB::raw('CONCAT(name ," ",Ape_pat," " ,Ape_mat) as nombre'))->where('name','LIKE','%'.$busqueda.'%')->get();
         foreach ($ConsultaUsu as $usuario) {
            
             $usuario->roles=  DB::table('tb_roles')->where('id_rol', $usuario->id_rol)->first();
@@ -29,6 +31,7 @@ class ControladorUsuarios extends Controller
         
         return view('Jefe.mostrarUsuarios',compact('ConsultaUsu','ConsultaDep','ConsultaRol'));
     }
+
 
     
     public function create()
@@ -110,7 +113,7 @@ class ControladorUsuarios extends Controller
     }
 
   
-    public function update(ValidadorUsuarios $request, $id)
+    public function update(ValidadorEditarUsuario $request, $id)
 
     {
         
@@ -122,9 +125,9 @@ class ControladorUsuarios extends Controller
                 "name"=> $request->input('txtNombre'),
                 "Ape_pat"=> $request->input('txtApe_pat'),
                 "Ape_mat"=> $request->input('txtApe_mat'),
-                
+               
                 "email"=> $request->input('txtEmail'),
-                "password"=> Hash::make($request->input('txtPassword')),
+                
                 "id_dep"=> $request->input('txtDepartamento'),
                 "id_rol"=> $request->input('txtRol'),
                 
@@ -148,7 +151,7 @@ class ControladorUsuarios extends Controller
                 "Ape_mat"=> $request->input('txtApe_mat'),
                 
                 "email"=> $request->input('txtEmail'),
-                "password"=> Hash::make($request->input('txtPassword')),
+                
                 "id_dep"=> $request->input('txtDepartamento'),
                 "id_rol"=> $request->input('txtRol'),
                 
@@ -165,5 +168,15 @@ class ControladorUsuarios extends Controller
     {
         DB::table('users')->where('id', $id)->delete();
         return redirect('usuario')->with('Eliminado','abc');
+    }
+
+    public function editar(ValidadorContra $request, $id){
+        DB::table('users')->where('id', $id)->update([
+            "password"=> Hash::make($request->input('txtPassword')),
+            
+            
+            "updated_at"=> Carbon::now()
+        ]);
+        return redirect('usuario')->with('contrasena','abc');
     }
 }

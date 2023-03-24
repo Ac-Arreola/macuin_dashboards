@@ -44,17 +44,7 @@
         
     </div>
 
-      <div class="mb-3">
-        <label class="form-label"> Contraseña: </label>
-        <input type="password" class="form-control" name="txtPassword" id="inp" value="" >
-        <p class="text-info fst-Italic">{{$errors->first('txtPassword')}}</p>
-    </div>
-
-    <div class="mb-3">
-      <label class="form-label"> Confirma contraseña: </label>
-      <input type="password" class="form-control" name="txtConPassword" id="inp" value="" >
-      <p class="text-info fst-Italic">{{$errors->first('txtConPassword')}}</p>
-  </div>
+      
 
 
       <div class="modal-footer text-center">

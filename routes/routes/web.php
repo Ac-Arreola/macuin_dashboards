@@ -52,7 +52,11 @@ Route::get('usuario', [ControladorUsuarios::class,'index'])->name('usuario.index
 Route::get('usuario/{id}/edit', [ControladorUsuarios::class,'edit'])->name('usuario.edit')->middleware('auth');
 //Update
 Route::put('usuario/{id}', [ControladorUsuarios::class,'update'])->name('usuario.update');
-//show
+
+
+Route::put('user/{id}', [ControladorUsuarios::class,'editar'])->name('usuario.editar');
+
+
 Route::get('usuario/{id}/show', [ControladorUsuarios::class,'show'])->name('usuario.show')->middleware('auth');
 //Destroy
 Route::delete('usuario/{id}', [ControladorUsuarios::class,'destroy'])->name('usuario.destroy');
