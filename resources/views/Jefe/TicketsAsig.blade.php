@@ -35,143 +35,192 @@
 <div class="container mt-5 col-md-10 " >
   
     <h1 class=" mt-4 text-center text-white fw-bold">Tickets</h1>
-    
-       
-    <div class="container">
-      <a type="button" class="btn btn-outline-light mb-4"  style="background-color:#8c3bb2" data-bs-toggle="" data-bs-target="#" href="{{route('ticket.index')}}" >
-       Auxiliares <i class="bi bi-plus-circle"></i>
-      </a>
-   </div>
-  
-   <div class="container mb-4" 
+
+  <div class="container mb-4" 
           style="max-height: calc(100vh - 210px);overflow-y: auto">
-          <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
-              <table class="text-white">
-                <tr>
-                  <th>Departamento</th>
-                  <th>Estatus</th>
-                  <th>Fecha</th>
-                  <th></th>
-                </tr>
-                <tr>
-                  <td>
-                      {{-- BARRA BUSQUEDA --}}
-                      <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
-                        <div>
-                          <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
-                            <div class="row g-3">
+            
+                      
+                          {{-- BARRA BUSQUEDA --}}
+            <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+                            
+                                {{--  PRUEBA ALINEAR     --}}
+                                  <div class="container">
+                                    <table>
+                                      <tr>
+                                        <td>
+                                            {{-- BARRA BUSQUEDA --}}
+                                            <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+                                              <div>
+                                                <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
+                                                  <div class="container" >
+                                                    <a type="button" class="btn btn-outline-light mb-4 "  style="background-color:#8c3bb2" data-bs-toggle="" data-bs-target="#" href="{{route('ticket.index')}}" >
+                                                      <img  class="mt-2" src="{{asset('img/helpers.png')}}" alt="" id="helpers" width="50" height="50">
+                                                      Auxiliares <i class="bi bi-plus-circle"></i>
+                                                    </a>
+                                                  </div>
+                                                  </div>
+                                                </div>
+                                            </form>
+                                            {{--BARRA BUSQUEDA FIN--}}
+                                        </td>
+                                        <td>
+                                          {{-- BARRA BUSQUEDA --}}
+                                          <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+                                            
+                                            <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
+                                              
+                                                ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+                                              
+                                            </div>
+                                            
+                                        </form>
+                                        {{--BARRA BUSQUEDA FIN--}}
+                                        </td>
+                                        <td>
+                                            {{-- BARRA BUSQUEDA --}}
+                                            <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+                                            
+                                                <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
+                                                  <div class="col-auto">
+                                                    <button class="btn btn-outline-light" style="background-color:#561088 " name="reporte" type="submit">
+                                                      <img class="mt-2" src="{{asset('img/reporte.png')}}" alt="" id="searchicon" 
+                                                      width="50" height="50"><br> Descargar</button>
+                                                    </div>
+                                                </div>
+                                                
+                                            </form>
+                                            {{--BARRA BUSQUEDA FIN--}}
+                                        </td>
+                                        
+                                      </tr>
+                                    </table>
 
-                              @if(session()->has('Consultat'))
-                              <?php
-                      
-                              $busqueda_dpto = session()->get('busqueda_dpto');
-                                  
-                              ?>
-                              <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
-                              placeholder="Busqueda por nombre" id="in" height="35" value={{$busqueda_dpto}}>
-                              
-                              @endif
-                              </div>
-                              {{--input departamento --}}
-                                <div class="col-8">
-                                  <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
-                                  placeholder="Busqueda por dpto." id="in" height="35" value={{$busqueda_dpto}}>
-                                </div>
-                              {{--input departamento fin--}}
-                              {{--icono btn busqueda --}}
-                                <div class="col-auto">
-                                  <button class="btn btn-outline-light" style="background-color:#7979F7 " type="submit">
-                                    <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
-                                    width="18" height="18"></button>
-                                </div>
-                              {{--icono btn busqueda fin --}}
-                            </div>
-                          </div>
-                      
-                      {{--BARRA BUSQUEDA FIN--}}
-                  </td>
-                  <td>
-                    {{-- BARRA BUSQUEDA --}}
-                    
-                      
-                      <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
-                        <div class="row g-3 gap-3">
-                          @if(session()->has('Consultat'))
-                              <?php
-                      
-                              $busqueda_estatus = session()->get('busqueda_estatus');
-                                  
-                              ?>
-                              <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
-                              placeholder="Busqueda por nombre" id="in" height="35" value={{$busqueda_estatus}}>
-                              
-                              @endif
-                          </div>
-                          {{--input fecha --}}
-                            <div class="col-9">
-                              <input type="text" name ="busqueda_estatus" class="form-control text-center form-control" 
-                              placeholder="Busqueda por status"  id="in" height="35" value={{$busqueda_estatus}}>
-                            </div>
-                            {{--input fecha fin --}}
-                            {{--icono btn busqueda fin --}}
-                            <div class="col-auto">
-                              <button class="btn btn-outline-light" style="background-color:#7979F7 " type="submit">
-                                <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
-                                width="18" height="18"></button>
-                            </div>
-                            {{--icono btn busqueda fin --}}
-                        </div>
-                      
-                  
-                  {{--BARRA BUSQUEDA FIN--}}
-                  </td>
-                  <td>
-                      {{-- BARRA BUSQUEDA --}}
-                      
-                      
-                          <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
-                            <div class="row g-3 ">
 
-                              @if(session()->has('busqueda_fecha'))
-                              <?php
-                      
-                              $busqueda_fecha = session()->get('busqueda_fecha');
-                                  
-                              ?>
-                              <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
-                              placeholder="Busqueda por nombre" id="in" height="35" value={{$busqueda_fecha}}>
-                              
-                              @endif
+                                {{--   TERMINA PRUEBA ALINEAR   --}}
+
+
+
+
+                                
+                                <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
+                                  <table class="text-white">
+                                      <tr>
+                                        <th>Departamento</th>
+                                        <th>Estatus</th>
+                                        <th>Fecha</th>
+                                        <th></th>
+                                      </tr>
+                                  <tr>
                               </div>
-                              {{--input fecha --}}
-                                <div class="col-9">
-                                  <input type="date" name ="busqueda_fecha" class="form-control text-center form-control" 
-                                  id="in" height="35" value={{$busqueda_fecha}}>
+                              <td>
+                                <div>
+                                  <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
+                                    <div class="row g-3">
+
+                                      @if(session()->has('Consultat'))
+                                      <?php
+                              
+                                      $busqueda_dpto = session()->get('busqueda_dpto');
+                                          
+                                      ?>
+                                      <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
+                                      placeholder="Busqueda por nombre" id="in" height="35" value={{$busqueda_dpto}}>
+                                      
+                                      @endif
+                                      </div>
+                                      {{--input departamento --}}
+                                        <div class="col-8">
+                                          <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
+                                          placeholder="Busqueda por dpto." id="in" height="35" value={{$busqueda_dpto}}>
+                                        </div>
+                                      {{--input departamento fin--}}
+                                      {{--icono btn busqueda --}}
+                                        <div class="col-auto">
+                                          <button class="btn btn-outline-light" style="background-color:#7979F7 " type="submit">
+                                            <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
+                                            width="18" height="18"></button>
+                                        </div>
+                                      {{--icono btn busqueda fin --}}
+                                    </div>
+                                  </div>
+                              
+                              {{--BARRA BUSQUEDA FIN--}}
+                          </td>
+                          <td>
+                            {{-- BARRA BUSQUEDA --}}
+                            
+                              
+                              <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
+                                <div class="row g-3 gap-3">
+                                  @if(session()->has('Consultat'))
+                                      <?php
+                              
+                                      $busqueda_estatus = session()->get('busqueda_estatus');
+                                          
+                                      ?>
+                                      <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
+                                      placeholder="Busqueda por nombre" id="in" height="35" value={{$busqueda_estatus}}>
+                                      
+                                      @endif
+                                  </div>
+                                  {{--input fecha --}}
+                                    <div class="col-9">
+                                      <input type="text" name ="busqueda_estatus" class="form-control text-center form-control" 
+                                      placeholder="Busqueda por status"  id="in" height="35" value={{$busqueda_estatus}}>
+                                    </div>
+                                    {{--input fecha fin --}}
+                                    {{--icono btn busqueda fin --}}
+                                    <div class="col-auto">
+                                      <button class="btn btn-outline-light" style="background-color:#7979F7 " type="submit">
+                                        <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
+                                        width="18" height="18"></button>
+                                    </div>
+                                    {{--icono btn busqueda fin --}}
                                 </div>
-                                {{--input fecha fin --}}
-                                {{--icono btn busqueda fin --}}
-                                <div class="col-auto">
-                                  <button class="btn btn-outline-light" style="background-color:#7979F7 " type="submit">
-                                    <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
-                                    width="18" height="18"></button>
-                                </div>
-                                {{--icono btn busqueda fin --}}
-                            </div>
+                              
                           
-                      
-                      {{--BARRA BUSQUEDA FIN--}}
-                  </td>
-                  <td>
-                    <div class="col-auto">
-                      <button class="btn btn-outline-light" style="background-color:#561088 " name="reporte" type="submit">
-                        <img src="{{asset('img/reporte.png')}}" alt="" id="searchicon" 
-                        width="50" height="50"></button>
-                      </div>
-                  </td>
-                </form>
+                          {{--BARRA BUSQUEDA FIN--}}
+                          </td>
+                          <td>
+                              {{-- BARRA BUSQUEDA --}}
+                              
+                              
+                                  <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <div class="row g-3 ">
+
+                                      @if(session()->has('busqueda_fecha'))
+                                      <?php
+                              
+                                      $busqueda_fecha = session()->get('busqueda_fecha');
+                                          
+                                      ?>
+                                      <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
+                                      placeholder="Busqueda por nombre" id="in" height="35" value={{$busqueda_fecha}}>
+                                      
+                                      @endif
+                                      </div>
+                                      {{--input fecha --}}
+                                        <div class="col-9">
+                                          <input type="date" name ="busqueda_fecha" class="form-control text-center form-control" 
+                                          id="in" height="35" value={{$busqueda_fecha}}>
+                                        </div>
+                                        {{--input fecha fin --}}
+                                        {{--icono btn busqueda fin --}}
+                                        <div class="col-auto">
+                                          <button class="btn btn-outline-light" style="background-color:#7979F7 " type="submit">
+                                            <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
+                                            width="18" height="18"></button>
+                                        </div>
+                                        {{--icono btn busqueda fin --}}
+                                    </div>
+                                  
+                              
+                              {{--BARRA BUSQUEDA FIN--}}
+                          </td>
+            </form>
                 </tr>
               </table>
-              </div>
+              
 
   <table class=" table text-center text-white" id="hey">
       <thead>

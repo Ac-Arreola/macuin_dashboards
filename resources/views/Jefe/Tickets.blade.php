@@ -17,7 +17,8 @@
        
     <div class="container">
       <a type="button" class="btn btn-outline-light mb-4"  style="background-color:#8c3bb2" data-bs-toggle="" data-bs-target="#" href="{{route('ticket.index')}}" >
-       Auxiliares <i class="bi bi-plus-circle"></i>
+        <img  class="mt-2 mb-2" src="{{asset('img/helpers.png')}}" alt="" id="helpers1" width="50" height="50">
+        Auxiliares <i class="bi bi-plus-circle"></i>
       </a>
    </div>
   
