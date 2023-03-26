@@ -102,3 +102,14 @@ input{
    height: 200px;
    border: 1px solid #000;
 }
+
+#txtAutor{
+     color: transparent;
+     border: transparent;
+}
+
+#txtid{
+     color: #d19ff0de;
+     border: #d19ff0de;
+     background-color:#d19ff0de;
+}

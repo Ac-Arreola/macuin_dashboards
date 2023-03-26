@@ -13,18 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tb_usuarios', function (Blueprint $table) {
-            $table->id('id_usu');
-            $table->unsignedBigInteger('id_dep');
-            $table->unsignedBigInteger('id_rol');
-            $table->string('Nombre');
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
             $table->string('Ape_pat');
             $table->string('Ape_mat');
-            $table->string('Username');
-            $table->string('Email');
-            $table->string('Password');
-          
+            $table->string('email')->unique();
+            $table->unsignedBigInteger('id_dep');
+            $table->unsignedBigInteger('id_rol');
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
+
 
             $table->foreign('id_dep')->references('id_dep')->on('tb_departamentos')
             ->onUpdate('cascade')
@@ -32,6 +33,9 @@ return new class extends Migration
             $table->foreign('id_rol')->references('id_rol')->on('tb_roles')
             ->onUpdate('cascade')
             ->onDelete('cascade');
+
+
+            
         });
     }
 
@@ -42,6 +46,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_usuarios');
+        Schema::dropIfExists('users');
     }
 };
