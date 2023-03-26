@@ -43,18 +43,7 @@ class ControladorDepartamentos extends Controller
         
     } 
 
-    public function reporte(Request $request)
-    {
-        $busqueda=$request->busqueda;
-        
-        $ConsultaDep= DB::table('tb_departamentos')->where('Nombre','LIKE','%'.$busqueda.'%')->get();
-
-        $pdf = PDF::loadView('jefe.reporteDepartamentos', compact('ConsultaDep'));
-
-
-        return $pdf->download('departamento.reporte');
-       
-    }
+   
    
     public function create()
     {

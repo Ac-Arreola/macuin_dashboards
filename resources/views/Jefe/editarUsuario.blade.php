@@ -49,7 +49,7 @@
 
   <div class="mb-3">
     <label class="form-label"> Rol: </label>
-              <select name="txtRol" id="" class="form-control" style="background: #e9d7f5de" value="{{$consulta->id_rol}}" >
+              <select name="txtRol" id="" class="form-control" style="background: #e9d7f5de" value="" >
                 
                   
                   <option selected disabled="disabled" value="" style="background: #e9d7f5de">Selecciona Rol:</option>
@@ -62,7 +62,7 @@
   </div>
         <div class="mb-3">
           <label class="form-label"> Departamento: </label>
-                    <select name="txtDepartamento" id="" class="form-control" style="background: #e9d7f5de" value="{{$consulta->id_dep}}" >
+                    <select name="txtDepartamento" id="" class="form-control" style="background: #e9d7f5de" value="" >
                       
                         
                         <option selected disabled="disabled" value="" style="background: #e9d7f5de">Selecciona Departamento:</option>

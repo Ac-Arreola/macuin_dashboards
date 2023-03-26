@@ -7,6 +7,8 @@ use App\Http\Requests\ValidadorDefinirAux;
 use App\Http\Requests\ValidadorAuxiliaJ;
 use App\Http\Requests\ValidadorClienteJ;
 use App\Http\Requests\ValidadorContra;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 use DB;
 use Carbon\Carbon;
 
@@ -25,7 +27,8 @@ class controladorTicketsJ extends Controller
        ->join('tb_clasificacion','tb_tclientes.id_cla','=','tb_clasificacion.id_cla')
        ->join('tb__status','tb_tclientes.id_sta','=','tb__status.id_sta')
        ->get();
-    
+        
+       
 
         return view('Jefe.Tickets_Asignados',compact('ConsultaUsu','consultaId'));
     }
@@ -52,19 +55,31 @@ class controladorTicketsJ extends Controller
     public function muestra(Request $request)
     {
        
-        $busqueda_esta=$request->busqueda_estatus;
-        $busqueda_fech=$request->busqueda_fecha;
-        $busqueda_dep=$request->busqueda_dpto;
+        $busqueda_estatus=$request->busqueda_estatus;
+        $busqueda_fecha=$request->busqueda_fecha;
+        $busqueda_dpto=$request->busqueda_dpto;
+
         $Consultat= DB::table('tb_tclientes')
         ->select('tb_tauxiliar.id_taux as Id', 'tb_tauxiliar.id_usu as IdUSU','tb_tauxiliar.Comentarios as Comentarioaux','tb_departamentos.Nombre as Dpto', 'tb_clasificacion.Nombre as Clasif', 'tb__status.Nombre as estatus','tb_tauxiliar.Comentarios_cli as Comentarios_cli','tb_tclientes.id_tcli as id','tb_tclientes.Fecha as FECHA','tb_tclientes.Comentarios as com','tb_tclientes.Comentarios_aux as comaux')
         ->join('tb_tauxiliar','tb_tclientes.id_tcli','=','tb_tauxiliar.id_tcli')
         ->join('tb_departamentos','tb_tclientes.id_dep','=','tb_departamentos.id_dep')
         ->join('tb_clasificacion','tb_tclientes.id_cla','=','tb_clasificacion.id_cla')
-        ->join('tb__status','tb_tclientes.id_sta','=','tb__status.id_sta')->where('tb__status.Nombre','LIKE','%'.$busqueda_esta.'%')
-        ->where('tb_tclientes.Fecha','LIKE','%'.$busqueda_fech.'%')
-        ->where('tb_departamentos.Nombre','LIKE','%'.$busqueda_dep.'%')
+        ->join('tb__status','tb_tclientes.id_sta','=','tb__status.id_sta')
+        ->where('tb__status.Nombre','LIKE','%'.$busqueda_estatus.'%')
+        ->where('tb_tclientes.Fecha','LIKE','%'.$busqueda_fecha.'%')
+        ->where('tb_departamentos.Nombre','LIKE','%'.$busqueda_dpto.'%')
         ->get();
-        return view('Jefe.TicketsAsig',compact('Consultat'));
+
+        if(isset($_GET['reporte'])){
+            $pdf = PDF::loadView('jefe.reportesTickets', compact('Consultat'));
+  
+  
+          return $pdf->download('Tickets.reporte');
+
+          }else{
+        return view('Jefe.TicketsAsig',compact('Consultat'))->with('busqueda_estatus',$busqueda_estatus)->with('busqueda_fecha', $busqueda_fecha)->with('busqueda_dpto',$busqueda_dpto);
+
+          }
     }
 
     public function ticket($id)

@@ -46,11 +46,12 @@
    <div class="container mb-4" 
           style="max-height: calc(100vh - 210px);overflow-y: auto">
           <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
-              <table>
+              <table class="text-white">
                 <tr>
                   <th>Departamento</th>
                   <th>Estatus</th>
                   <th>Fecha</th>
+                  <th></th>
                 </tr>
                 <tr>
                   <td>
@@ -59,11 +60,22 @@
                         <div>
                           <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
                             <div class="row g-3">
+
+                              @if(session()->has('Consultat'))
+                              <?php
+                      
+                              $busqueda_dpto = session()->get('busqueda_dpto');
+                                  
+                              ?>
+                              <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
+                              placeholder="Busqueda por nombre" id="in" height="35" value={{$busqueda_dpto}}>
+                              
+                              @endif
                               </div>
                               {{--input departamento --}}
                                 <div class="col-8">
                                   <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
-                                  placeholder="Busqueda por dpto." id="in" height="35">
+                                  placeholder="Busqueda por dpto." id="in" height="35" value={{$busqueda_dpto}}>
                                 </div>
                               {{--input departamento fin--}}
                               {{--icono btn busqueda --}}
@@ -75,20 +87,30 @@
                               {{--icono btn busqueda fin --}}
                             </div>
                           </div>
-                      </form>
+                      
                       {{--BARRA BUSQUEDA FIN--}}
                   </td>
                   <td>
                     {{-- BARRA BUSQUEDA --}}
-                    <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+                    
                       
                       <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
                         <div class="row g-3 gap-3">
+                          @if(session()->has('Consultat'))
+                              <?php
+                      
+                              $busqueda_estatus = session()->get('busqueda_estatus');
+                                  
+                              ?>
+                              <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
+                              placeholder="Busqueda por nombre" id="in" height="35" value={{$busqueda_estatus}}>
+                              
+                              @endif
                           </div>
                           {{--input fecha --}}
                             <div class="col-9">
                               <input type="text" name ="busqueda_estatus" class="form-control text-center form-control" 
-                              placeholder="Busqueda por status"  id="in" height="35">
+                              placeholder="Busqueda por status"  id="in" height="35" value={{$busqueda_estatus}}>
                             </div>
                             {{--input fecha fin --}}
                             {{--icono btn busqueda fin --}}
@@ -100,20 +122,31 @@
                             {{--icono btn busqueda fin --}}
                         </div>
                       
-                  </form>
+                  
                   {{--BARRA BUSQUEDA FIN--}}
                   </td>
                   <td>
                       {{-- BARRA BUSQUEDA --}}
-                      <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+                      
                       
                           <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
                             <div class="row g-3 ">
+
+                              @if(session()->has('busqueda_fecha'))
+                              <?php
+                      
+                              $busqueda_fecha = session()->get('busqueda_fecha');
+                                  
+                              ?>
+                              <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
+                              placeholder="Busqueda por nombre" id="in" height="35" value={{$busqueda_fecha}}>
+                              
+                              @endif
                               </div>
                               {{--input fecha --}}
                                 <div class="col-9">
                                   <input type="date" name ="busqueda_fecha" class="form-control text-center form-control" 
-                                  id="in" height="35">
+                                  id="in" height="35" value={{$busqueda_fecha}}>
                                 </div>
                                 {{--input fecha fin --}}
                                 {{--icono btn busqueda fin --}}
@@ -125,10 +158,17 @@
                                 {{--icono btn busqueda fin --}}
                             </div>
                           
-                      </form>
+                      
                       {{--BARRA BUSQUEDA FIN--}}
                   </td>
-                  
+                  <td>
+                    <div class="col-auto">
+                      <button class="btn btn-outline-light" style="background-color:#561088 " name="reporte" type="submit">
+                        <img src="{{asset('img/reporte.png')}}" alt="" id="searchicon" 
+                        width="50" height="50"></button>
+                      </div>
+                  </td>
+                </form>
                 </tr>
               </table>
               </div>
@@ -173,9 +213,7 @@
               <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" id ="b" data-bs-target="#modalComentarioAux-{{$consultaaa->id}}"style="background-color: blueviolet">
                 <img src="{{asset('img\blog.png')}}" alt="" width="20" height="20">
                 Comentario aux</button>
-              <a type="button" class="btn btn-outline-light" style="background-color: blueviolet">
-                <img src="{{asset('img\reporte.png')}}" alt="" width="20" height="20">
-                reporte</a>
+              
               
                 @include('Jefe.modalComentarioCli')
                 @include('Jefe.modalComentarioAux')

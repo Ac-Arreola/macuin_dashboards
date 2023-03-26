@@ -8,6 +8,7 @@ use App\Http\Requests\ValidadorUsuarios;
 use App\Http\Requests\ValidadorEditarUsuario;
 use App\Http\Requests\ValidadorContra;
 use Illuminate\Support\Facades\Hash;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 use DB;
@@ -18,18 +19,29 @@ class ControladorUsuarios extends Controller
    
     public function index(Request $request)
     {
-        $busqueda=$request->busqueda;
+        $busqueda_nombre=$request->busqueda_nombre;
+        $busqueda_rol=$request->busqueda_rol;
+        $reporte ="";
        
         $ConsultaDep = DB::table('tb_departamentos')->get();
         $ConsultaRol = DB::table('tb_roles')->get();
-        $ConsultaUsu= DB::table('users')->select('id','name','Ape_pat','Ape_mat','email','id_dep','id_rol' ,DB::raw('CONCAT(name ," ",Ape_pat," " ,Ape_mat) as nombre'))->where('name','LIKE','%'.$busqueda.'%')->get();
-        foreach ($ConsultaUsu as $usuario) {
-           
-            $usuario->roles=  DB::table('tb_roles')->where('id_rol', $usuario->id_rol)->first();
-            $usuario->departamento=  DB::table('tb_departamentos')->where('id_dep', $usuario->id_dep)->first();
-        }
+        $ConsultaUsu= DB::table('users')->select('users.id as id','users.name as name','users.Ape_pat as Ape_pat','users.Ape_mat as Ape_mat','users.email as email','tb_departamentos.id_dep as id_dep','tb_roles.id_rol as id_rol ','tb_roles.Nombre as Roles','tb_departamentos.Nombre as Departamentos','users.id_rol as Rol ','users.id_dep as dep ' ,DB::raw('CONCAT(name ," ",Ape_pat," " ,Ape_mat) as nombre'))
+        ->join('tb_roles','users.id_rol','=','tb_roles.id_rol')
+        ->join('tb_departamentos','users.id_dep','=','tb_departamentos.id_dep')
+        ->where('users.name','LIKE','%'.$busqueda_nombre.'%')
+        ->where('tb_roles.Nombre','LIKE','%'.$busqueda_rol.'%')->get();
+
+        if(isset($_GET['reporte'])){
+            $pdf = PDF::loadView('jefe.reporteUsuarios', compact('ConsultaUsu'));
+  
+  
+          return $pdf->download('Usuarios.reporte');
+
+          }else{
         
-        return view('Jefe.mostrarUsuarios',compact('ConsultaUsu','ConsultaDep','ConsultaRol'));
+        
+        return view('Jefe.mostrarUsuarios',compact('ConsultaUsu','ConsultaDep','ConsultaRol'))->with('busqueda_nombre',$busqueda_nombre)->with('busqueda_rol',$busqueda_rol);
+          }
     }
 
 
