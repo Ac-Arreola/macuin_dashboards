@@ -58,12 +58,31 @@ class ControladorCliente extends Controller
     //Edita su propio perfil (cliente)
     public function update(ValidadorEditarC $request)
     {
+
+        if($request->hasFile('foto')){
+            $file = $request->file('foto');
+                $destinationPath ='img/featureds/';
+                $filename = time() . '-' . $file->getClientOriginalName();
+                $uploadSuccess = $request->file('foto')->move($destinationPath, $filename);
+               $newPost = $destinationPath . $filename;
+        
+            }
         DB::table('users')->where('id', Auth::user()->id)->update([
+            
+                
+        
+            
+            
+            "foto"=>$newPost,
             "name"=> $request->input('txtNombre'),
             "Ape_pat"=> $request->input('txtApe_pat'),
             "Ape_mat"=> $request->input('txtApe_mat'),
             "email"=> $request->input('txtEmail'),
-
+            
+            
+            
+            
+            
             "updated_at"=> Carbon::now()
         ]);
         

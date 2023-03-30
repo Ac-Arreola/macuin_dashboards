@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col-sm-6">
         <div class="card formP">
-            <img src={!! asset('img/perfil.png') !!} class="card-img-top" alt="...">
+          <img src={{asset(Auth::user()->foto)}} class="card-img-top" alt="...">
             
         </div>
 
