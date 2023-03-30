@@ -118,15 +118,16 @@
                           {{-- BARRA BUSQUEDA --}}
                           <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
                           
-                              <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
-                                <div class="col-auto">
-                                  <button class="btn btn-outline-light" style="background-color:#561088 " name="reporte" type="submit">
-                                    <img src="{{asset('img/reporte.png')}}" alt="" id="searchicon" 
-                                    width="50" height="50"> <br> Descargar</button>
-                                  </div>
-                              </div>
                               
-                          </form>
+                            <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
+                              <div class="col-auto">
+                              <button class="btn btn-outline-light" style="background-color:#561088 " name="reporte" type="submit">
+                                <img src="{{asset('img/reporte.png')}}" alt="" id="searchicon" 
+                                width="50" height="50"> <br> Descargar</button>
+                              </div>
+                            </div>
+                              
+                          
                           {{--BARRA BUSQUEDA FIN--}}
                       </td>
                       
@@ -209,6 +210,7 @@
                             <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
                             width="20" height="20"></button>
                         </div>
+                        
                         {{--icono btn busqueda fin --}}
                     
                     </div>
@@ -216,10 +218,17 @@
             
                   {{--BARRA BUSQUEDA FIN--}}
               </td>
+              <td>
+                
+              </td>
+            </tr>
+            
+           
+            
             </form>
           
           
-        </tr>
+        
       </table>
       
   <table class=" table text-center text-white" id="hey">
@@ -287,6 +296,7 @@
     @include('Jefe.agregarUsuario')
   </div>
 
+</div>
 </div>
  
   @endsection
