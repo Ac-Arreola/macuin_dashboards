@@ -90,11 +90,20 @@
                         <div>
                           <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
                             <div class="row g-3">
+                              @if(session()->has('Consultat'))
+                                      <?php
+                              
+                                      $busqueda_dpto = session()->get('busqueda_dpto');
+                                          
+                                      ?>
+                                      
+                                      
+                                      @endif
                               </div>
                               {{--input departamento --}}
                                 <div class="col-8">
                                   <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
-                                  placeholder="Busqueda por dpto." id="in" height="35">
+                                  placeholder="Busqueda por dpto." id="in" height="35" value={{$busqueda_dpto}}>
                                 </div>
                               {{--input departamento fin--}}
                               {{--icono btn busqueda --}}
@@ -115,11 +124,21 @@
                       
                       <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
                         <div class="row g-3 gap-3">
+                          @if(session()->has('Consultat'))
+                                      <?php
+                              
+                                      $busqueda_estatus = session()->get('busqueda_estatus');
+                                          
+                                      ?>
+                                      <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
+                                      placeholder="Busqueda por nombre" id="in" height="35" >
+                                      
+                                      @endif
                           </div>
                           {{--input fecha --}}
                             <div class="col-9">
                               <input type="text" name ="busqueda_estatus" class="form-control text-center form-control" 
-                              placeholder="Busqueda por status"  id="in" height="35">
+                              placeholder="Busqueda por status"  id="in" height="35" value={{$busqueda_estatus}}>
                             </div>
                             {{--input fecha fin --}}
                             {{--icono btn busqueda fin --}}
@@ -140,11 +159,20 @@
                       
                           <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
                             <div class="row g-3 ">
+                              @if(session()->has('busqueda_fecha'))
+                                      <?php
+                              
+                                      $busqueda_fecha = session()->get('busqueda_fecha');
+                                          
+                                      ?>
+                                      
+                                      
+                                      @endif
                               </div>
                               {{--input fecha --}}
                                 <div class="col-9">
                                   <input type="date" name ="busqueda_fecha" class="form-control text-center form-control" 
-                                  id="in" height="35">
+                                  id="in" height="35" value={{$busqueda_fecha}}>
                                 </div>
                                 {{--input fecha fin --}}
                                 {{--icono btn busqueda fin --}}

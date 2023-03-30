@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('Ape_pat');
             $table->string('Ape_mat');
             $table->string('email')->unique();
+            $table->string('foto')->nullable();
             $table->unsignedBigInteger('id_dep');
             $table->unsignedBigInteger('id_rol');
             $table->timestamp('email_verified_at')->nullable();
