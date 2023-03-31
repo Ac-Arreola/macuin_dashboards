@@ -69,29 +69,23 @@
                 </td>
                 <td>
                   {{-- BARRA BUSQUEDA --}}
-                  <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
-                    
-                    <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
-                      
-                        ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
-                      
-                    </div>
-                    
-                </form>
+                  
                 {{--BARRA BUSQUEDA FIN--}}
                 </td>
                 <td>
                     {{-- BARRA BUSQUEDA --}}
                     <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
                     
-                        <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
-                          
-                          <button class="btn btn-outline-light" style="background-color:#561088 " name="reporte" type="submit">
-                            <img src="{{asset('img/reporte.png')}}" alt="" id="searchicon" 
-                          width="50" height="50"> Descargar </button>
-                        </div>
                         
-                    </form>
+                      <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
+                        <div class="col-auto">
+                          
+                        <button class="btn btn-outline-light" style="background-color:#561088 " name="reporte" type="submit">
+                          <img src="{{asset('img/reporte.png')}}" alt="" id="searchicon" 
+                        width="50" height="50"> Descargar </button>
+                      </div>
+                      </div>
+                  
                     {{--BARRA BUSQUEDA FIN--}}
                 </td>
                 
@@ -127,6 +121,7 @@
                   <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
                   width="35" height="35"></button>
               </div>
+              
           </div>
         </div>
       </div>

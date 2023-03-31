@@ -137,3 +137,7 @@ Route::get('Tickets{id}/ticket', [controladorTicketsJ::class,'ticket'])->name('t
 
 Route::put('comentario_cli/{id}', [controladorTicketsJ::class,'comentariocli'])->name('comentario.cliente');
 Route::put('comentario_aux/{id}', [controladorTicketsJ::class,'comentarioaux'])->name('comentario.auxiliar');
+
+// ---------------------------------Editar perfil jefe-----------------------------
+Route::get('jefe/perfil', [controladorTicketsJ::class,'perfil'])->name('jefe.perfil')->middleware('auth');
+Route::put('jefe', [controladorTicketsJ::class,'editarperfil'])->name('jefe.update')->middleware('auth');

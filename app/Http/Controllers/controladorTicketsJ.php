@@ -7,6 +7,9 @@ use App\Http\Requests\ValidadorDefinirAux;
 use App\Http\Requests\ValidadorAuxiliaJ;
 use App\Http\Requests\ValidadorClienteJ;
 use App\Http\Requests\ValidadorContra;
+use App\Http\Requests\ValidadorEditarJ;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 use DB;
@@ -167,5 +170,47 @@ class controladorTicketsJ extends Controller
     }
 
 
+    public function editarperfil(ValidadorEditarJ $request)
+    {
+        
+                
+        if($request->hasFile('foto')){
+            $file = $request->file('foto');
+                $destinationPath ='img/featureds/';
+                $filename = time() . '-' . $file->getClientOriginalName();
+                $uploadSuccess = $request->file('foto')->move($destinationPath, $filename);
+               $newPost = $destinationPath . $filename;
+        
+            }
+        DB::table('users')->where('id', Auth::user()->id)->update([
+            
+                
+        
+            
+            
+            "foto"=>$newPost,
+            "name"=> $request->input('txtNombre'),
+            "Ape_pat"=> $request->input('txtApe_pat'),
+            "Ape_mat"=> $request->input('txtApe_mat'),
+            "email"=> $request->input('txtEmail'),
+            
+            
+            
+            
+            
+            "updated_at"=> Carbon::now()
+        ]);
+        
+        $ConsultaCla= DB::table('tb_clasificacion')->get();
+        
+
+        return redirect('jefe/perfil')->with('Editado','abc');
     
+    }
+    public function perfil()
+    {
+       
+        return view('Jefe.perfilJ');
+    }
+
 }

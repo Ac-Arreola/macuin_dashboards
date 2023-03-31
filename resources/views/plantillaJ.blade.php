@@ -36,6 +36,10 @@
             <ul class="navbar-nav ">
               <li class="nav-item ">
                 <a class="nav-link active text-light fw-bold" aria-current="page" 
+                href={{route('jefe.perfil')}}>  Perfil   | </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link active text-light fw-bold" aria-current="page" 
                 href={{route('usuario.index')}}>  Admin usuarios   | </a>
               </li>
               <li class="nav-item">

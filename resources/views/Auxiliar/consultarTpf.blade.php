@@ -34,7 +34,44 @@
 <div class="container" style="max-height: calc(100vh - 210px);overflow-y: auto">
   <h1 class=" mt-5 mb-5 text-center fw-bold"> <i> <font face="verdana"> Tickets en proceso o finalizados</font></i></h1>
 
-      {{--TABLA PARA MOSTRAR LOS TICKETS EN PROCESO O FINALIZADOS--}}
+  <div class="container">
+    <table>
+      <tr>
+        
+        <td>
+          {{-- BARRA BUSQUEDA --}}
+          <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+            
+            <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
+              
+                ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+              
+            </div>
+            
+        </form>
+        {{--BARRA BUSQUEDA FIN--}}
+        </td>
+        <td>
+            {{-- BARRA BUSQUEDA --}}
+            <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+            
+              <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
+                <div class="col-auto">
+                <button class="btn btn-outline-light" style="background-color:#561088 " name="reporte" type="submit">
+                  <img src="{{asset('img/reporte.png')}}" alt="" id="searchicon" 
+                  width="50" height="50"> <br> Descargar</button>
+                </div>
+              </div>
+                
+            
+            {{--BARRA BUSQUEDA FIN--}}
+        </td>
+        
+      </tr>
+    </table>    
+  
+  
+  {{--TABLA PARA MOSTRAR LOS TICKETS EN PROCESO O FINALIZADOS--}}
 
       
           <div class="container mb-4" 
@@ -49,15 +86,24 @@
                 <tr>
                   <td>
                       {{-- BARRA BUSQUEDA --}}
-                      <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+                      <form  method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
                         <div>
                           <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
                             <div class="row g-3">
+                              @if(session()->has('Consultat'))
+                                      <?php
+                              
+                                      $busqueda_dpto = session()->get('busqueda_dpto');
+                                          
+                                      ?>
+                                      
+                                      
+                                      @endif
                               </div>
                               {{--input departamento --}}
                                 <div class="col-8">
                                   <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
-                                  placeholder="Busqueda por dpto." id="in" height="35">
+                                  placeholder="Busqueda por dpto." id="in" height="35" value={{$busqueda_dpto}}>
                                 </div>
                               {{--input departamento fin--}}
                               {{--icono btn busqueda --}}
@@ -69,20 +115,30 @@
                               {{--icono btn busqueda fin --}}
                             </div>
                           </div>
-                      </form>
+                     
                       {{--BARRA BUSQUEDA FIN--}}
                   </td>
                   <td>
                     {{-- BARRA BUSQUEDA --}}
-                    <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+                    
                       
                       <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
                         <div class="row g-3 gap-3">
+                          @if(session()->has('Consultat'))
+                                      <?php
+                              
+                                      $busqueda_estatus = session()->get('busqueda_estatus');
+                                          
+                                      ?>
+                                      <input type="text" name ="busqueda_dpto" class="form-control text-center form-control" 
+                                      placeholder="Busqueda por nombre" id="in" height="35" >
+                                      
+                                      @endif
                           </div>
                           {{--input fecha --}}
                             <div class="col-9">
                               <input type="text" name ="busqueda_estatus" class="form-control text-center form-control" 
-                              placeholder="Busqueda por status"  id="in" height="35">
+                              placeholder="Busqueda por status"  id="in" height="35" value={{$busqueda_estatus}}>
                             </div>
                             {{--input fecha fin --}}
                             {{--icono btn busqueda fin --}}
@@ -94,20 +150,29 @@
                             {{--icono btn busqueda fin --}}
                         </div>
                       
-                  </form>
+                  
                   {{--BARRA BUSQUEDA FIN--}}
                   </td>
                   <td>
                       {{-- BARRA BUSQUEDA --}}
-                      <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+                      
                       
                           <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
                             <div class="row g-3 ">
+                              @if(session()->has('busqueda_fecha'))
+                                      <?php
+                              
+                                      $busqueda_fecha = session()->get('busqueda_fecha');
+                                          
+                                      ?>
+                                      
+                                      
+                                      @endif
                               </div>
                               {{--input fecha --}}
                                 <div class="col-9">
                                   <input type="date" name ="busqueda_fecha" class="form-control text-center form-control" 
-                                  id="in" height="35">
+                                  id="in" height="35" value={{$busqueda_fecha}}>
                                 </div>
                                 {{--input fecha fin --}}
                                 {{--icono btn busqueda fin --}}
@@ -163,26 +228,13 @@
                               <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" id ="b" data-bs-target="#modalComentario-{{$consultas->id}}"style="background-color: blueviolet">
                                 <img src="{{asset('img\blog.png')}}" alt="" width="20" height="20">
                                 Comentario</button>
-                                <a type="button" class="btn btn-outline-light" style="background-color: blueviolet">
-                                  <img src="{{asset('img\reporte.png')}}" alt="" width="20" height="20">
-                                  reporte</a>
+                               
                                 @include('Auxiliar.modalEditarEstatus')
                                 @include('Auxiliar.modalComentario')
                         </td>
                         @endif
                     </tr>
-                    {{-- <tr>
-                      <th scope="row">2</th>
-                      <td > </td>
-                      <td > </td>
-                      <td > En proceso</td>
-                      <td > </td>
-                      <td>
-                           <button class="btn btn-outline-light" style="background-color: blueviolet" disabled >
-                            <img src="{{asset('img\reporte.png')}}" alt="" width="20" height="20">
-                            Generar</button>
-                      </td>
-                  </tr> --}}
+                    
                  
                   @endforeach
                 </tbody>
@@ -192,6 +244,6 @@
       </div>
 
   
-
+</div>
 
 @stop

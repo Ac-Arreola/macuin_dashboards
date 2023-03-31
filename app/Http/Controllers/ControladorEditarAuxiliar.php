@@ -8,6 +8,7 @@ use App\Http\Requests\ValidadorEstatus;
 use App\Http\Requests\ValidadorComentariosAux;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 use DB;
 use Carbon\Carbon;
@@ -16,26 +17,46 @@ class ControladorEditarAuxiliar extends Controller
 {
     public function mostrarTnv()
     {
+        
+        
         $consultaId = DB::table('tb_tclientes')
        ->select('tb_tauxiliar.id_taux as Id', 'tb_tauxiliar.id_usu as IdUSU', 'tb_tauxiliar.Fecha as FECHA','tb_departamentos.Nombre as Dpto', 'tb_clasificacion.Nombre as Clasif', 'tb__status.Nombre as estatus', 'tb__status.id_sta as status','tb_tauxiliar.Comentarios_cli as Comentarios_cli','tb_tclientes.id_tcli as id')
        ->join('tb_tauxiliar','tb_tclientes.id_tcli','=','tb_tauxiliar.id_tcli')
        ->join('tb_departamentos','tb_tclientes.id_dep','=','tb_departamentos.id_dep')
        ->join('tb_clasificacion','tb_tclientes.id_cla','=','tb_clasificacion.id_cla')
        ->join('tb__status','tb_tclientes.id_sta','=','tb__status.id_sta')->where('tb_tauxiliar.id_usu',Auth::user()->id)->where('tb__status.id_sta',2)
+       
        ->get();
         return view('Auxiliar.consultarTnvo',compact('consultaId')); 
     }
-    public function mostrarTpf()
+    public function mostrarTpf(Request $request)
     {
+        $busqueda_estatus=$request->busqueda_estatus;
+        $busqueda_fecha=$request->busqueda_fecha;
+        $busqueda_dpto=$request->busqueda_dpto;
+        $reporte ="";
+
         $consultaId = DB::table('tb_tclientes')
        ->select('tb_tauxiliar.id_taux as Id', 'tb_tauxiliar.id_usu as IdUSU', 'tb_tauxiliar.Comentarios as Comentarioaux', 'tb_tauxiliar.Fecha as FECHA','tb_departamentos.Nombre as Dpto', 'tb_clasificacion.Nombre as Clasif', 'tb__status.Nombre as estatus', 'tb__status.id_sta as status','tb_tauxiliar.Comentarios_cli as Comentarios_cli','tb_tclientes.id_tcli as id')
        ->join('tb_tauxiliar','tb_tclientes.id_tcli','=','tb_tauxiliar.id_tcli')
        ->join('tb_departamentos','tb_tclientes.id_dep','=','tb_departamentos.id_dep')
        ->join('tb_clasificacion','tb_tclientes.id_cla','=','tb_clasificacion.id_cla')
        ->join('tb__status','tb_tclientes.id_sta','=','tb__status.id_sta')->where('tb_tauxiliar.id_usu',Auth::user()->id)
+       ->where('tb__status.Nombre','LIKE','%'.$busqueda_estatus.'%')
+        ->where('tb_tclientes.Fecha','LIKE','%'.$busqueda_fecha.'%')
+        ->where('tb_departamentos.Nombre','LIKE','%'.$busqueda_dpto.'%')
        ->get();
        $consultaStat = DB::table('tb__status')->get();
-        return view('Auxiliar.consultarTpf',compact('consultaId','consultaStat')); 
+
+       if(isset($_GET['reporte'])){
+        $pdf = PDF::loadView('Auxiliar.reportesTickets', compact('consultaId'));
+
+
+      return $pdf->download('Tickets.reporte');
+
+      }else{
+        return view('Auxiliar.consultarTpf',compact('consultaId','consultaStat'))->with('busqueda_estatus',$busqueda_estatus)->with('busqueda_fecha', $busqueda_fecha)->with('busqueda_dpto',$busqueda_dpto); 
+      }
         
     }
     
@@ -59,7 +80,14 @@ class ControladorEditarAuxiliar extends Controller
    
     public function show($id)
     {
-        //
+        /*if($request->hasFile('foto')){
+            $file = $request->file('foto');
+                $destinationPath ='img/featureds/';
+                $filename = time() . '-' . $file->getClientOriginalName();
+                $uploadSuccess = $request->file->('foto')->move($destinationPath, $filename);
+                $newPost->foto = $destinationPath . $filename;
+        }
+        */
     }
 
     
@@ -71,7 +99,23 @@ class ControladorEditarAuxiliar extends Controller
    
     public function update(ValidadorEditarA $request)
     {
+        
+                
+        if($request->hasFile('foto')){
+            $file = $request->file('foto');
+                $destinationPath ='img/featureds/';
+                $filename = time() . '-' . $file->getClientOriginalName();
+                $uploadSuccess = $request->file('foto')->move($destinationPath, $filename);
+               $newPost = $destinationPath . $filename;
+        
+            }
         DB::table('users')->where('id', Auth::user()->id)->update([
+            
+                
+        
+            
+            
+            "foto"=>$newPost,
             "name"=> $request->input('txtNombre'),
             "Ape_pat"=> $request->input('txtApe_pat'),
             "Ape_mat"=> $request->input('txtApe_mat'),
@@ -88,6 +132,7 @@ class ControladorEditarAuxiliar extends Controller
         
 
         return redirect('auxiliar/muestra')->with('Editado','abc');
+    
     }
 
 
