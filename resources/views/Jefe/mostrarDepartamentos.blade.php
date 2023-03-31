@@ -5,6 +5,8 @@
 @stop
 
 @section('contenido')
+
+
 @if(session()->has('confirmacion'))
 <?php
 
@@ -17,6 +19,7 @@
  'Departamento {$nom} guardado',
  'success'  ) </script> "!!}
 @endif
+
 @if(session()->has('Actualizado'))
 <?php
 
@@ -29,37 +32,103 @@
  'success'  ) </script> "!!}
 @endif
 
+@if(session()->has('Eliminado'))
+
+{!! " <script> Swal.fire(
+ 'Correcto!',
+ 'Departamento Eliminado',
+ 'success'  ) </script> "!!}
+@endif
 
 <div class="container mt-5 col-md-10 mb-5" >
-    <h1 class=" mt-4 text-center text-white fw-bold">Departamentos</h1>
+    <h1 class=" mt-4 text-center text-white fw-bold"> <i> Departamentos </i></h1>
     @include('Jefe.agregarDepartamento')
     
-    <div class="container">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-light mb-4" style="background-color:#8c3bb2" 
-        data-bs-toggle="modal" data-bs-target="#modalRegistrarDep">
-         Agregar Departamento <i class="bi bi-plus-circle"></i>
-       </button>
-     </div>
 
-    {{--BARRA DE BUSQUEDA--}}
-     <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
-        <div>
-          <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
-            <div class="row g-3">
-                <div class="col-auto">
-                  <input type="text" name ="busqueda" class="form-control text-center form-control" placeholder="Buscar departamento" aria-describedby="button-addon2" id="in" height="35">
-                </div>
-                <div class="col-auto">
-                  <button class="btn btn-outline-light" style="background-color:#7979F7 " type="submit">
-                    <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
-                    width="35" height="35"></button>
-                </div>
-            </div>
+
+    <form method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+          {{--  PRUEBA ALINEAR     --}}
+          <div class="container">
+
+            <table>
+              <tr>
+                <td>
+                    {{-- BARRA BUSQUEDA --}}
+                    <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+                      <div>
+                        <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
+                            <button type="button" class="btn btn-outline-light mb-4" style="background-color:#8c3bb2" 
+                              data-bs-toggle="modal" data-bs-target="#modalRegistrarDep">
+                              <img src="{{asset('img/agregarr.png')}}" alt="" id="searchicon" width="50" height="50">
+                                Departamento <i class="bi bi-plus-circle"></i>
+                            </button>
+                          </div>
+                        </div>
+                    </form>
+                    {{--BARRA BUSQUEDA FIN--}}
+                </td>
+                <td>
+                  {{-- BARRA BUSQUEDA --}}
+                  
+                {{--BARRA BUSQUEDA FIN--}}
+                </td>
+                <td>
+                    {{-- BARRA BUSQUEDA --}}
+                    <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+                    
+                        
+                      <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
+                        <div class="col-auto">
+                          
+                        <button class="btn btn-outline-light" style="background-color:#561088 " name="reporte" type="submit">
+                          <img src="{{asset('img/reporte.png')}}" alt="" id="searchicon" 
+                        width="50" height="50"> Descargar </button>
+                      </div>
+                      </div>
+                  
+                    {{--BARRA BUSQUEDA FIN--}}
+                </td>
+                
+              </tr>
+            </table>
+
+
+          {{--   TERMINA PRUEBA ALINEAR   --}}
+
+      <div>
+        <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
+          
+          <div class="row g-3">
+              <div class="col-auto">
+                
+                
+                  @if(session()->has('ConsultaDep'))
+                  <?php
+
+                  $busqueda = session()->get('busqueda');
+                  
+                      
+                  ?>
+                  <input type="text" name ="busqueda" class="form-control text-center form-control" placeholder="Buscar departamento" aria-describedby="button-addon2" id="in" height="35" value={{$busqueda}}>
+                  @endif
+        
+                <input type="text" name ="busqueda" class="form-control text-center form-control" placeholder="Buscar departamento" aria-describedby="button-addon2" id="in" height="35" value={{$busqueda}}>
+                
+              </div>
+              
+              <div class="col-auto">
+                <button class="btn btn-outline-light" style="background-color:#7979F7 " name="buscar" type="submit">
+                  <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
+                  width="35" height="35"></button>
+              </div>
+              
           </div>
         </div>
-      </form>
-      {{--BARRA DE BUSQUEDA FIN--}}
+      </div>
+    </form>
+    
+        
+      
   <table class=" table text-center text-white" id="hey">
       <thead>
         <tr>
@@ -68,8 +137,6 @@
           <th scope="col">Descripción</th>
           <th scope="col">Editar</th>
           <th scope="col">Borrar</th>
-
-       
           
         </tr>
       </thead>
@@ -81,16 +148,12 @@
           <td>{{$consulta->Descripcion}}</td>
           
           
-          <td>
-            <button type="button" data-bs-toggle="modal" id ="b"data-bs-target="#editarDepartamento-{{$consulta->id_dep}}">
-              <img src={!! asset('img\editar.png') !!} id="opciones"alt="" >
-            </button>
-          </td>
-            
-          <td>
-            <button type="button" data-bs-toggle="modal" id ="b"data-bs-target="#eliminarDepartamento-{{$consulta->id_dep}}">
-              <img src={!! asset('img\borrar.png') !!} id="opciones" alt="">
-            </button>
+          <td><button type="button" data-bs-toggle="modal" id ="b"data-bs-target="#editarDepartamento-{{$consulta->id_dep}}" class="btn btn-ouline ligth">
+            <img src={!! asset('img\usuario(5).png') !!} id="opciones"alt="" ></td>
+          </button>
+          <td><button type="button" data-bs-toggle="modal" id ="b"data-bs-target="#eliminarDepartamento-{{$consulta->id_dep}}" class="btn btn-ouline ligth">
+            <img src={!! asset('img\borrar.png') !!} id="opciones" alt="">
+        </button>
           </td>
   
           

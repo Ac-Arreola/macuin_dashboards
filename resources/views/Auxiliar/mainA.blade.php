@@ -3,6 +3,16 @@
     Home _A
 @stop
 @section('contenido')
+
+
+
+@if(session()->has('Auxiliar'))
+
+{!! " <script> Swal.fire(
+ 'Correcto!',
+ 'Bienvenido Auxiliar',
+ 'success'  ) </script> "!!}
+@endif
 {{--IMÁGEN LOGO--}}
 <div class="text-center mt-4" >
   <img src="{{asset('img\fondorecort.png')}}" width="80%" height="300" role="img" width="100%" height="100%" >
