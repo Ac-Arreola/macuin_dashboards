@@ -47,7 +47,7 @@
     <div class="mb-3">
       <label class="form-label" for="foto"> Foto de perfil: </label>
       <input type="file" class="form-control" name="foto" id="inp" value="{{Auth::user()->email}}" >
-      <p class="text-info fst-Italic">{{$errors->first('txtEmail')}}</p>
+      
       
   </div>
 
