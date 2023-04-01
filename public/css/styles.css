@@ -1,4 +1,10 @@
+html{
+     height: 100%;
+}
 body{ 
+     display: flex;
+     flex-direction: column;
+     min-width: 100%;
      background-attachment: fixed;
      background-size: cover;
      justify-content: center;
@@ -112,4 +118,10 @@ input{
      color: #d19ff0de;
      border: #d19ff0de;
      background-color:#d19ff0de;
+}
+footer{
+     margin-top: auto;
+     position: absolute;
+     bottom: 0;
+     left: 0;
 }

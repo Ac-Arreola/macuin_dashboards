@@ -46,7 +46,7 @@
     
 
 
-    <form method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+    <form method="GET" class="form-inline my-2-lg-0 float-right justify-content-md-end" id="fo">
           {{--  PRUEBA ALINEAR     --}}
           <div class="container">
 
@@ -69,6 +69,15 @@
                 </td>
                 <td>
                   {{-- BARRA BUSQUEDA --}}
+                  <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+                          
+                    <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
+                      
+                        ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+                      
+                    </div>
+                    
+                </form>
                   
                 {{--BARRA BUSQUEDA FIN--}}
                 </td>
@@ -78,7 +87,7 @@
                     
                         
                       <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
-                        <div class="col-auto">
+                        <div class="col-auto justify-content-md-end">
                           
                         <button class="btn btn-outline-light" style="background-color:#561088 " name="reporte" type="submit">
                           <img src="{{asset('img/reporte.png')}}" alt="" id="searchicon" 

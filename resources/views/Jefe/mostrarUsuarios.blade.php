@@ -218,9 +218,6 @@
             
                   {{--BARRA BUSQUEDA FIN--}}
               </td>
-              <td>
-                
-              </td>
             </tr>
             
            

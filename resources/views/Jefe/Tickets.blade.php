@@ -51,8 +51,6 @@
           <th scope="col">Estatus</th>
           <th scope="col">Descripción cliente</th>
           <th scope="col">Asignar</th>
-
-          <th scope="col">Reporte</th>
     
               
         </tr>
@@ -75,11 +73,7 @@
       
       
     </td>
-      <td>
-        <button class="btn btn-outline-light" style="background-color: blueviolet" disabled >
-         <img src="{{asset('img\reporte.png')}}" alt="" width="20" height="20">
-         Generar</button>
-   </td>
+
         </tr>
    
       </tbody>
