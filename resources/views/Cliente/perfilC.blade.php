@@ -23,7 +23,7 @@
 
 
 
-<h2 class="display-1 mt-4 mb-4 fst-italic text-center">Datos de Usuario</h2>
+<h2 class="display-1 mt-4 mb-4 fst-italic text-center text-black">Datos de Usuario</h2>
 <div class="container col-md-6">
     <div class="row">
         <div class="col-sm-6">
