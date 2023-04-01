@@ -67,18 +67,16 @@
       </nav>
 </div>
 
-    <!-- Contenido -->
-    
-        @yield('contenido')
-
-       
-
 
     <!-- Pie de Página -->
-    <footer class="footer alert alert-secondary text-white" style="background-color: #721dc2fa">
+    <footer class="footer alert alert-secondary text-white" style="background-color: #721dc2fa ; position:fixed; width:100%; bottom:0;">
         Macuin Dashboards CopyRight®  {{ date('D/M/Y') }}
     </footer>
+    <!-- Contenido -->
+    
+    @yield('contenido')
 
+    
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"

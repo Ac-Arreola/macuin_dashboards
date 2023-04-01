@@ -51,8 +51,6 @@
           <th scope="col">Estatus</th>
           <th scope="col">Descripción cliente</th>
           <th scope="col">Asignar</th>
-
-          <th scope="col">Reporte</th>
     
               
         </tr>
@@ -61,25 +59,20 @@
         
         @foreach($Consultat as $consulta)
         <tr>
-      <th scope="row">{{$consulta->id_tcli}}</th>
-      <td>{{$consulta->Usuario->name}}</td>
-      <td>{{$consulta->Departamento->Nombre}}</td>
-      <td>{{$consulta->Clasificacion->Nombre}}</td>
-      <td>{{$consulta->Status->Nombre}}</td>
-      <td>{{$consulta->Comentarios}}</td>
-      <td>
-        
-        <button class="btn btn-outline-light" type="button" data-bs-toggle="modal" id ="b"data-bs-target="#modalDefinirE-{{$consulta->id_tcli}}" style="background-color: blueviolet">
-        <img src="{{asset('img\asignar.png')}}" id="opciones"alt="" >Def. encargado
-      </button>
-      
-      
-    </td>
-      <td>
-        <button class="btn btn-outline-light" style="background-color: blueviolet" disabled >
-         <img src="{{asset('img\reporte.png')}}" alt="" width="20" height="20">
-         Generar</button>
-   </td>
+            <th scope="row">{{$consulta->id_tcli}}</th>
+            <td>{{$consulta->Usuario->name}}</td>
+            <td>{{$consulta->Departamento->Nombre}}</td>
+            <td>{{$consulta->Clasificacion->Nombre}}</td>
+            <td>{{$consulta->Status->Nombre}}</td>
+            <td>{{$consulta->Comentarios}}</td>
+            <td>
+              
+              <button class="btn btn-outline-light" type="button" data-bs-toggle="modal" id ="b"data-bs-target="#modalDefinirE-{{$consulta->id_tcli}}" style="background-color: blueviolet">
+              <img src="{{asset('img\asignar.png')}}" id="opciones"alt="" >Def. encargado
+            </button>
+            
+            
+          </td>
         </tr>
    
       </tbody>

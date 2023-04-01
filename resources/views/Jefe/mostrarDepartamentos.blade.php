@@ -69,7 +69,16 @@
                 </td>
                 <td>
                   {{-- BARRA BUSQUEDA --}}
-                  
+                  <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+                          
+                    <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md">
+                      
+                        ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+                      
+                    </div>
+                    
+                </form>
+
                 {{--BARRA BUSQUEDA FIN--}}
                 </td>
                 <td>
