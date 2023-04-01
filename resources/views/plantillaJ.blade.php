@@ -22,7 +22,7 @@
   --}}
     <div class="wrapper">
     {{-- Nav --}}
-    <nav class="navbar navbar-expand-lg " style="background-color: #8c3bb2" >
+    <nav class="navbar navbar-expand-lg " style="background-color: #8c3bb2;" >
         <div class="container-fluid">
           <a href="/pJ">
           <button type="button" class="btn btn-outline-light" 
@@ -69,9 +69,7 @@
 
 
     <!-- Pie de Página -->
-    <footer class="footer alert alert-secondary text-white" style="background-color: #721dc2fa ; position:fixed; width:100%; bottom:0;">
-        Macuin Dashboards CopyRight®  {{ date('D/M/Y') }}
-    </footer>
+
     <!-- Contenido -->
     
     @yield('contenido')

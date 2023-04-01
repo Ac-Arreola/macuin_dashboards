@@ -77,8 +77,9 @@
                                             <option selected disabled="disabled" value="" style="background: #e9d7f5de">Selecciona Departamento:</option>
                                             
                                             @foreach($ConsultaDep as $departamento)
+                                            @if($departamento->id_dep >1)
                                                 <option value="{{$departamento->id_dep}}">{{$departamento->Nombre}}</option>
-                                            
+                                            @endif
                                             @endforeach
                                            </select>
                               </div>
