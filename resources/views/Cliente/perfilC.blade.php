@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col-sm-6">
         <div class="card formP">
-          <img src={{asset(Auth::user()->foto)}} class="card-img-top" alt="...">
+          <img src={{asset(Auth::user()->foto)}} class="card-img-top" alt="..." width="300" height="369">
             
         </div>
 
@@ -68,7 +68,7 @@
     <div class="accordion mb-5" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <button class="accordion-button text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
               TICKETS
             </button>
           </h2>

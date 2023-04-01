@@ -26,8 +26,8 @@
 <div class="container col-md-6">
     <div class="row">
         <div class="col-sm-6">
-        <div class="card formP">
-          <img src={{asset(Auth::user()->foto)}} class="card-img-top" alt="...">
+        <div class="card formP" >
+          <img src={{asset(Auth::user()->foto)}} class="card-img-top" alt="..." width="300" height="369">
             
         </div>
 
