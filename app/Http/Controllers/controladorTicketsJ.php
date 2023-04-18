@@ -20,7 +20,9 @@ class controladorTicketsJ extends Controller
    
     public function index(Request $request)
     {
+
         $busqueda=$request->busqueda;
+        $busqueda_estatus=$request->busqueda_estatus;
         //$consultaId= DB::table('tb_tauxiliar')->get();
         $ConsultaUsu = DB::table('users')->where('id_rol',2)->where('name','LIKE','%'.$busqueda.'%')->get();
        $consultaId = DB::table('tb_tclientes')
@@ -29,11 +31,19 @@ class controladorTicketsJ extends Controller
        ->join('tb_departamentos','tb_tclientes.id_dep','=','tb_departamentos.id_dep')
        ->join('tb_clasificacion','tb_tclientes.id_cla','=','tb_clasificacion.id_cla')
        ->join('tb__status','tb_tclientes.id_sta','=','tb__status.id_sta')
+       ->where('tb__status.Nombre','LIKE','%'.$busqueda_estatus.'%')
        ->get();
         
-       
+       if(isset($_GET['reporte'])){
+        $pdf = PDF::loadView('jefe.reporteAuxiliares', compact('ConsultaUsu'));
 
-        return view('Jefe.Tickets_Asignados',compact('ConsultaUsu','consultaId'));
+
+      return $pdf->download('Auxiliares.reporte');
+
+      }else{
+
+        return view('Jefe.Tickets_Asignados',compact('ConsultaUsu','consultaId'))->with('busqueda', $busqueda);
+      }
     }
 
     public function mostrar(Request $request)

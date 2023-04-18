@@ -13,25 +13,70 @@
   
       <h1 class=" mt-4 text-center text-white fw-bold">Auxiliares</h1>
       
-    
-        {{--BARRA DE BUSQUEDA--}}
-      <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
-        <div>
-          <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
-            <div class="row g-3">
+      <div class="container">
+        <table>
+          <tr>
+            <td>
+              <h1 style="color:transparent;">..........</h1>
+            </td>
+            <td>
+              <form action="" method="GET" class="form-inline my-2-lg-0 float-right" id="fo">
+
+              <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
                 <div class="col-auto">
-                  <input type="text" name ="busqueda" class="form-control text-center form-control" placeholder="Buscar auxiliar" aria-describedby="button-addon2" id="in" height="35">
+                  
+                <button class="btn btn-outline-light" style="background-color:#561088 " name="reporte" type="submit">
+                  <img src="{{asset('img/reporte.png')}}" alt="" id="searchicon" 
+                width="50" height="50"> Descargar </button>
+              </div>
+              </div>
+                  {{--BARRA DE BUSQUEDA--}}
+                
+                  
+            </td>
+            <td>
+              
+                  
+                    ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+                    <h1 style="color:transparent;">..................................................
+                    .................
+                    </h1>
+                
+                
+             
+            </td>
+            <td>
+              <div>
+                <div class="input-group mb-3 d-grid gap-2 d-md-flex justify-content-md-end">
+                  
+                  @if(session()->has('ConsultaUsu'))
+                  <?php
+
+                  $busqueda = session()->get('busqueda');
+                  
+                      
+                  ?>
+                  <input type="text" name ="busqueda" class="form-control text-center form-control" placeholder="Buscar auxiliar" aria-describedby="button-addon2" id="in" height="35" value={{$busqueda}}>
+                  @endif
+                  <div class="row g-3">
+                      <div class="col-auto">
+                        <input type="text" name ="busqueda" class="form-control text-center form-control" placeholder="Buscar auxiliar" aria-describedby="button-addon2" id="in" height="35" value={{$busqueda}}>
+                      </div>
+                      <div class="col-auto">
+                        <button class="btn btn-outline-light" style="background-color:#7979F7 " type="submit">
+                          <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
+                          width="35" height="35"></button>
+                      </div>
+                  </div>
                 </div>
-                <div class="col-auto">
-                  <button class="btn btn-outline-light" style="background-color:#7979F7 " type="submit">
-                    <img src="{{asset('img/lupass.png')}}" alt="" id="searchicon" 
-                    width="35" height="35"></button>
-                </div>
-            </div>
-          </div>
-        </div>
-      </form>
-      {{--BARRA DE BUSQUEDA FIN--}}
+              </div>
+            </form>
+        
+          
+          </td>
+          </tr>
+        </table>
+          
 
     <table class=" table text-center text-white" id="hey">
         <thead>
@@ -58,7 +103,7 @@
             <td>{{$consulta->email}}</td>
            
             <td><button class="btn btn-outline-light" type="button" data-bs-toggle="modal" id ="b"data-bs-target="#modalConsultarTickets-{{$consulta->id}}" style="background-color: blueviolet">
-              <img src="{{asset('img\recibo.png')}}" id="opciones"alt="" >Tickets Asignados
+              <img src="{{asset('img\recibo.png')}}" id="opciones"alt="" >
             </button>
             @include('Jefe.modalConsultarTickets')
           </td>
